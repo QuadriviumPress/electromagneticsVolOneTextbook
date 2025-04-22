@@ -1,0 +1,503 @@
+\documentclass[10pt,letterpaper,twocolumn,openany]{book}
+\usepackage[paperwidth=8in, paperheight=10in]{geometry} % trim
+%\special{papersize=210mm,297mm}                         % trim
+%\usepackage{showframe}                                 % trim 
+\usepackage{layout}                                     % trim 
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage{amsmath}
+%\usepackage{amsfonts}   % if you want the fonts
+\usepackage{amssymb}    % if you want extra symbols
+\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{fancyhdr} %%%% https://www.sharelatex.com/learn/Headers_and_footers
+\usepackage{pdfcomment}
+\usepackage{times} % to facilitate change of font
+\usepackage{makeidx} % index
+\makeindex
+
+\theoremstyle{definition} % make text of examples appear in plan (not italic) font
+\newtheorem{example}{Example}[chapter] % example begins "Example <chapter>.<example-within-chapter>
+\definecolor{oemgray}{rgb}{1.00, 1.00, 1.00}
+
+\parindent0pt  \parskip10pt             % make block paragraphs
+\raggedright                            % do not right justify
+\setlength{\topmargin}{-41pt}      % trim
+\setlength{\headheight}{10pt}      % trim
+\setlength{\headsep}{22pt}         % trim
+\setlength{\textheight}{596pt}     % trim
+\setlength{\footskip}{41pt}        % trim
+\setlength{\marginparwidth}{0pt}   % trim
+\setlength{\marginparsep}{0pt}     % trim
+\setlength{\oddsidemargin}{0pt}    % trim
+\setlength{\evensidemargin}{-18pt} % trim
+\setlength{\textwidth}{443pt}      % trim
+
+\renewcommand{\headrulewidth}{0pt} % eliminate header line                                    
+\urlstyle{same}                    % show URL in main font (not in the default monospace font)
+
+% This defines command needed to make table of contents appear on even-numbered page
+\makeatletter
+\newcommand*{\clearevenpage}{%
+  \clearpage
+  \if@twoside
+    \ifodd\c@page
+      \hbox{}%
+      \newpage
+      \if@twocolumn
+        \hbox{}%
+        \newpage
+      \fi
+    \fi
+  \fi
+}
+\makeatother
+
+\title{Electromagnetics \\ Vol.~1}
+\author{Steven W. Ellingson}
+\date{\today}
+
+\begin{document}                        % End of preamble, start of text.
+\fontfamily{ptm}\selectfont            % Change font to Times
+\frontmatter                            % only in book class (roman page #s)
+%\maketitle                              % Print title page.
+\setcounter{page}{6} % Table of contents should be on pg vi (6)
+\begingroup          % solution to force TOC to begin on an even-numbered page
+  \let\cleardoublepage\clearevenpage
+  \tableofcontents
+\endgroup
+  \chapter{Preface}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section*{About This Book}
+{\color{blue}\tiny[m0146]}      \input{modules/m0146_Preface-About_This_Book}
+      \vfill\break
+    \section*{About the Open Electromagnetics Project}
+{\color{blue}\tiny[m0148]}      \input{modules/m0148_Preface-About_OpenEM}
+      \vfill\break
+    \section*{About the Author}
+{\color{blue}\tiny[m0153]}      \input{modules/m0153_Preface-About_Author}
+      \vfill\break
+\mainmatter                             % only in book class (arabic page #s)
+  \chapter{Preliminary Concepts}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{What is Electromagnetics?}
+{\color{blue}\tiny[m0037]}      \input{modules/m0037_What_is_EM}
+      \vfill\break
+    \section{Electromagnetic Spectrum}
+{\color{blue}\tiny[m0075]}      \input{modules/m0075_Electromagnetic_Spectrum}
+      \vfill\break
+    \section{Fundamentals of Waves}
+{\color{blue}\tiny[m0074]}      \input{modules/m0074_Fundamentals_of_Waves}
+      \vfill\break
+    \section{Guided and Unguided Waves}
+{\color{blue}\tiny[m0040]}      \input{modules/m0040_Guided_vs_Unguided_Waves}
+      \vfill\break
+    \section{Phasors}
+{\color{blue}\tiny[m0033]}      \input{modules/m0033_Phasors}
+      \vfill\break
+    \section{Units}
+{\color{blue}\tiny[m0072]}      \input{modules/m0072_Units}
+      \vfill\break
+    \section{Notation}
+{\color{blue}\tiny[m0005]}      \input{modules/m0005_Notation}
+%%%      \vfill\break
+{\color{blue}\tiny[m0026]}    \input{modules/m0026_Ch_End_Matter_Preliminary_Concepts}
+  \chapter{Electric and Magnetic Fields}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{What is a Field?}
+{\color{blue}\tiny[m0001]}      \input{modules/m0001_What_is_a_Field}
+      \vfill\break
+    \section{Electric Field Intensity}
+{\color{blue}\tiny[m0002]}      \input{modules/m0002_Electric_Field_Intensity}
+      \vfill\break
+    \section{Permittivity}
+{\color{blue}\tiny[m0008]}      \input{modules/m0008_Permittivity}
+      \vfill\break
+    \section{Electric Flux Density}
+{\color{blue}\tiny[m0011]}      \input{modules/m0011_Electric_Flux_Density}
+      \vfill\break
+    \section{Magnetic Flux Density}
+{\color{blue}\tiny[m0003]}      \input{modules/m0003_Magnetic_Flux_Density}
+      \vfill\break
+    \section{Permeability}
+{\color{blue}\tiny[m0009]}      \input{modules/m0009_Permeability}
+      \vfill\break
+    \section{Magnetic Field Intensity}
+{\color{blue}\tiny[m0012]}      \input{modules/m0012_Magnetic_Field_Intensity}
+      \vfill\break
+    \section{Electromagnetic Properties of Materials}
+{\color{blue}\tiny[m0007]}      \input{modules/m0007_Properties_of_Materials}
+%%%      \vfill\break
+{\color{blue}\tiny[m0054]}    \input{modules/m0054_Ch_End_Matter_Fundamentals_of_Electromagnetics}
+  \chapter{Transmission Lines}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Introduction to Transmission Lines}
+{\color{blue}\tiny[m0028]}      \input{modules/m0028_Introduction_to_Transmission_Lines}
+      \vfill\break
+    \section{Types of Transmission Lines}
+{\color{blue}\tiny[m0144]}      \input{modules/m0144_Types_of_Transmission_Lines}
+      \vfill\break
+    \section{Transmission Lines as Two-Port Devices}
+{\color{blue}\tiny[m0077]}      \input{modules/m0077_Transmission_Lines_as_Two-Ports}
+      \vfill\break
+    \section{Lumped-Element Model}
+{\color{blue}\tiny[m0029]}      \input{modules/m0029_Lumped-Element_Model}
+      \vfill\break
+    \section{Telegrapher's Equations}
+{\color{blue}\tiny[m0079]}      \input{modules/m0079_Telegraphers_Equations}
+      \vfill\break
+    \section{Wave Equation for a TEM Transmission Line}
+{\color{blue}\tiny[m0027]}      \input{modules/m0027_Wave_Equations_for_a_Transmission_Line}
+      \vfill\break
+    \section{Characteristic Impedance}
+{\color{blue}\tiny[m0052]}      \input{modules/m0052_Characteristic_Impedance}
+      \vfill\break
+    \section{Wave Propagation on a TEM Transmission Line}
+{\color{blue}\tiny[m0080]}      \input{modules/m0080_Wave_Propagation_on_a_Transmission_Line}
+      \vfill\break
+    \section{Lossless and Low-Loss Transmission Lines}
+{\color{blue}\tiny[m0083]}      \input{modules/m0083_Lossless_Transmission_Lines}
+      \vfill\break
+    \section{Coaxial Line}
+{\color{blue}\tiny[m0143]}      \input{modules/m0143_Coaxial_Line}
+      \vfill\break
+    \section{Microstrip Line}
+{\color{blue}\tiny[m0082]}      \input{modules/m0082_Microstrip_Line}
+      \vfill\break
+    \section{Voltage Reflection Coefficient}
+{\color{blue}\tiny[m0084]}      \input{modules/m0084_Voltage_Reflection_Coefficient}
+      \vfill\break
+{\color{blue}\tiny[m0085]}    \input{modules/m0085_Reflection_Coefficient_for_Various_Terminations}
+    \section{Standing Waves}
+{\color{blue}\tiny[m0086]}      \input{modules/m0086_Standing_Waves}
+      \vfill\break
+    \section{Standing Wave Ratio}
+{\color{blue}\tiny[m0081]}      \input{modules/m0081_Standing_Wave_Ratio}
+      \vfill\break
+    \section{Input Impedance of a Terminated Lossless Transmission Line}
+{\color{blue}\tiny[m0087]}      \input{modules/m0087_Input_Impedance_of_Terminated_Lossless_Line}
+      \vfill\break
+    \section{Input Impedance for Open- and Short-Circuit Terminations}
+{\color{blue}\tiny[m0088]}      \input{modules/m0088_Input_Impedance_for_Open_and_Short_Circuit_Terminations}
+      \vfill\break
+    \section{Applications of Open- and Short-Circuited Transmission Line Stubs}
+{\color{blue}\tiny[m0145]}      \input{modules/m0145_Applications_of_Open_and_Short-Circuited_Transmission_Lines}
+      \vfill\break
+    \section{Measurement of Transmission Line Characteristics}
+{\color{blue}\tiny[m0089]}      \input{modules/m0089_Measurement_of_Transmission_Line_Characteristics}
+      \vfill\break
+    \section{Quarter-Wavelength Transmission Line}
+{\color{blue}\tiny[m0091]}      \input{modules/m0091_Quarter-Wavelength_Transmission_Line}
+      \vfill\break
+    \section{Power Flow on Transmission Lines}
+{\color{blue}\tiny[m0090]}      \input{modules/m0090_Power_Flow_on_Transmission_Lines}
+      \vfill\break
+    \section{Impedance Matching: General Considerations}
+{\color{blue}\tiny[m0092]}      \input{modules/m0092_Impedance_Matching_General_Considerations}
+      \vfill\break
+    \section{Single-Reactance Matching}
+{\color{blue}\tiny[m0093]}      \input{modules/m0093_Single-Reactance_Matching}
+      \vfill\break
+    \section{Single-Stub Matching}
+{\color{blue}\tiny[m0094]}      \input{modules/m0094_Single-Stub_Matching}
+      \vfill\break
+{\color{blue}\tiny[m0151]}    \input{modules/m0151_Ch_End_Matter_Transmission_Lines}
+  \chapter{Vector Analysis}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Vector Arithmetic}
+{\color{blue}\tiny[m0006]}      \input{modules/m0006_Vector_Arithmetic}
+      \vfill\break
+    \section{Cartesian Coordinates}
+{\color{blue}\tiny[m0004]}      \input{modules/m0004_Cartesian_Coordinates}
+      \vfill\break
+    \section{Cylindrical Coordinates}
+{\color{blue}\tiny[m0096]}      \input{modules/m0096_Cylindrical_Coordinates}
+      \vfill\break
+    \section{Spherical Coordinates}
+{\color{blue}\tiny[m0097]}      \input{modules/m0097_Spherical_Coordinates}
+      \vfill\break
+    \section{Gradient}
+{\color{blue}\tiny[m0098]}      \input{modules/m0098_Gradient}
+      \vfill\break
+    \section{Divergence}
+{\color{blue}\tiny[m0044]}      \input{modules/m0044_Divergence}
+      \vfill\break
+    \section{Divergence Theorem}
+{\color{blue}\tiny[m0046]}      \input{modules/m0046_Divergence_Theorem}
+      \vfill\break
+    \section{Curl}
+{\color{blue}\tiny[m0048]}      \input{modules/m0048_Curl}
+      \vfill\break
+    \section{Stokes' Theorem}
+{\color{blue}\tiny[m0051]}      \input{modules/m0051_Stokes_Theorem}
+      \vfill\break
+    \section{The Laplacian Operator}
+{\color{blue}\tiny[m0099]}      \input{modules/m0099_The_Laplacian_Operator}
+%%%      \vfill\break
+{\color{blue}\tiny[m0043]}    \input{modules/m0043_Ch_End_Matter_Vector_Analysis}
+  \chapter{Electrostatics}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+{\color{blue}\tiny[m0116]}    \input{modules/m0116_Electrostatics_Preface}
+    \section{Coulomb's Law}
+{\color{blue}\tiny[m0102]}      \input{modules/m0102_Coulombs_Law}
+      \vfill\break
+    \section{Electric Field Due to Point Charges}
+{\color{blue}\tiny[m0103]}      \input{modules/m0103_E_due_to_Point_Charges}
+      \vfill\break
+    \section{Charge Distributions}
+{\color{blue}\tiny[m0100]}      \input{modules/m0100_Charge_Distributions}
+      \vfill\break
+    \section{Electric Field Due to a Continuous Distribution of Charge}
+{\color{blue}\tiny[m0104]}      \input{modules/m0104_E_due_to_a_Continuous_Distribution_of_Charge}
+      \vfill\break
+    \section{Gauss' Law: Integral Form}
+{\color{blue}\tiny[m0014]}      \input{modules/m0014_Gauss_Law_Integral_Form}
+      \vfill\break
+    \section{Electric Field Due to an Infinite Line Charge using Gauss' Law}
+{\color{blue}\tiny[m0149]}      \input{modules/m0149_E_due_to_Inf_Line_Charge}
+      \vfill\break
+    \section{Gauss' Law: Differential Form}
+{\color{blue}\tiny[m0045]}      \input{modules/m0045_Gauss_Law_Differential_Form_from_Integral_Form}
+      \vfill\break
+    \section{Force, Energy, and Potential Difference}
+{\color{blue}\tiny[m0061]}      \input{modules/m0061_Force_Energy_and_Potential_Difference}
+      \vfill\break
+    \section{Independence of Path}
+{\color{blue}\tiny[m0062]}      \input{modules/m0062_Independence_of_Path}
+      \vfill\break
+    \section{Kirchoff's Voltage Law for Electrostatics: Integral Form}
+{\color{blue}\tiny[m0016]}      \input{modules/m0016_Kirchoffs_Voltage_Law_Electrostatics_Integral_Form}
+      \vfill\break
+    \section{Kirchoff's Voltage Law for Electrostatics: Differential Form}
+{\color{blue}\tiny[m0152]}      \input{modules/m0152_KVL_Electrostatics_Integral-to-Differential}
+      \vfill\break
+    \section{Electric Potential Field Due to Point Charges}
+{\color{blue}\tiny[m0064]}      \input{modules/m0064_V_due_to_Point_Charges}
+      \vfill\break
+    \section{Electric Potential Field due to a Continuous Distribution of Charge}
+{\color{blue}\tiny[m0065]}      \input{modules/m0065_V_due_to_a_Continuous_Distribution_of_Charge}
+      \vfill\break
+    \section{Electric Field as the Gradient of Potential}
+{\color{blue}\tiny[m0063]}      \input{modules/m0063_Electric_Field_as_the_Gradient_of_Potential}
+      \vfill\break
+    \section{Poisson's and Laplace's Equations}
+{\color{blue}\tiny[m0067]}      \input{modules/m0067_Poissons_and_Laplaces_Equations}
+      \vfill\break
+    \section{Potential Field Within a Parallel Plate Capacitor}
+{\color{blue}\tiny[m0068]}      \input{modules/m0068_V_Within_Parallel_Plate_Cap_Using_Laplaces_Equation}
+      \vfill\break
+    \section{Boundary Conditions on the Electric Field Intensity (${\bf E}$)}
+{\color{blue}\tiny[m0020]}      \input{modules/m0020_Boundary_Conditions_on_E}
+      \vfill\break
+    \section{Boundary Conditions on the Electric Flux Density (${\bf D}$)}
+{\color{blue}\tiny[m0021]}      \input{modules/m0021_Boundary_Conditions_on_D}
+      \vfill\break
+    \section{Charge and Electric Field for a Perfectly Conducting Region}
+{\color{blue}\tiny[m0025]}      \input{modules/m0025_Charge_and_Electric_Field_for_a_Perfectly_Conducting_Region}
+      \vfill\break
+    \section{Dielectric Media}
+{\color{blue}\tiny[m0107]}      \input{modules/m0107_Dielectric_Media}
+      \vfill\break
+    \section{Dielectric Breakdown}
+{\color{blue}\tiny[m0109]}      \input{modules/m0109_Dielectric_Breakdown}
+      \vfill\break
+    \section{Capacitance}
+{\color{blue}\tiny[m0112]}      \input{modules/m0112_Capacitance}
+      \vfill\break
+    \section{The Thin Parallel Plate Capacitor}
+{\color{blue}\tiny[m0070]}      \input{modules/m0070_Parallel_Plate_Capacitor_Capacitance_from_Charge}
+      \vfill\break
+    \section{Capacitance of a Coaxial Structure}
+{\color{blue}\tiny[m0113]}      \input{modules/m0113_Capacitance_of_Coaxial_Line}
+      \vfill\break
+    \section{Electrostatic Energy}
+{\color{blue}\tiny[m0114]}      \input{modules/m0114_Electric_Energy}
+%%%      \vfill\break
+{\color{blue}\tiny[m0034]}    \input{modules/m0034_Ch_End_Matter_Electrostatics_Static_Charge}
+  \chapter{Steady Current and Conductivity}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Convection and Conduction Currents}
+{\color{blue}\tiny[m0110]}      \input{modules/m0110_Convection_and_Conduction}
+      \vfill\break
+    \section{Current Distributions}
+{\color{blue}\tiny[m0101]}      \input{modules/m0101_Current_Distributions}
+      \vfill\break
+    \section{Conductivity}
+{\color{blue}\tiny[m0010]}      \input{modules/m0010_Conductivity}
+      \vfill\break
+    \section{Resistance}
+{\color{blue}\tiny[m0071]}      \input{modules/m0071_Resistance_DC}
+      \vfill\break
+    \section{Conductance}
+{\color{blue}\tiny[m0105]}      \input{modules/m0105_Conductance_DC}
+      \vfill\break
+    \section{Power Dissipation in Conducting Media}
+{\color{blue}\tiny[m0106]}      \input{modules/m0106_Power_Dissipation_in_Conducting_Media}
+%%%      \vfill\break
+{\color{blue}\tiny[m0057]}    \input{modules/m0057_Ch_End_Matter_Electrostatics_Steady_Current}
+  \chapter{Magnetostatics}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+{\color{blue}\tiny[m0117]}    \input{modules/m0117_Magnetostatics_Preface}
+    \section{Comparison of Electrostatics and Magnetostatics}
+{\color{blue}\tiny[m0115]}      \input{modules/m0115_Comparison_of_Electrostatics_and_Magnetostatics}
+      \vfill\break
+    \section{Gauss' Law for Magnetic Fields: Integral Form}
+{\color{blue}\tiny[m0018]}      \input{modules/m0018_Gauss_Law_Magnetic_Integral_Form}
+      \vfill\break
+    \section{Gauss' Law for Magnetism: Differential Form}
+{\color{blue}\tiny[m0047]}      \input{modules/m0047_Gauss_Law_Magnetic_Differential_from_Integral}
+      \vfill\break
+    \section{Ampere's Circuital Law (Magnetostatics): Integral Form}
+{\color{blue}\tiny[m0019]}      \input{modules/m0019_Amperes_Law_Magnetostatics}
+      \vfill\break
+    \section{Magnetic Field of an Infinitely-Long Straight Current-Bearing Wire}
+{\color{blue}\tiny[m0119]}      \input{modules/m0119_Magnetic_Field_of_a_Long_Wire}
+      \vfill\break
+    \section{Magnetic Field Inside a Straight Coil}
+{\color{blue}\tiny[m0120]}      \input{modules/m0120_Magnetic_Field_of_a_Coil}
+      \vfill\break
+    \section{Magnetic Field of a Toroidal Coil}
+{\color{blue}\tiny[m0049]}      \input{modules/m0049_Magnetic_Field_of_a_Toroidal_Coil}
+      \vfill\break
+    \section{Magnetic Field of an Infinite Current Sheet}
+{\color{blue}\tiny[m0121]}      \input{modules/m0121_Magnetic_Field_of_an_Infinite_Current_Sheet}
+      \vfill\break
+    \section{Ampere's Law (Magnetostatics): Differential Form}
+{\color{blue}\tiny[m0118]}      \input{modules/m0118_Amperes_Law_Magnetostatics_Integral-to-Differential}
+      \vfill\break
+    \section{Boundary Conditions on the Magnetic Flux Density ({\bf B})}
+{\color{blue}\tiny[m0022]}      \input{modules/m0022_Boundary_Conditions_on_B}
+      \vfill\break
+    \section{Boundary Conditions on the Magnetic Field Intensity ({\bf H})}
+{\color{blue}\tiny[m0023]}      \input{modules/m0023_Boundary_Conditions_on_H}
+      \vfill\break
+    \section{Inductance}
+{\color{blue}\tiny[m0123]}      \input{modules/m0123_Inductance}
+      \vfill\break
+    \section{Inductance of a Straight Coil}
+{\color{blue}\tiny[m0124]}      \input{modules/m0124_Inductance_of_a_Straight_Coil}
+      \vfill\break
+    \section{Inductance of a Coaxial Structure}
+{\color{blue}\tiny[m0125]}      \input{modules/m0125_Inductance_of_a_Coaxial_Transmission_Line}
+      \vfill\break
+    \section{Magnetic Energy}
+{\color{blue}\tiny[m0127]}      \input{modules/m0127_Magnetic_Energy}
+      \vfill\break
+    \section{Magnetic Materials}
+{\color{blue}\tiny[m0058]}      \input{modules/m0058_Magnetic_Materials}
+      \vfill\break
+{\color{blue}\tiny[m0150]}    \input{modules/m0150_Ch_End_Matter_Magnetostatics}
+  \chapter{Time-Varying Fields}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Comparison of Static and Time-Varying Electromagnetics}
+{\color{blue}\tiny[m0013]}      \input{modules/m0013_Comparison_of_Static_and_Time-Varying_Electromagnetics}
+      \vfill\break
+    \section{Electromagnetic Induction}
+{\color{blue}\tiny[m0129]}      \input{modules/m0129_Electromagnetic_Induction}
+      \vfill\break
+    \section{Faraday's Law}
+{\color{blue}\tiny[m0055]}      \input{modules/m0055_Faradays_Law}
+      \vfill\break
+    \section{Induction in a Motionless Loop}
+{\color{blue}\tiny[m0056]}      \input{modules/m0056_Current_Generated_by_a_Loop_in_a_Time-Varying_Magnetic_Field}
+      \vfill\break
+    \section{Transformers: Principle of Operation}
+{\color{blue}\tiny[m0031]}      \input{modules/m0031_Transformers_Principle_of_Operation}
+      \vfill\break
+    \section{Transformers as Two-Port Devices}
+{\color{blue}\tiny[m0032]}      \input{modules/m0032_Transformers_as_Two-Port_Devices}
+      \vfill\break
+    \section{The Electric Generator}
+{\color{blue}\tiny[m0030]}      \input{modules/m0030_Electric_Generator}
+      \vfill\break
+    \section{The Maxwell-Faraday Equation}
+{\color{blue}\tiny[m0050]}      \input{modules/m0050_Maxwell-Faraday_Equation}
+      \vfill\break
+    \section{Displacement Current and Ampere's Law}
+{\color{blue}\tiny[m0053]}      \input{modules/m0053_Displacement_Current_Amperes_Law}
+%%%      \vfill\break
+{\color{blue}\tiny[m0126]}    \input{modules/m0126_Ch_End_Matter_Time-Varying_Fields}
+  \chapter{Plane Waves in Lossless Media}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Maxwell's Equations in Differential Phasor Form}
+{\color{blue}\tiny[m0042]}      \input{modules/m0042_Phasor_Form_of_Maxwells_Equations_Differential}
+      \vfill\break
+    \section{Wave Equations for Source-Free and Lossless Regions}
+{\color{blue}\tiny[m0036]}      \input{modules/m0036_Wave_Equations_SourceFree_Lossless}
+      \vfill\break
+    \section{Types of Waves}
+{\color{blue}\tiny[m0142]}      \input{modules/m0142_Types_of_Waves}
+      \vfill\break
+    \section{Uniform Plane Waves: Derivation}
+{\color{blue}\tiny[m0038]}      \input{modules/m0038_Uniform_Plane_Waves_Derivation}
+      \vfill\break
+    \section{Uniform Plane Waves: Characteristics}
+{\color{blue}\tiny[m0039]}      \input{modules/m0039_Uniform_Plane_Waves_Characteristics}
+      \vfill\break
+    \section{Wave Polarization}
+{\color{blue}\tiny[m0131]}      \input{modules/m0131_Wave_Polarization}
+      \vfill\break
+    \section{Wave Power in a Lossless Medium}
+{\color{blue}\tiny[m0041]}      \input{modules/m0041_Plane_Wave_Power_Density_in_a_Lossless_Medium}
+%%%      \vfill\break
+{\color{blue}\tiny[m0035]}    \input{modules/m0035_Ch_End_Matter_Plane_Wave_Prop_Lossless}
+\appendix
+  \chapter{Constitutive Parameters of Some Common Materials}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Permittivity of Some Common Materials}
+{\color{blue}\tiny[m0135]}      \input{modules/m0135_Table_of_Permittivities}
+      \vfill\break
+    \section{Permeability of Some Common Materials}
+{\color{blue}\tiny[m0136]}      \input{modules/m0136_Table_of_Permeabilities}
+      \vfill\break
+    \section{Conductivity of Some Common Materials}
+{\color{blue}\tiny[m0137]}      \input{modules/m0137_Table_of_Conductivities}
+      \vfill\break
+  \chapter{Mathematical Formulas}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+    \section{Trigonometry}
+{\color{blue}\tiny[m0138]}      \input{modules/m0138_Trigonometry}
+      \vfill\break
+    \section{Vector Operators}
+{\color{blue}\tiny[m0139]}      \input{modules/m0139_Vector_Operators}
+      \vfill\break
+    \section{Vector Identities}
+{\color{blue}\tiny[m0140]}      \input{modules/m0140_Vector_Identities}
+      \vfill\break
+  \chapter{Physical Constants}
+  \thispagestyle{fancy} % override footer in first page of chapter
+  \fancyhf{}            % reset header and footer
+  \fancyfoot[C]{\footnotesize \emph{Electromagnetics Vol~1}. ~\copyright~2018 S.W.\ Ellingson ~CC~BY~SA~4.0. ~\url{https://doi.org/10.21061/electromagnetics-vol-1}}
+{\color{blue}\tiny[m0141]}    \input{modules/m0141_Physical_Constants}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}
