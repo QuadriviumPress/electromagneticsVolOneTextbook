@@ -39,6 +39,8 @@ let converted = 0;
 let skipped = 0;
 const failures = [];
 
+const DVISVGM_OPTS = ['--no-fonts', '--optimize', '--precision=2'];
+
 for (const eps of epsFiles) {
   const src = path.join(srcDir, eps);
   const out = path.join(outDir, eps.replace(/\.eps$/, '.svg'));
@@ -46,14 +48,30 @@ for (const eps of epsFiles) {
     skipped++;
     continue;
   }
-  const res = spawnSync(
-    'dvisvgm',
-    ['--eps', '--no-fonts', '--optimize', '--precision=2', '-o', out, src],
-    { encoding: 'utf8' }
-  );
+  let res = spawnSync('dvisvgm', ['--eps', ...DVISVGM_OPTS, '-o', out, src], {
+    encoding: 'utf8',
+  });
   if (res.status !== 0) {
-    failures.push({ eps, stderr: (res.stderr || '').trim().slice(0, 500) });
-    continue;
+    // Some EPS files embed JPEG data via a Ghostscript-device idiom that
+    // dvisvgm's EPS reader rejects ("imgdev jpeg finddevice"). Re-distilling
+    // through gs pdfwrite normalizes them, and dvisvgm converts the PDF fine.
+    const tmpPdf = `${out}.tmp.pdf`;
+    const gs = spawnSync(
+      'gs',
+      ['-dBATCH', '-dNOPAUSE', '-sDEVICE=pdfwrite', '-dEPSCrop', '-o', tmpPdf, src],
+      { encoding: 'utf8' }
+    );
+    if (gs.status === 0) {
+      res = spawnSync('dvisvgm', ['--pdf', ...DVISVGM_OPTS, '-o', out, tmpPdf], {
+        encoding: 'utf8',
+      });
+    }
+    fs.rmSync(tmpPdf, { force: true });
+    if (gs.status !== 0 || res.status !== 0) {
+      const stderr = ((gs.status !== 0 ? gs.stderr : res.stderr) || '').trim().slice(0, 500);
+      failures.push({ eps, stderr });
+      continue;
+    }
   }
   converted++;
 }
