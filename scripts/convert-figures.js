@@ -41,28 +41,34 @@ const failures = [];
 
 const DVISVGM_OPTS = ['--no-fonts', '--optimize', '--precision=2'];
 
+/** An SVG with no drawable elements (photos come out empty via the PDF path). */
+const svgIsEmpty = file => !/<(path|image|use|text|polygon|rect|circle)[\s/>]/.test(fs.readFileSync(file, 'utf8'));
+
 for (const eps of epsFiles) {
   const src = path.join(srcDir, eps);
-  const out = path.join(outDir, eps.replace(/\.eps$/, '.svg'));
-  if (fs.existsSync(out) && fs.statSync(out).mtimeMs >= fs.statSync(src).mtimeMs) {
+  const outSvg = path.join(outDir, eps.replace(/\.eps$/, '.svg'));
+  const outPng = path.join(outDir, eps.replace(/\.eps$/, '.png'));
+  const fresh = out =>
+    fs.existsSync(out) && fs.statSync(out).mtimeMs >= fs.statSync(src).mtimeMs;
+  if (fresh(outSvg) || fresh(outPng)) {
     skipped++;
     continue;
   }
-  let res = spawnSync('dvisvgm', ['--eps', ...DVISVGM_OPTS, '-o', out, src], {
+  let res = spawnSync('dvisvgm', ['--eps', ...DVISVGM_OPTS, '-o', outSvg, src], {
     encoding: 'utf8',
   });
   if (res.status !== 0) {
     // Some EPS files embed JPEG data via a Ghostscript-device idiom that
     // dvisvgm's EPS reader rejects ("imgdev jpeg finddevice"). Re-distilling
-    // through gs pdfwrite normalizes them, and dvisvgm converts the PDF fine.
-    const tmpPdf = `${out}.tmp.pdf`;
+    // through gs pdfwrite normalizes them for dvisvgm.
+    const tmpPdf = `${outSvg}.tmp.pdf`;
     const gs = spawnSync(
       'gs',
       ['-dBATCH', '-dNOPAUSE', '-sDEVICE=pdfwrite', '-dEPSCrop', '-o', tmpPdf, src],
       { encoding: 'utf8' }
     );
     if (gs.status === 0) {
-      res = spawnSync('dvisvgm', ['--pdf', ...DVISVGM_OPTS, '-o', out, tmpPdf], {
+      res = spawnSync('dvisvgm', ['--pdf', ...DVISVGM_OPTS, '-o', outSvg, tmpPdf], {
         encoding: 'utf8',
       });
     }
@@ -70,6 +76,31 @@ for (const eps of epsFiles) {
     if (gs.status !== 0 || res.status !== 0) {
       const stderr = ((gs.status !== 0 ? gs.stderr : res.stderr) || '').trim().slice(0, 500);
       failures.push({ eps, stderr });
+      continue;
+    }
+  }
+  if (svgIsEmpty(outSvg)) {
+    // Pure raster content (photos): dvisvgm drops the bitmap, so rasterize
+    // with Ghostscript to PNG instead.
+    fs.rmSync(outSvg, { force: true });
+    const gs = spawnSync(
+      'gs',
+      [
+        '-dBATCH',
+        '-dNOPAUSE',
+        '-sDEVICE=png16m',
+        '-r200',
+        '-dEPSCrop',
+        '-dTextAlphaBits=4',
+        '-dGraphicsAlphaBits=4',
+        '-o',
+        outPng,
+        src,
+      ],
+      { encoding: 'utf8' }
+    );
+    if (gs.status !== 0) {
+      failures.push({ eps, stderr: (gs.stderr || '').trim().slice(0, 500) });
       continue;
     }
   }
