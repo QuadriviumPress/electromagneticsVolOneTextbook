@@ -1,0 +1,75 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Magnetic Field Intensity 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180731   # yyyymmdd
+%ORB ABSTRACT 
+ 
+\label{m0012_Magnetic_Field_Intensity} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{magnetic field intensity|(}
+\index{field!magnetic|(}
+\index{field intensity, magnetic|see{magnetic field intensity}}
+
+Magnetic field intensity ${\bf H}$ is an alternative description of the magnetic field in which the effect of material is factored out.  
+For example, the magnetic flux density ${\bf B}$ (reminder: Section~\ref{m0003_Magnetic_Flux_Density}) due to a point charge $q$ moving at velocity ${\bf v}$ can be written in terms of the \emph{Biot-Savart Law}:
+\index{Biot-Savart Law}
+%
+\begin{equation}
+{\bf B} = \mu ~ \frac{q {\bf v}}{4\pi R^2} \times \hat{\bf R}
+\label{m0012_eMatB}
+\end{equation}
+%
+where $\hat{\bf R}$ is the unit vector pointing from the charged particle to the field point ${\bf r}$, $R$ is this distance, ``$\times$'' is the cross product, and
+$\mu$ is the permeability of the material.
+We can rewrite Equation~\ref{m0012_eMatB} as: 
+%
+\begin{equation}
+{\bf B} \triangleq \mu {\bf H}
+\label{m0012_eHDef}
+\end{equation}
+%
+with:
+%
+\begin{equation}
+{\bf H} =  \frac{q {\bf v}}{4\pi R^2} \times \hat{\bf R}
+\label{m0012_eHHH}
+\end{equation}
+%
+so ${\bf H}$ in homogeneous media 
+\index{homogeneous (media)}
+does not depend on $\mu$.
+
+Dimensional analysis of Equation~\ref{m0012_eHHH} reveals that the units for ${\bf H}$ are amperes per meter (A/m).  
+However, ${\bf H}$ does not represent surface current density,\footnote{The concept of current density is not essential to understand this section; however, a primer can be found in Section~\ref{m0101_Current_Distributions}.} as the units might suggest.  
+While it is certainly true that a distribution of current (A) over some linear cross-section (m) can be described as a current density having units of A/m, ${\bf H}$ is associated with the magnetic field and not a particular current distribution.
+Said differently, ${\bf H}$ can be viewed as a description of the magnetic field in terms of an equivalent (but not actual) current.
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The magnetic field intensity 
+\index{magnetic field intensity!definition}
+${\bf H}$ (A/m), defined using Equation~\ref{m0012_eHDef}, is a description of the magnetic field independent from material properties. 
+\end{mdframed}
+
+It may appear that ${\bf H}$ is redundant information given ${\bf B}$ and $\mu$, but this is true only in homogeneous
+media. The concept of magnetic field intensity becomes important -- and decidedly not redundant -- when we encounter boundaries between media having different permeabilities.
+As we shall see in Section~\ref{m0023_Boundary_Conditions_on_H}, boundary conditions on ${\bf H}$ constrain the component of the magnetic field which is tangent to the boundary separating two otherwise-homogeneous regions.
+If one ignores the characteristics of the magnetic field represented by ${\bf H}$ and instead
+considers only ${\bf B}$, then only the perpendicular component of the magnetic field is constrained.
+
+The concept of magnetic field intensity also turns out to be useful in a certain problems in which $\mu$ is not a constant, but rather is a function of magnetic field strength.  In this case, the magnetic behavior of the material is said to be \emph{nonlinear}. 
+\index{nonlinear (media)}
+For more on this, see Section~\ref{m0058_Magnetic_Materials}. 
+ 
+%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Magnetic_field}{Magnetic field}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Biot-Savart_law}{Biot-Savart law}'' on Wikipedia.
+\end{itemize}
+
+\index{magnetic field intensity|)}
+\index{field!magnetic|)}

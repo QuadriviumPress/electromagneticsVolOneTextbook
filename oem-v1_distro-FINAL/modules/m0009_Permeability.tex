@@ -1,0 +1,65 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Permeability
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180731   # yyyymmdd
+%ORB ABSTRACT 
+
+\label{m0009_Permeability} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{permeability|(}
+
+Permeability describes the effect of material in determining the magnetic flux density.  
+All else being equal, magnetic flux density increases in proportion to permeability.
+ 
+To illustrate the concept, consider that a particle bearing charge $q$ moving at velocity ${\bf v}$ gives rise to a magnetic flux density:
+%
+\begin{equation}
+{\bf B}({\bf r}) = \mu ~ \frac{q {\bf v}}{4\pi R^2} \times \hat{\bf R}
+%\label{eMatB}
+\end{equation}
+%
+where $\hat{\bf R}$ is the unit vector pointing from the charged particle to the field point ${\bf r}$, $R$ is this distance, and ``$\times$'' is the cross product.
+Note that ${\bf B}$ increases with charge and speed, which makes sense since moving charge is the source of the magnetic field.  
+Also note that ${\bf B}$ is inversely proportional to $4\pi R^2$, indicating that $\left|{\bf B}\right|$ decreases in proportion to the area of a sphere surrounding the charge, also known as the {\it inverse square law}.
+\index{inverse square law}
+The remaining factor, $\mu$, is the constant of proportionality that captures the effect of material.
+We refer to $\mu$ as the \emph{permeability} of the material.
+Since ${\bf B}$ can be expressed in units of Wb/m$^2$ and the units of ${\bf v}$ are m/s, we see that $\mu$ must have units of henries per meter (H/m). 
+(To see this, note that 1~H $\triangleq$ 1~Wb/A.)   
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Permeability ($\mu$, H/m) describes the effect of material in determining the magnetic flux density. 
+\end{mdframed}
+
+In free space, we find that the permeability $\mu=\mu_0$ where:
+%
+\begin{equation}
+\mu_0 = 4\pi \times 10^{-7} ~\mbox{H/m}
+\end{equation}
+% 
+It is common practice to describe the permeability of materials in terms of their {\it relative permeability}:
+\index{permeability!relative}
+\index{relative permeability|see{permeability, relative}}
+%
+\begin{equation}
+\mu_r \triangleq \frac{\mu}{\mu_0}
+\end{equation}
+%
+which gives the permeability relative to the minimum possible value; i.e., that of free space.  Relative permeability for a few representative materials is given in Appendix~\ref{m0136_Table_of_Permeabilities}.  
+
+Note that $\mu_r$ is approximately 1 for all but a small class of materials.  These are known as {\it magnetic materials}, and may exhibit values of $\mu_r$ as large as $\sim 10^6$.  
+A commonly-encountered category of magnetic materials is \emph{ferromagnetic} material, of which the best-known example is iron.  
+
+%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Permeability_(electromagnetism)}{Permeability (electromagnetism)}'' on Wikipedia.
+\item Section~\ref{m0058_Magnetic_Materials} (``Magnetic Materials'').
+\item Appendix~\ref{m0136_Table_of_Permeabilities} (``Permeability of Some Common Materials'').
+\end{itemize}
+
+\index{permeability|)}

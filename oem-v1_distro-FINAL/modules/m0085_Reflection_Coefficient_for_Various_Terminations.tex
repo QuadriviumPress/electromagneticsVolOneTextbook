@@ -1,0 +1,78 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Reflection Coefficient for Various Terminations
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Voltage reflection coefficients for various terminations 
+
+\label{m0085_Reflection_Coefficient_for_Various_Terminations} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+We now consider values of $\Gamma$  
+that arise for commonly-encountered terminations.
+
+{\bf Matched Load ($Z_L=Z_0$).} 
+\index{load!matched}
+In this case, the termination may be a device with impedance $Z_0$, or the termination may be another transmission line having the same characteristic impedance. 
+When $Z_L=Z_0$, $\Gamma=0$ and there is no reflection.   
+
+{\bf Open Circuit.} 
+\index{open circuit} 
+An ``open circuit'' is the absence of a termination.
+This condition implies $Z_L\rightarrow\infty$, and subsequently $\Gamma\rightarrow +1$.  
+Since the \emph{current} reflection coefficient is $-\Gamma$, the reflected current wave is $180^{\circ}$ out of phase with the incident current wave, making the total current at the open circuit equal to zero, as expected.
+
+{\bf Short Circuit.}  
+\index{short circuit} 
+``Short circuit'' means $Z_L=0$, and subsequently $\Gamma=-1$.
+In this case, the phase of $\Gamma$ is $180^{\circ}$, and therefore, the potential of the reflected wave cancels the potential of the incident wave at the open circuit, making the total potential equal to zero, as it must be.  
+Since the \emph{current} reflection coefficient is $-\Gamma=+1$ in this case, the reflected current wave is in phase with the incident current wave, and the magnitude of the total current at the short circuit non-zero as expected.
+
+{\bf Purely Reactive Load.}
+\index{load!reactive}
+A purely reactive load, including that presented by a capacitor or inductor, has $Z_L = j X$ where $X$ is reactance.  
+In particular, an inductor is represented by $X>0$ and a capacitor is represented by $X<0$.
+We find
+%
+\begin{equation}
+\Gamma = \frac{-Z_0+j X}{+Z_0+j X}
+\end{equation}
+%
+The numerator and denominator have the same magnitude, so $\left|\Gamma\right|=1$.
+Let $\phi$ be the phase of the denominator ($+Z_0+j X$).  
+Then, the phase of the numerator is $\pi-\phi$.
+Subsequently, the phase of $\Gamma$ is $\left(\pi-\phi\right)-\phi=\pi-2\phi$.
+Thus, we see that the phase of $\Gamma$ is no longer limited to be $0^{\circ}$ or $180^{\circ}$, but can be any value in between.
+The phase of reflected wave is subsequently shifted by this amount.
+
+{\bf Other Terminations.}
+Any other termination, including series and parallel combinations of any number of devices, can be expressed as a value of $Z_L$ which is, in general, complex-valued. 
+The associated value of $\left|\Gamma\right|$ is limited to the range 0 to 1.
+To see this, note:
+%
+\begin{equation}
+\Gamma = \frac{Z_L-Z_0}{Z_L+Z_0} = \frac{Z_L/Z_0-1}{Z_L/Z_0+1}
+\end{equation}
+%
+Note that the smallest possible value of $\left|\Gamma\right|$ occurs when the numerator is zero; i.e., when $Z_L=Z_0$.
+Therefore, the smallest value of $\left|\Gamma\right|$ is zero.
+The largest possible value of $\left|\Gamma\right|$ occurs when $Z_L/Z_0\rightarrow\infty$ (i.e., an open circuit) or when $Z_L/Z_0=0$ (a short circuit); the result in either case is $\left|\Gamma\right|=1$.
+Thus,
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+\begin{equation}
+0\le\left|\Gamma\right|\le 1
+\end{equation}
+\end{mdframed}
+
+
+
+
+
+
+
+
+

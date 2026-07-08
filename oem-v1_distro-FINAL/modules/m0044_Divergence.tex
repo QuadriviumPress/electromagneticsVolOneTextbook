@@ -1,0 +1,207 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Divergence
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Divergence
+
+\label{m0044_Divergence} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{divergence|(}
+
+In this section, we present the divergence operator, which provides a way to calculate the flux associated with a point in space.
+First, let us review the concept of flux.
+\index{flux}
+
+The integral of a vector field over a surface is a scalar quantity known as \emph{flux}.  
+Specifically, the flux $F$ of a vector field ${\bf A}({\bf r})$ over a surface ${\mathcal S}$ is
+%
+\begin{equation}
+\int_{\mathcal S}{\bf A}\cdot d{\bf s} = F
+\end{equation}
+%
+Note that ${\bf A}$ could be fairly described as a \emph{flux density}; i.e., a quantity having units equal to the units of $F$, but divided by area (i.e., m$^2$).
+Also worth noting is that the flux of a vector field that has unit magnitude and is normal to all points on ${\mathcal S}$ is simply the area of ${\mathcal S}$. 
+
+It is quite useful to identify some electromagnetic quantities as either fluxes or flux densities.  
+Here are two important examples:
+%
+\begin{itemize}
+\item The electric flux density ${\bf D}$, 
+\index{electric flux density}
+having units of C/m$^2$, is a description of the electric field as a flux density.
+(See Section~\ref{m0011_Electric_Flux_Density} for more about electric flux density.) 
+The integral of ${\bf D}$ over a closed surface yields the enclosed charge $Q_{encl}$, having units of C.
+This relationship is known as Gauss' Law:
+\index{Gauss' law!electric field}
+%
+\begin{equation}
+\oint_{\mathcal S} {\bf D}\cdot d{\bf s} = Q_{encl} 
+\label{m0044_GaussLawIntegralForm}
+\end{equation}
+%
+(See Section~\ref{m0014_Gauss_Law_Integral_Form} for more about Gauss' Law.)
+\item The magnetic flux density 
+\index{magnetic flux density}
+${\bf B}$, having units of Wb/m$^2$, is a description of the magnetic field as a flux density.
+(See Section~\ref{m0003_Magnetic_Flux_Density} for more about magnetic flux density.)
+The integral of ${\bf B}$ over a surface (open \emph{or} closed) yields the magnetic flux $\Phi$, having units of Wb:
+%
+\begin{equation}
+\int_{\mathcal S} {\bf B}\cdot d{\bf s} = \Phi 
+\end{equation}
+%
+This is important because, for example, the time rate of change of $\Phi$ is proportional to electric potential.
+(See Section~\ref{m0055_Faradays_Law} for more about this principle, called \emph{Faraday's Law}.)
+\index{Faraday's law}
+\end{itemize} 
+
+Summarizing:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Flux 
+\index{flux!definition}
+is the scalar quantity obtained by integrating a vector field, interpreted in this case as a flux density, over a specified surface.
+\end{mdframed}
+
+The concept of flux applies to a surface of finite size. 
+However, what is frequently of interest is behavior at a single point, as opposed to the sum or average over a region of space.
+For example, returning to the idea of electric flux density (${\bf D}$), perhaps we are not concerned about the total charge (units of C) enclosed by a surface, but rather the charge density (C/m$^3$) at a point.
+In this case, we could begin with Equation~\ref{m0044_GaussLawIntegralForm} and divide both sides of the equation by the volume $V$ enclosed by ${\mathcal S}$:
+%
+\begin{equation}   
+\frac{\oint_{\mathcal S}{ {\bf D} \cdot d{\bf s} } }{V} = \frac{ Q_{encl} }{V}
+\end{equation}
+%
+Now we let $V$ shrink to zero, giving us an expression that must be true at whatever point we decide to converge upon.
+Taking the limit as $V \to 0$:
+%
+\begin{equation}   
+\lim_{V \to 0} \frac{ \oint_{\mathcal S}{ {\bf D} \cdot d{\bf s} } }{V} = \lim_{V \to 0} \frac{ Q_{encl} }{V}
+\end{equation}
+%
+The quantity on the right hand side is by definition the \emph{volume charge density}
+\index{charge density!volume}
+$\rho_v$ (units of C/m$^3$) at the point at which we converge.  The left hand side is the {\it divergence} of ${\bf D}$, sometimes abbreviated ``div~${\bf D}$.''
+Thus, the above equation can be written 
+%
+\begin{equation}
+\mbox{div}~{\bf D} = \rho_v
+\end{equation}
+
+Summarizing:
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Divergence 
+\index{divergence!definition}
+is the flux per unit volume through an infinitesimally-small closed surface surrounding a point. 
+\end{mdframed}
+
+We will typically not actually want to integrate and take a limit in order to calculate divergence.  
+Fortunately, we do not have to.  
+It turns out that this operation can be expressed as the dot product $\nabla \cdot {\bf D}$; where, for example,
+%
+\begin{equation}
+\nabla \triangleq \hat{\bf x}\frac{\partial}{\partial x} + \hat{\bf y}\frac{\partial}{\partial y} + \hat{\bf z}\frac{\partial}{\partial z}
+\end{equation}
+%
+in the Cartesian coordinate system.  
+This is the \emph{same} ``$\nabla$'' that appears in the definition of the gradient operator (Section~\ref{m0098_Gradient}) and is same operator that often arises when considering other differential operators.
+If we expand ${\bf D}$ in terms of its Cartesian components:
+%
+\begin{equation}
+{\bf D} = \hat{\bf x}D_x + \hat{\bf y}D_y + \hat{\bf z}D_z 
+\end{equation}
+%
+Then
+%
+\begin{equation}
+\mbox{div}~{\bf D} = \nabla \cdot {\bf D} = \frac{\partial D_x}{\partial x} + \frac{\partial D_y}{\partial y} + \frac{\partial D_z}{\partial z}
+\end{equation}
+%
+This seems to make sense for two reasons.
+First, it is dimensionally correct. Taking the derivative of a quantity having units of C/m$^2$ with respect to distance yields a quantity having units of C/m$^3$.
+Second, it makes sense that flux from a point should be related to the sum of the rates of change of the flux density in each basis direction.
+Summarizing:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The divergence of a vector field ${\bf A}$ is $\nabla\cdot{\bf A}$.
+\end{mdframed}
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Divergence of a uniform field. 
+\\~\\
+A field ${\bf A}$ that is constant with respect to position is said to be \emph{uniform}. 
+A completely general description of such a field is ${\bf A} = \hat{\bf x}A_x + \hat{\bf y}A_y + \hat{\bf z}A_z$ where $A_x$, $A_y$, and $A_z$ are all constants.  
+We see immediately that the divergence of such a field must be zero. That is, $\nabla \cdot {\bf A} = 0$ because each component of ${\bf A}$ is constant with respect to position. 
+This also makes sense from the perspective of the ``flux through an infinitesimally-small closed surface'' interpretation of divergence. If the flux is uniform, the flux into the surface equals the flux out of the surface resulting in a net flux of zero.
+\end{mdframed}\end{example}
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Divergence of a linearly-increasing field.
+\\~\\
+Consider a field ${\bf A}=\hat{\bf x}A_0 x$ where $A_0$ is a constant.
+The divergence of ${\bf A}$ is $\nabla \cdot {\bf A} = A_0$.
+If we interpret ${\bf A}$ as a flux density, then we have found that the net flux per unit volume is simply the rate at which the flux density is increasing with distance.
+\end{mdframed} \end{example}
+
+To compute divergence in other coordinate systems, we merely need to know $\nabla$ for those systems.
+In the cylindrical system:
+\begin{equation}
+\nabla = \hat{\bf \rho}\frac{1}{\rho}\frac{\partial}{\partial \rho}\rho
++\hat{\bf \phi}\frac{1}{\rho}\frac{\partial}{\partial \phi}\rho
++ \hat{\bf z}\frac{\partial}{\partial z} 
+\end{equation}
+%
+and in the spherical system:
+%
+\begin{equation}
+\nabla = \hat{\bf r}\frac{1}{r^2}\frac{\partial}{\partial r}r^2
++\hat{\bf \theta}\frac{1}{r\sin\theta}\frac{\partial}{\partial \theta}\sin\theta
++\hat{\bf \phi}\frac{1}{r\sin\theta}\frac{\partial}{\partial \phi}
+\label{eDelSph}
+\end{equation}
+%
+Alternatively, one may use the explicit expressions for divergence given in Appendix~\ref{m0139_Vector_Operators}.
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Divergence of a radially-decreasing field.
+\\~\\
+Consider a vector field that is directed radially outward from a point and which decreases linearly with distance; i.e.,
+${\bf A}=\hat{\bf r}A_0/r$ where $A_0$ is a constant.
+In this case, the divergence is most easily computed in the spherical coordinate system since partial derivatives in all but one direction ($r$) equal zero.
+Neglecting terms that include these zero-valued partial derivatives, we find:
+%
+\begin{equation}
+\nabla \cdot {\bf A} 
+= \frac{1}{r^2}\frac{\partial}{\partial r}\left( r^2 \left[ \frac{A_0}{r} \right] \right) 
+= \frac{A_0}{r^2}
+\end{equation}
+%
+In other words, if we interpret ${\bf A}$ as a flux density, then the flux per unit volume is decreasing with as the square of distance from the origin.
+\end{mdframed}\end{example}
+
+It is useful to know that divergence, like $\nabla$ itself, is a linear operator; that is, for any constant scalars $a$ and $b$ and vector fields ${\bf A}$ and ${\bf B}$:
+%
+\begin{equation}
+\nabla \cdot \left( a{\bf A} + b{\bf B} \right) = a \nabla \cdot {\bf A} + b \nabla \cdot {\bf B}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Divergence}{Divergence}'' on Wikipedia.
+\end{itemize}
+
+\index{divergence|)}

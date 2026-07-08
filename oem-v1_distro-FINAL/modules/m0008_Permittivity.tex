@@ -1,0 +1,71 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Permittivity    
+%ORB AUTHOR 0       # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE   20180731
+%ORB ABSTRACT Introduction to permittivity, using concept of relationship between electric field intensity and charge
+
+\label{m0008_Permittivity} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{permittivity|(}
+
+Permittivity describes the effect of material in determining the electric field in response to electric charge.  For example, one can observe from laboratory experiments %\footnote{Also worth noting that this equation also follows directly from Maxwell's Equations, described in the next chapter.} 
+that a particle having charge $q$ gives rise to the electric field 
+%
+\begin{equation}
+{\bf E} = \hat{\bf R} ~ q ~ \frac{1}{4\pi R^2} ~ \frac{1}{\epsilon}
+\end{equation}
+%
+where $R$ is distance from the charge, 
+$\hat{\bf R}$ is a unit vector pointing away from the charge,
+and $\epsilon$ is a constant that depends on the material.
+Note that ${\bf E}$ increases with $q$, which makes sense since electric charge is the source of ${\bf E}$.  
+Also note that ${\bf E}$ is inversely proportional to $4\pi R^2$, indicating that ${\bf E}$ decreases in proportion to the area of a sphere surrounding the charge -- a principle commonly known as the \emph{inverse square law}.
+\index{inverse square law}
+The remaining factor $1/\epsilon$ is the constant of proportionality, which captures the effect of material.   
+Given units of V/m for ${\bf E}$ and C for $Q$, we find that $\epsilon$ must have units of farads per meter (F/m). 
+(To see this, note that 1~F $=$ 1~C/V.)    
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Permittivity ($\epsilon$, F/m) describes the effect of material in determining the electric field intensity in response to charge. 
+\end{mdframed}
+
+In free space (that is, a perfect vacuum), we find that $\epsilon = \epsilon_0$ where:
+%
+\begin{equation}
+\epsilon_0 \cong 8.854 \times 10^{-12} ~\mbox{F/m}
+\end{equation}
+% 
+The permittivity of air is only slightly greater, and usually can be assumed to be equal to that of free space.
+In most other materials, the permittivity is significantly greater; that is, the same charge results in a weaker electric field intensity.  
+
+It is common practice to describe the permittivity of materials relative to the permittivity of free space.
+This \emph{relative permittivity} 
+\index{permittivity!relative}
+\index{relative permittivity|see{permittivity, relative}}
+is given by:
+%
+\begin{equation}
+\epsilon_r \triangleq \frac{\epsilon}{\epsilon_0}
+\end{equation}
+%  
+Values of $\epsilon_r$ for a few representative materials is given in Appendix~\ref{m0135_Table_of_Permittivities}.  
+Note that $\epsilon_r$ ranges from 1 (corresponding to a perfect vacuum) to about 60 or so in common engineering applications.  
+Also note that relative permittivity is sometimes referred to as \emph{dielectric constant}. 
+\index{dielectric constant}
+This term is a bit misleading, however, since permittivity is a meaningful concept for many materials that are not dielectrics.
+
+%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Permittivity}{Permittivity}'' on Wikipedia.
+\item Appendix~\ref{m0135_Table_of_Permittivities} (``Permittivity of Some Common Materials'').
+\item ``\href{https://en.wikipedia.org/wiki/Inverse-square_law}{Inverse square law}'' on Wikipedia.
+\end{itemize}
+
+\index{permittivity|)}
+
+

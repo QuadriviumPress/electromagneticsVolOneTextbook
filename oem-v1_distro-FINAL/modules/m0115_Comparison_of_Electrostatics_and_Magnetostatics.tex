@@ -1,0 +1,71 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Comparison of Electrostatics and Magnetostatics 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180615   # yyyymmdd
+%ORB ABSTRACT Comparison of Electrostatics and Magnetostatics 
+
+\label{m0115_Comparison_of_Electrostatics_and_Magnetostatics} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+Students encountering magnetostatics 
+for the first time have usually been exposed to electrostatics 
+already.
+Electrostatics and magnetostatics exhibit many similarities.
+These are summarized in Table~\ref{m0115_tStaticsDuality}.
+The elements of magnetostatics presented in this table are all formally introduced in other sections; the sole purpose of this table is to point out the similarities.  
+%
+\begin{table*}[t]
+\begin{center}
+\begin{tabular}{lll}
+~ & {\bf electrostatics} & {\bf magnetostatics} \\
+\hline\hline
+Sources & static charge  & steady current, \\
+~ &                      & magnetizable~material \\
+\hline
+Field intensity & ${\bf E}$ (V/m)  & ${\bf H}$ (A/m) \\
+Flux density    & ${\bf D}$ (C/m$^2$) & ${\bf B}$ (Wb/m$^2$=T) \\
+\hline
+Material relations & ${\bf D}=\epsilon{\bf E}$ & ${\bf B}=\mu{\bf H}$ \\
+~                  & ${\bf J}=\sigma{\bf E}$ &  \\
+\hline
+Force on charge $q$ & ${\bf F}=q{\bf E}$ & ${\bf F}=q{\bf v} \times {\bf B}$ \\
+\hline
+Maxwell's Eqs. & $\oint_{\mathcal S}{{\bf D}\cdot d{\bf s}} = Q_{encl}$ & $\oint_{\mathcal S}{{\bf B}\cdot d{\bf s}} = 0$ \\
+~~(integral)  & $\oint_{\mathcal C}{{\bf E}\cdot d{\bf l}} = 0$ & $\oint_{\mathcal C}{{\bf H}\cdot d{\bf l}} = I_{encl}$ \\
+\hline
+Maxwell's Eqs. & $\nabla\cdot{\bf D}=\rho_v$ & $\nabla\cdot{\bf B}=0$ \\
+~~(differential)   & $\nabla\times{\bf E}=0$ & $\nabla\times{\bf H}={\bf J}$ \\
+\hline
+Boundary Conditions & $\hat{\bf n} \times \left[{\bf E}_1-{\bf E}_2\right] = 0$     & $\hat{\bf n} \times \left[{\bf H}_1-{\bf H}_2\right] = {\bf J}_s$ \\
+~~                  & $\hat{\bf n} \cdot \left[{\bf D}_1-{\bf D}_2\right] = \rho_s$ & $\hat{\bf n} \cdot \left[{\bf B}_1-{\bf B}_2\right] = 0$ \\
+\hline
+Energy storage & Capacitance & Inductance \\
+Energy density & $w_e=\frac{1}{2}\epsilon E^2$ & $w_m=\frac{1}{2}\mu H^2$ \\
+Energy dissipation & Resistance &  \\
+\hline
+\end{tabular}
+\end{center}
+\label{m0115_tStaticsDuality}
+\caption{A summary of the duality between electrostatics and magnetostatics.}
+\end{table*}
+
+The technical term for these similarities is \emph{duality}.
+\index{duality}
+Duality also exists between voltage and current in electrical circuit theory.
+For more about the concept of duality, see ``Additional Reading'' at the end of this section.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Duality_(electricity_and_magnetism)}{Duality (electricity and magnetism)}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Duality_(electrical_circuits)}{Duality (electrical circuits)}'' on Wikipedia.
+\end{itemize}
+
+
+
+
+

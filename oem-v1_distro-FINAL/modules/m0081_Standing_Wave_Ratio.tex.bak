@@ -1,0 +1,121 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Standing Wave Ratio
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180606   # yyyymmdd
+%ORB ABSTRACT Standing wave ratio 
+
+\label{m0081_Standing_Wave_Ratio}  % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{standing wave ratio (SWR)|(}
+\index{voltage standing wave ratio (VSWR)!seealso{standing wave ratio}}
+
+Precise matching of transmission lines to terminations is often not practical or possible.
+Whenever a significant mismatch exists, a standing wave (Section~\ref{m0086_Standing_Waves}) is apparent.
+The quality of the match is commonly expressed in terms of the \emph{standing wave ratio} (SWR) of this standing wave. 
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+\emph{Standing wave ratio} 
+\index{standing wave ratio!definition}
+(SWR) is defined as the ratio of the maximum magnitude of the standing wave to minimum magnitude of the standing wave.
+\end{mdframed}
+%
+In terms of the potential:
+%
+\begin{equation}
+\boxed{
+\mbox{SWR} \triangleq \frac{\mbox{maximum}~|\widetilde{V}|}{\mbox{minimum}~|\widetilde{V}|}
+}
+\end{equation}  
+
+SWR can be calculated using a simple expression, which we shall now derive. 
+In Section~\ref{m0086_Standing_Waves} we found that:
+%
+\begin{equation}
+\left|\widetilde{V}(z)\right| = |V_0^+| \sqrt{ 1 + \left|\Gamma\right|^2 + 2\left|\Gamma\right| \cos\left( 2\beta z + \phi \right) } 
+\end{equation}
+%
+The maximum value occurs when the cosine factor is equal to $+1$, yielding:
+%
+\begin{equation}
+\mbox{max}~\left|\widetilde{V}\right| 
+= |V_0^+| \sqrt{ 1 + \left|\Gamma\right|^2 + 2\left|\Gamma\right| }   
+\end{equation}
+%
+Note that the argument of the square root operator is equal to $\left( 1 + \left|\Gamma\right| \right)^2$; therefore:
+%
+\begin{equation}
+\mbox{max}~\left|\widetilde{V}\right|  
+= |V_0^+| \left( 1 + \left|\Gamma\right| \right)
+\end{equation}
+%
+Similarly the minimum value is achieved when the cosine factor is equal to $-1$, yielding:
+%
+\begin{equation}
+\mbox{min}~\left|\widetilde{V}\right| 
+= |V_0^+| \sqrt{ 1 + \left|\Gamma\right|^2 - 2\left|\Gamma\right| }   
+\end{equation}
+%
+So:
+%
+\begin{equation}
+\mbox{min}~\left|\widetilde{V}\right|  
+= |V_0^+| \left( 1 - \left|\Gamma\right| \right)
+\end{equation}
+%
+Therefore:
+%
+\begin{equation}
+\boxed{
+\mbox{SWR} = \frac{1 + \left|\Gamma\right|}{1 - \left|\Gamma\right|}
+}
+\label{m0081_eSWR}
+\end{equation}
+
+This relationship is shown graphically in Figure~\ref{m0081_fSWRvGamma}. 
+Note that SWR ranges from 1 for perfectly-matched terminations ($\Gamma=0$) to infinity for open- and short-circuit terminations ($\left|\Gamma\right|=1$).
+%
+\begin{figure}
+\begin{center}\includegraphics[width=\columnwidth]{modules/m0081_fSWRvGamma.eps}\end{center} 
+%\vspace{2.5in}
+\caption{\label{m0081_fSWRvGamma}Relationship between SWR and $\left|\Gamma\right|$.}
+\end{figure} 
+
+It is sometimes of interest to find the magnitude of the reflection coefficent given SWR.  Solving Equation~\ref{m0081_eSWR} for $\left|\Gamma\right|$ we find:
+%
+\begin{equation}
+\left|\Gamma\right| = \frac{\mbox{SWR}-1}{\mbox{SWR}+1}
+\label{m0081_eGammaFromSWR}
+\end{equation}
+ 
+SWR is often referred to as the \emph{voltage standing wave ratio} 
+\index{voltage standing wave ratio (VSWR)}
+(VSWR), although repeating the analysis above for the current reveals that the current SWR is equal to potential SWR, so the term ``SWR'' suffices.
+%TODO Problem for students
+
+SWR $<2$ or so is usually considered a ``good match'', although some applications require SWR $<1.1$ or better, and other applications are tolerant to SWR of 3 or greater.
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Reflection coefficient for various values of SWR.
+\\~\\
+What is the reflection coefficient for the above-cited values of SWR?
+Using Equation~\ref{m0081_eGammaFromSWR}, we find:
+%
+\begin{itemize}
+\item SWR = 1.1 corresponds to $\left|\Gamma\right|=0.0476$.
+\item SWR = 2.0 corresponds to $\left|\Gamma\right|=1/3$.
+\item SWR = 3.0 corresponds to $\left|\Gamma\right|=1/2$.
+\end{itemize}
+\end{mdframed}\end{example}
+
+\index{standing wave ratio (SWR)|)}
+
+
+
+
+

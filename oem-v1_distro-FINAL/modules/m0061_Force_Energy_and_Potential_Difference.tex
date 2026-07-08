@@ -1,0 +1,141 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Force, Energy, and Potential Difference
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Force, Energy, and Potential Difference
+
+\label{m0061_Force_Energy_and_Potential_Difference} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{energy!potential|(}
+
+The force 
+\index{force}
+${\bf F}_e$ experienced by a particle at location ${\bf r}$ bearing charge $q$ in an electric field intensity ${\bf E}$ is
+(see Sections~\ref{m0002_Electric_Field_Intensity} and/or Section~\ref{m0102_Coulombs_Law})
+%
+\begin{equation}
+{\bf F}_e = q {\bf E}({\bf r})
+\label{m0061_eFeqE} 
+\end{equation}
+%
+If left alone in free space, this particle would immediately begin to move.
+The resulting displacement represents a loss of potential energy. 
+This loss can quantified using the concept of \emph{work}, $W$.  
+\index{work}
+The incremental work $\Delta W$ done by moving the particle a short distance $\Delta l$, over which we assume the change in ${\bf F}_e$ is negligible, is
+%
+\begin{equation}
+\Delta W \approx -{\bf F}_e\cdot\hat{\bf l}\Delta l
+\label{m0061_WeFdl}
+\end{equation}
+%
+where in this case $\hat{\bf l}$ is the unit vector in the direction of the motion; i.e., the direction of ${\bf F}_e$.
+The minus sign indicates that potential energy of the system consisting of the electric field and the particle is being reduced. 
+Like a spring that was previously compressed and is now released, the system is ``relaxing.''
+   
+To confirm that work defined in this way is an expression of energy, consider the units. The product of force (units of N) and distance (units of m) has units of N$\cdot$m, and 1~N$\cdot$m is 1~J of energy.
+
+Now, what if the motion of the particle is due to factors other than the force associated with the electric field?
+For example, we might consider ``resetting'' the system to it's original condition by applying an external force to overcome ${\bf F}_e$.  
+Equation~\ref{m0061_WeFdl} still represents the change in potential energy of the system, but now $\hat{\bf l}$ changes sign.
+The same magnitude of work is done, but now this work is positive.
+In other words, positive work requires the application of an \emph{external} force that opposes and overcomes the force associated with the electric field, thereby increasing the potential energy of the system.
+With respect to the analogy of a mechanical spring used above, positive work is achieved by compressing the spring.
+
+It is also worth noting that the purpose of the dot product in Equation~\ref{m0061_WeFdl} is to ensure that only the component of motion parallel to the direction of the electric field is included in the energy tally.  This is simply because motion in any other direction cannot be due to ${\bf E}$, and therefore does not increase or decrease the associated potential energy.
+
+We can make the relationship between work and the electric field explicit by substituting Equation~\ref{m0061_eFeqE} into Equation~\ref{m0061_WeFdl}, yielding
+%
+\begin{equation}
+\Delta W \approx -q {\bf E}({\bf r})\cdot\hat{\bf l}\Delta l
+\label{m0061_WqEdl}
+\end{equation}
+
+Equation~\ref{m0061_WqEdl} gives the work only for a short distance around ${\bf r}$.  
+Now let us try to generalize this result.
+If we wish to know the work done over a larger distance, then we must account for the possibility that ${\bf E}$ varies along the path taken.
+To do this, we may sum contributions from points along the path traced out by the particle, i.e.,
+%
+\begin{equation}
+W \approx \sum_{n=1}^N \Delta W ({\bf r}_n) 
+\end{equation}
+%
+where ${\bf r}_n$ are positions defining the path.  Substituting Equation~\ref{m0061_WqEdl}, we have 
+%
+\begin{equation}
+W \approx -q \sum_{n=1}^N {\bf E}({\bf r}_n)\cdot\hat{\bf l}({\bf r}_n)\Delta l
+\end{equation}
+%
+Taking the limit as $\Delta l\to 0$ we obtain
+%
+\begin{equation}
+W = -q \int_{\mathcal C} {\bf E}({\bf r})\cdot\hat{\bf l}({\bf r}) dl
+\end{equation}
+%
+where $\mathcal{C}$ is the path (previously, the sequence of ${\bf r}_n$'s) followed.
+Now omitting the explicit dependence on ${\bf r}$ in the integrand for clarity:
+%
+\begin{equation}
+W = -q \int_{\mathcal C} {\bf E}\cdot d{\bf l}
+\label{m0061_eWqint}
+\end{equation}
+%
+where $d{\bf l} = \hat{\bf l}dl$ as usual.
+Now, we are able to determine the change in potential energy for a charged particle moving along any path in space, given the electric field.
+
+At this point, it is convenient to formally define the electric {\it potential difference} $V_{21}$ 
+\index{potential difference}
+between the start point (1) and end point (2) of ${\mathcal C}$.  $V_{21}$ is defined as the work done by traversing ${\mathcal C}$, per unit of charge:
+%
+\begin{equation}
+V_{21} \triangleq \frac{W}{q} 
+\end{equation}
+%
+This has units of J/C, which is volts (V). Substituting Equation~\ref{m0061_eWqint}, we obtain:
+%
+\begin{equation}
+\boxed{
+V_{21} = - \int_{\mathcal C} {\bf E} \cdot d{\bf l}
+}
+\label{m0062_eVAB}
+\end{equation}
+%
+An advantage of analysis in terms of electrical potential as opposed to energy is that we will no longer have to explicitly state the value of the charge involved.  
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The potential difference $V_{21}$ between two points in space, given by Equation~\ref{m0062_eVAB}, is the change in potential energy of a charged particle divided by the charge of the particle.  Potential energy is also commonly known as ``voltage'' and has units of V. 
+\end{mdframed}
+
+%=--------------------------------
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Potential difference in a uniform electric field.
+\\~\\
+Consider an electric field ${\bf E}({\bf r}) = \hat{\bf z}E_0$, which is constant in both magnitude and direction throughout the domain of the problem. 
+The path of interest is a line beginning at $\hat{\bf z}z_1$ and ending at $\hat{\bf z}z_2$.  What is $V_{21}$?
+(It's worth noting that the answer to this problem is a building block for a vast number of problems in electromagnetic analysis.)
+
+{\bf Solution.} From Equation~\ref{m0062_eVAB} we have
+%
+\begin{equation}
+V_{21} = - \int_{z_1}^{z_2} \left( \hat{\bf z}E_0 \right) \cdot \hat{\bf z}dz = -E_0 (z_2 - z_1)
+\end{equation}
+%
+Note $V_{21}$ is simply the electric field intensity times the distance between the points. 
+This may seem familiar. For example, compare this to the findings of the battery-charged capacitor experiment described in Section~\ref{m0002_Electric_Field_Intensity}.
+There too we find that potential difference equals electric field intensity times distance, and the signs agree.
+\end{mdframed}\end{example}
+
+%----------------------------------------------
+
+The solution to the preceding example is simple because the direct path between the two points is parallel to the electric field.
+If the path between the points had been \emph{perpendicular} to ${\bf E}$, then the solution is even easier -- $V_{21}$ is simply zero.  
+In all other cases, $V_{21}$ is proportional to the component of the direct path between the start and end points that is parallel to ${\bf E}$, as determined by the dot product.   
+
+\index{energy!potential|)}

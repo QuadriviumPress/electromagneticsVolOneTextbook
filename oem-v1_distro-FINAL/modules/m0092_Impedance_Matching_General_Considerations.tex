@@ -1,0 +1,52 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Impedance Matching: General Considerations
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Preliminary concepts and context for impedance matching 
+
+\label{m0092_Impedance_Matching_General_Considerations} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{impedance!matching|(}
+
+``Impedance matching'' refers to the problem of transforming a particular impedance $Z_L$ into a modified impedance $Z_{in}$.
+The problem of impedance matching arises because it is not convenient, practical, or desirable to have all devices in a system operate at the same input and output impedances.  Here are just a few of the issues:
+%
+\begin{itemize}
+\item It is not convenient or practical to market coaxial cables 
+\index{transmission line!coaxial}
+having characteristic impedance equal to every terminating impedance that might be encountered.
+\item Different types of antennas 
+\index{antenna!impedance matching}
+operate at different impedances, and the impedance of most antennas vary significantly with frequency.
+\item Different types of amplifiers 
+\index{amplifier}
+operate most effectively at different output impedances.  For example, amplifiers operating as current sources operate most effectively with low output impedance, whereas amplifiers operating as voltage sources operate most effectively with high output impedances.  
+\item Independently of the above issue, techniques for the design of transistor amplifiers rely on intentionally \emph{mismatching} impedances; i.e., matching to an impedance different than that which maximizes power transfer or minimizes reflection.  In other words, various design goals are met by applying particular impedances to the input and output ports of the transistor.\footnote{For a concise introduction to this concept, see Chapter~10 of S.W.\ Ellingson, \emph{Radio Systems Engineering}, Cambridge Univ.\ Press, 2016.}
+\end{itemize} 
+%
+For all of these reasons, electrical engineers frequently find themselves with the task of transforming a particular impedance $Z_L$ into a modified impedance $Z_{in}$.
+
+The reader is probably already familiar with many approaches to the impedance matching problem that employ discrete components and do not require knowledge of electromagnetics.\footnote{For an overview, see Chapter~9 of S.W.\ Ellingson, \emph{Radio Systems Engineering}, Cambridge Univ.\ Press, 2016.}  To list just a few of these approaches:  transformers, resistive (lossy) matching, single-reactance matching, and two-reactance (``L'' network) matching.
+However, all of these have limitations.
+Perhaps the most serious limitations pertain to the performance of discrete components at high frequencies.
+Here are just a few of the most common problems:
+%
+\begin{itemize}
+\item Practical resistors actually behave as ideal resistors in series with ideal inductors 
+\item Practical capacitors actually behave as ideal capacitors in series with ideal resistors
+\item Practical inductors behave as ideal inductors in parallel with ideal capacitors, and in series with ideal resistors.
+\end{itemize}
+%
+All of this makes the use of discrete components increasingly difficult with increasing frequency.
+
+One possible solution to these types of problems is to more precisely model each component, and then to account for the non-ideal behavior by incorporating the appropriate models in the analysis and design process.
+Alternatively, one may consider ways to replace particular troublesome components -- or, in some cases, all discrete components -- with transmission line devices.
+The latter approach is particularly convenient in circuits implemented on printed circuit boards at frequencies in the UHF band and higher, since the necessary transmission line structures are easy to implement as microstrip 
+\index{microstrip}
+lines and are relatively compact since the wavelength is relatively small.
+However, applications employing transmission lines as components in impedance matching devices can be found at lower frequencies as well.
+
+\index{impedance!matching|)} 

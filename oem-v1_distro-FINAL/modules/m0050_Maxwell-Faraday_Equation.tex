@@ -1,0 +1,101 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE The Maxwell-Faraday Equation 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180807   # yyyymmdd
+%ORB ABSTRACT The Maxwell-Faraday Equation 
+
+\label{m0050_Maxwell-Faraday_Equation} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Maxwell-Faraday equation|(}
+
+In this section, we generalize Kirchoff's Voltage Law (KVL), 
+\index{Kirchoff's voltage law!electrostatics}
+previously encountered as a principle of electrostatics in Sections~\ref{m0016_Kirchoffs_Voltage_Law_Electrostatics_Integral_Form} and \ref{m0152_KVL_Electrostatics_Integral-to-Differential}.
+KVL states that in the absence of a time-varying magnetic flux, the electric potential accumulated by traversing a closed path $\mathcal{C}$ is zero.
+Here is that idea in mathematical form:
+%
+\begin{equation}   
+V = \oint_{\mathcal{C}}{ {\bf E} \cdot d{\bf l} } = 0
+\end{equation}
+%
+Now recall Faraday's Law 
+\index{Faraday's law}
+(Section~\ref{m0055_Faradays_Law}): 
+%
+\begin{equation}
+V = - \frac{\partial}{\partial t} \Phi = - \frac{\partial}{\partial t} \int_{\mathcal{S}} { {\bf B} \cdot d{\bf s} }
+\end{equation}
+%
+Here, $\mathcal{S}$ is any open surface that intersects all magnetic field lines passing through $\mathcal{C}$, with the relative orientations of $\mathcal{C}$ and $d{\bf s}$ determined in the usual way by the Stokes' Theorem 
+\index{Stokes' theorem}
+convention (Section~\ref{m0051_Stokes_Theorem}).
+Note that Faraday's Law agrees with KVL in the magnetostatic case. If magnetic flux is constant, then Faraday's Law says $V=0$. 
+However, Faraday's Law is very clearly \emph{not} consistent with KVL if magnetic flux is time-varying.
+The correction is simple enough; we can simply set these expressions to be equal.
+Here we go:
+%
+\begin{equation} 
+\boxed{  
+\oint_{\mathcal{C}}{ {\bf E} \cdot d{\bf l} } = - \frac{\partial}{\partial t} \int_{\mathcal{S}} { {\bf B} \cdot d{\bf s} }
+}
+\label{m0050_eMFEI}
+\end{equation}
+%
+This general form is known by a variety of names; here we refer to it as the \emph{Maxwell-Faraday Equation} (MFE).
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The integral form of the Maxwell-Faraday Equation (Equation~\ref{m0050_eMFEI}) states that the electric potential associated with a closed path $\mathcal{C}$ is due entirely to  electromagnetic induction, via Faraday's Law. 
+\end{mdframed}
+
+Despite the great significance of this expression as one of Maxwell's Equations, one might argue that all we have done is simply to write Faraday's Law in a slightly more verbose way.  This is true.  The \emph{real} power of the MFE is unleashed when it is expressed in differential, as opposed to integral form.  Let us now do this. 
+
+We can transform the left-hand side of Equation~\ref{m0050_eMFEI} into a integral over $\mathcal{S}$ using Stokes' Theorem.
+Applying Stokes' theorem on the left, we obtain 
+%
+\begin{equation}   
+\int_{\mathcal{S}} { \left( \nabla \times {\bf E} \right) \cdot d{\bf s}  }  = - \frac{\partial}{\partial t} \int_{\mathcal{S}} { {\bf B} \cdot d{\bf s} }
+\end{equation}
+%
+Now exchanging the order of integration and differentiation on the right hand side:
+%
+\begin{equation}   
+\int_{\mathcal{S}} { \left( \nabla \times {\bf E} \right) \cdot d{\bf s}  } = \int_{\mathcal{S}} { \left( - \frac{\partial}{\partial t}{\bf B} \right) \cdot d{\bf s} }
+\end{equation}
+% 
+The surface $\mathcal{S}$ on both sides is the same, and we have not constrained $\mathcal{S}$ in any way. $\mathcal{S}$ can be any mathematically-valid open surface anywhere in space, having any size and any orientation.
+The only way the above expression can be universally true under these conditions is if the integrands on each side are equal at every point in space.
+Therefore,
+%
+\begin{equation}   
+\boxed{
+\nabla \times {\bf E} = - \frac{\partial}{\partial t}{\bf B}
+}
+\label{m0050_eMFED}
+\end{equation}
+%
+which is the MFE in differential form.
+
+What does this mean? Recall that the curl of ${\bf E}$ is a way to take a directive of ${\bf E}$ with respect to position (Section~\ref{m0048_Curl}).  Therefore the MFE constrains spatial derivatives of ${\bf E}$ to be simply related to the rate of change of ${\bf B}$.  Said plainly:
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The differential form of the Maxwell-Faraday Equation (Equation~\ref{m0050_eMFED}) relates the change in the electric field with position to the change in the magnetic field with time.
+\end{mdframed}
+
+Now that \emph{is} arguably new and useful information.  We now see that electric and magnetic fields are coupled not only for line integrals and fluxes, but also at each point in space.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Faraday's_law_of_induction}{Faraday's Law of Induction}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Maxwell's_equations}{Maxwell's Equations}'' on Wikipedia.
+\end{itemize}
+
+\index{Maxwell-Faraday equation|)}
+
+

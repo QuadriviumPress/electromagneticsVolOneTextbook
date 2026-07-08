@@ -1,0 +1,75 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Measurement of Transmission Line Characteristics
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Trick for finding Z_0 by open/short-circuiting line 
+
+\label{m0089_Measurement_of_Transmission_Line_Characteristics} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{characteristic impedance!measurement}
+
+This section presents a simple technique for measuring the characteristic impedance $Z_0$, electrical length $\beta l$, and phase velocity $v_p$ of a lossless transmission line.
+This technique requires two measurements: the input impedance $Z_{in}$ when the transmission line is short-circuited and $Z_{in}$ when the transmission line is open-circuited.
+
+In Section~\ref{m0088_Input_Impedance_for_Open_and_Short_Circuit_Terminations}, it is shown that the input impedance $Z_{in}$ of a short-circuited transmission line is
+%
+\begin{equation}
+Z_{in}^{(SC)} = +jZ_0 \tan\beta l
+\nonumber 
+\end{equation}
+%
+and when a transmission line is terminated in an open circuit, the input impedance is
+%
+\begin{equation}
+Z_{in}^{(OC)} = -jZ_0 \cot\beta l 
+\nonumber
+\end{equation}
+%
+Observe what happens when we multiply these results together:
+%
+\begin{equation}
+Z_{in}^{(SC)} \cdot Z_{in}^{(OC)} = Z_0^2
+\nonumber
+\end{equation}
+%
+that is, the product of the measurements $Z_{in}^{(OC)}$ and  $Z_{in}^{(SC)}$ is simply the square of the characteristic impedance.
+Therefore
+%
+\begin{equation}
+Z_0 = \sqrt{ Z_{in}^{(SC)} \cdot Z_{in}^{(OC)} }
+\end{equation}
+%
+If we instead divide these measurements, we find
+%
+\begin{equation}
+\frac{ Z_{in}^{(SC)} }{ Z_{in}^{(OC)} } = -\tan^2\beta l
+\nonumber
+\end{equation}
+%
+Therefore:
+%
+\begin{equation}
+\tan\beta l = \left[ - \frac{ Z_{in}^{(SC)} }{ Z_{in}^{(OC)} }  \right]^{1/2}
+\end{equation}
+%
+If $l$ is known in advance to be less than $\lambda/2$, then the electrical length $\beta l$ can be determined by taking the inverse tangent.
+\index{electrical length!measurement}
+If $l$ is of unknown length and longer than $\lambda/2$, one must take care to account for the periodicity of tangent function; in this case, it may not be possible to unambiguously determine $\beta l$.
+Although we shall not present the method here, it is possible to resolve this ambiguity by making multiple measurements over a range of frequencies.
+
+Once $\beta l$ is determined, it is simple to determine $l$ given $\beta$, $\beta$ given $l$, and then $v_p$.  For example, the phase velocity 
+\index{phase velocity!measurement}
+may be determined by first finding $\beta l$ for a known length using the above procedure, calculating $\beta = \left(\beta l\right)/l$, and then $v_p = \omega/\beta$. 
+
+%%% TODO
+% %ORB EXAMPLE
+% ~\\ \begin{example} 
+% \begin{mdframed}[backgroundcolor=green!20] 
+% Measurement of Transmission Line Parameters. 
+% \end{mdframed}
+% {\color{red}An example of the above procedure.}
+% \centerline{\rule{2in}{1pt}} \end{example}
+

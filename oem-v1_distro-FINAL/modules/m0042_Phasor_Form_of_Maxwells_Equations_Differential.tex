@@ -1,0 +1,167 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Maxwell's Equations in Differential Phasor Form
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180807   # yyyymmdd
+%ORB ABSTRACT Maxwell's Equations in Differential Phasor Form 
+
+\label{m0042_Phasor_Form_of_Maxwells_Equations_Differential} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Maxwell's equations!differential phasor form|(}
+
+In this section, we derive the phasor 
+\index{phasor}
+form of Maxwell's Equations from the general time-varying form of these equations.
+Here we are interested exclusively in the differential (``point'') form of these equations. 
+It is assumed that the reader is comfortable with phasor representation and its benefits; if not, a review of Section~\ref{m0033_Phasors} is recommended before attempting this section.
+
+Maxwell's Equations in differential time-domain form are Gauss' Law (Section~\ref{m0045_Gauss_Law_Differential_Form_from_Integral_Form}):
+%
+\begin{equation}
+\nabla\cdot{\bf D}=\rho_v
+\label{m0042_eGL}
+\end{equation}
+%
+the Maxwell-Faraday Equation (MFE; Section~\ref{m0050_Maxwell-Faraday_Equation}):
+%
+\begin{equation}
+\nabla\times{\bf E}=-\frac{\partial}{\partial t}{\bf B}
+\label{m0042_eMFE}
+\end{equation}
+%
+Gauss' Law for Magnetism (GSM; Section~\ref{m0047_Gauss_Law_Magnetic_Differential_from_Integral}):
+%
+\begin{equation}
+\nabla\cdot{\bf B}=0
+\end{equation}
+%
+and Ampere's Law (Section~\ref{m0053_Displacement_Current_Amperes_Law}):
+%
+\begin{equation}
+\nabla\times{\bf H}={\bf J} + \frac{\partial}{\partial t}{\bf D}
+\end{equation}
+
+We begin with Gauss's Law (Equation~\ref{m0042_eGL}).  We define $\widetilde{\bf D}$ and $\widetilde{\rho}_v$ as phasor quantities through the usual relationship:
+ %
+\begin{equation}   
+{\bf D} = \mbox{Re} \left\{  \widetilde{\bf D} e^{j\omega t} \right\}
+\end{equation}
+%
+and
+%
+\begin{equation}   
+\rho_v = \mbox{Re} \left\{ \widetilde{\rho}_v e^{j\omega t} \right\}
+\end{equation}
+%
+Substituting these expressions into Equation~\ref{m0042_eGL}:
+ %
+\begin{equation}   
+\nabla \cdot \left[ \mbox{Re} \left\{  \widetilde{\bf D} e^{j\omega t} \right\} \right] = \mbox{Re} \left\{ \widetilde{\rho}_v e^{j\omega t} \right\}
+\end{equation}
+%
+Divergence is a real-valued linear operator. Therefore, we may exchange the order of the ``Re'' and ``$\nabla\cdot$'' operations (this is ``Claim~2'' from Section~\ref{m0033_Phasors}):
+ %
+\begin{equation}   
+\mbox{Re} \left\{  \nabla \cdot \left[ \widetilde{\bf D} e^{j\omega t}\right] \right\}  = \mbox{Re} \left\{ \widetilde{\rho}_v e^{j\omega t} \right\}
+\end{equation}
+%
+Next, we note that the differentiation associated with the divergence operator is with respect to position and not with respect to time, so the order of operations may be further rearranged as follows:
+  %
+\begin{equation}   
+\mbox{Re} \left\{  \left[ \nabla \cdot  \widetilde{\bf D} \right] e^{j\omega t} \right\}  = \mbox{Re} \left\{ \widetilde{\rho}_v e^{j\omega t} \right\}
+\end{equation}
+%
+Finally, we note that the equality of the left and right sides of the above equation implies the equality of the associated phasors (this is ``Claim~1'' from Section~\ref{m0033_Phasors}); thus,
+  %
+\begin{equation}
+\boxed{   
+\nabla \cdot \widetilde{\bf D} = \widetilde{\rho}_v
+}
+\label{m0042_e1}
+\end{equation}
+%
+In other words, the differential form of Gauss' Law for phasors is identical to the differential form of Gauss' Law for physical time-domain quantities. 
+
+The same procedure applied to the MFE is only a little more complicated.
+First, we establish the phasor representations of the electric and magnetic fields:
+ %
+\begin{equation}   
+{\bf E} = \mbox{Re} \left\{  \widetilde{\bf E} e^{j\omega t} \right\}
+\end{equation}
+%
+\begin{equation}   
+{\bf B} = \mbox{Re} \left\{  \widetilde{\bf B} e^{j\omega t} \right\}
+\end{equation}
+%
+After substitution into Equation~\ref{m0042_eMFE}:
+ %
+\begin{equation}   
+\nabla \times \left[ \mbox{Re} \left\{  \widetilde{\bf E} e^{j\omega t} \right\} \right]   = 
+-\frac{\partial}{\partial t} \left[ \mbox{Re} \left\{  \widetilde{\bf B} e^{j\omega t} \right\} \right]
+\end{equation}
+%
+Both curl and time-differentiation are real-valued linear operations, so we are entitled to change the order of operations as follows:
+%
+\begin{equation}   
+ \mbox{Re} \left\{  \nabla \times  \left[ \widetilde{\bf E} e^{j\omega t} \right] \right\}   = 
+-\mbox{Re} \left\{ \frac{\partial}{\partial t} \left[  \widetilde{\bf B} e^{j\omega t} \right] \right\} 
+\end{equation}
+%
+On the left, we note that the time dependence $e^{j\omega t}$ can be pulled out of the argument of the curl operator, since it does not depend on position: 
+%
+\begin{equation}   
+ \mbox{Re} \left\{  \left[ \nabla \times  \widetilde{\bf E} \right] e^{j\omega t} \right\}   = 
+-\mbox{Re} \left\{ \frac{\partial}{\partial t} \left[  \widetilde{\bf B} e^{j\omega t} \right] \right\} 
+\end{equation}
+%
+On the right, we note that $\widetilde{\bf B}$ is constant with respect to time (because it is a phasor), so:
+%
+\begin{flalign}   
+\mbox{Re} \left\{  \left[ \nabla \times  \widetilde{\bf E} \right] e^{j\omega t} \right\} &= -\mbox{Re} \left\{ \widetilde{\bf B} \frac{\partial}{\partial t} e^{j\omega t} \right\}  \nonumber \\
+                                                                                          &= -\mbox{Re} \left\{ \widetilde{\bf B} j\omega e^{j\omega t} \right\} \nonumber \\
+                                                                                          &= \mbox{Re} \left\{ \left[ -j\omega\widetilde{\bf B} \right] e^{j\omega t} \right\} 
+\end{flalign}
+%
+And so we have found:
+%
+\begin{equation}   
+\boxed{
+\nabla \times  \widetilde{\bf E} = -j\omega\widetilde{\bf B}
+}
+\label{m0042_e2}
+\end{equation}
+
+Let's pause for a moment to consider the above result.  
+In the general time-domain version of the MFE, we must take spatial derivatives of the electric field and time derivatives of the magnetic field.
+In the phasor version of the MFE, the time derivative operator has been replaced with multiplication by $j\omega$.
+This is a tremendous simplification since the equations now involve differentiation over position only.
+Furthermore, no information is lost in this simplification -- for a reminder of why that is, see the discussion of Fourier Analysis at the end of Section~\ref{m0033_Phasors}.
+Without this kind of simplification, much of what is now considered ``basic'' engineering electromagnetics would be intractable.
+
+The procedure for conversion of the remaining two equations is very similar, yielding:
+%
+\begin{equation}   
+\boxed{
+\nabla \cdot \widetilde{\bf B} = 0
+}
+\label{m0042_e3}
+\end{equation}
+%
+\begin{equation} 
+\boxed{  
+\nabla \times \widetilde{\bf H} = \widetilde{\bf J} + j\omega\widetilde{\bf D}
+}
+\label{m0042_e4}
+\end{equation}
+%
+The details are left as an exercise for the reader.
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The differential form of Maxwell's Equations (Equations~\ref{m0042_e1}, \ref{m0042_e2}, \ref{m0042_e3}, and \ref{m0042_e4}) involve operations on the phasor representations of the physical quantities.
+These equations have the advantage that differentiation with respect to time is replaced by multiplication by $j\omega$.
+\end{mdframed}
+
+\index{Maxwell's equations!differential phasor form|)}

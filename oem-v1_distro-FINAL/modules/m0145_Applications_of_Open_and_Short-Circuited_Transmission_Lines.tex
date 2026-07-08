@@ -1,0 +1,74 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Applications of Open- and Short-Circuited Transmission Line Stubs
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Applications of Open- and Short-Circuited Transmission Lines
+
+\label{m0145_Applications_of_Open_and_Short-Circuited_Transmission_Lines} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{stub!applications}
+
+The theory of open- and short-circuited transmission lines -- often referred to as \emph{stubs} -- was addressed in Section~\ref{m0088_Input_Impedance_for_Open_and_Short_Circuit_Terminations}. 
+These structures have important and wide-ranging applications. 
+
+In particular, these structures can be used to replace discrete inductors and capacitors in certain applications.  
+To see this, consider the short-circuited line (Figure~\ref{m0088_fZin}(b) of Section~\ref{m0088_Input_Impedance_for_Open_and_Short_Circuit_Terminations}). Note that each value of $l$ that is less than $\lambda/4$ corresponds to a particular positive reactance; i.e., the transmission line ``looks'' like an inductor.
+Also note that lengths between $\lambda/4$ and $\lambda/2$ result in reactances that are negative; i.e., the transmission line ``looks'' like a capacitor.
+Thus, it is possible to replace an inductor or capacitor with a short-circuited transmission line of the appropriate length.
+The input impedance of such a transmission line is identical to that of the inductor or capacitor at the design frequency. 
+The variation of reactance with respect to frequency will \emph{not} be identical, which may or may not be a concern depending on the bandwidth and frequency response requirements of the application.
+Open-circuited lines may be used in a similar way. 
+
+This property of open- and short-circuited transmission lines makes it possible to implement impedance matching 
+\index{impedance!matching}
+circuits (see Section~\ref{m0094_Single-Stub_Matching}), filters, 
+\index{filter}
+and other devices entirely from transmission lines, with fewer or no discrete inductors or capacitors required.
+Transmission lines do not suffer the performance limitations of discrete devices at high frequencies and are less expensive.
+A drawback of transmission line stubs in this application is that the lines are typically much larger than the discrete devices they are intended to replace.
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Emitter Induction 
+\index{emitter induction}
+Using Short-Circuited Line. 
+\\~\\
+In the design of low-noise amplifiers using bipolar transistors in common-emitter configuration, it is often useful to introduce a little inductance between the emitter and ground.
+This is known as ``inductive degeneration,'' ``emitter induction,'' or sometimes by other names.
+It can be difficult to find suitable inductors, especially for operation in the UHF band and higher.
+However, a microstrip 
+\index{microstrip}
+line can be used to achieve the desired inductive impedance.
+Determine the length of a stub that implements a 2.2~nH inductance at 6~GHz using microstrip line with characteristic impedance $50~\Omega$ and phase velocity $0.6c$. 
+
+{\bf Solution.}
+At the design frequency, the impedance looking into this section of line from the emitter should be equal to that of a 2.2~nH inductor, which is 
+$+j\omega L = +j2\pi fL = +j82.9~\Omega$.
+The input impedance of a short-circuited stub of length $l$ which is grounded (thus, short-circuited) at the opposite end is $+jZ_0\tan\beta l$ (Section~\ref{m0088_Input_Impedance_for_Open_and_Short_Circuit_Terminations}).  
+Setting this equal to $+j82.9~\Omega$ and noting that $Z_0=50~\Omega$, we find that $\beta l \cong 1.028$~rad.
+The phase propagation constant is (Section~\ref{m0080_Wave_Propagation_on_a_Transmission_Line}):
+%
+\begin{equation}
+\beta = \frac{\omega}{v_p} = \frac{2\pi f}{0.6 c} \cong 209.4~\mbox{rad/m}
+\end{equation}
+%
+Therefore, the length of the microstrip line is $l = \left(\beta l\right) / \beta \cong 4.9$~mm.
+
+\end{mdframed}\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Stub_(electronics)}{Stub (electronics)}'' on Wikipedia.
+\end{itemize}
+
+
+
+
+
+

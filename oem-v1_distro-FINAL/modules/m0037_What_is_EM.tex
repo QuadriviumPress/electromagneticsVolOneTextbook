@@ -1,0 +1,106 @@
+%ORB TITLE What is Electromagnetics?
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180731   # yyyymmdd
+%ORB ABSTRACT What is Electromagnetics
+
+\label{m0037_What_is_EM} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The topic of this book is applied engineering electromagnetics.
+This topic is often described as ``the theory of electromagnetic fields and waves,'' which is both true and misleading.
+The truth is that electric fields, magnetic fields, their sources, waves, and the behavior these waves are all topics covered by this book.
+The misleading part is that our \emph{principal} aim shall be to close the gap between basic electrical circuit theory and the more general theory that is required to address certain topics that are of broad and common interest in the field of electrical engineering. 
+(For a preview of topics where these techniques are required, see the list at the end of this section.)
+
+In basic electrical circuit theory, the behavior of devices and systems is abstracted in such a way that the underlying electromagnetic principles do not need to be considered.
+Every student of electrical engineering encounters this, and is grateful since this greatly simplifies analysis and design. 
+For example, a resistor 
+\index{resistor}
+is commonly defined as a device which exhibits a particular voltage $V=IR$ in response to a current $I$, and the resistor is therefore \emph{completely} described by the value $R$.
+This is an example of a ``lumped element'' abstraction of an electrical device. 
+Much can be accomplished knowing nothing else about resistors; no particular knowledge of the physical concepts of electrical potential, conduction current, or resistance is required.
+However, this simplification makes it impossible to answer some frequently-encountered questions.
+Here are just a few:
+%
+\begin{itemize}
+\item What determines $R$?  How does one go about designing a resistor to have a particular resistance?
+\item Practical resistors are rated for power-handling capability; e.g., discrete resistors are frequently identified as ``1/8-W,'' ``1/4-W,'' and so on.  How does one determine this, and how can this be adjusted in the design?
+\item Practical resistors exhibit significant reactance as well as resistance.  Why?  How is this determined?  What can be done to mitigate this?      
+\item Most things which are not resistors also exhibit significant resistance and reactance -- for example, electrical pins and interconnects.  Why?  How is this determined?  What can be done to mitigate this? 
+\end{itemize}
+
+The answers to the these questions must involve \emph{properties of materials} and \emph{the geometry in which those materials are arranged}.  These are precisely the things that disappear in lumped element device models, so it is not surprising that such models leave us in the dark on these issues.
+It should also be apparent that what is true for the resistor is also going to be true for other devices of practical interest, including 
+capacitors (and devices unintentionally exhibiting capacitance),
+inductors (and devices unintentionally exhibiting inductance),
+transformers (and devices unintentionally exhibiting mutual impedance), 
+and so on.
+From this perspective, electromagnetics may be viewed as a generalization of electrical circuit theory that addresses these considerations.
+Conversely basic electric circuit theory may be viewed a special case of electromagnetic theory that applies when these considerations are not important.
+Many instances of this ``electromagnetics as generalization'' vs. ``lumped-element theory as special case'' dichotomy appear in the study of electromagnetics.
+
+There is more to the topic, however.
+There are many devices and applications in which electromagnetic fields and waves are \emph{primary} engineering considerations that must be dealt with directly.
+Examples include electrical generators and motors; 
+antennas; 
+printed circuit board stackup and layout; 
+persistent storage of data (e.g., hard drives);
+fiber optics; and 
+systems for radio, radar, remote sensing, and medical imaging. 
+Considerations such as signal integrity and electromagnetic compatibility (EMC) similarly require explicit consideration of electromagnetic principles.
+
+Although electromagnetic considerations pertain to all frequencies, these considerations become increasingly difficult to avoid with increasing frequency.
+This is because the wavelength 
+\index{wavelength}
+of an electromagnetic field decreases with increasing frequency.\footnote{Most readers have encountered the concepts of frequency and wavelength previously, but can refer to Section~\ref{m0074_Fundamentals_of_Waves}, if needed, for a quick primer.}
+When wavelength is large compared to the size of the region of interest (e.g., a circuit), then analysis and design is not much different from zero-frequency (``DC'') analysis and design.
+
+For example, the free space wavelength at 3~MHz is about 100~m, so a planar circuit having dimensions 10~cm $\times$ 10~cm is just 0.1\% of a wavelength across at this frequency.
+Although an electromagnetic wave may be present, it has about the same value over the region of space occupied by the circuit. 
+In contrast, the free space wavelength at 3~GHz is about 10~cm, so the same circuit is one full wavelength across at this frequency.
+In this case, different parts of this circuit observe the same signal with very different magnitude and phase. 
+
+Some of the behaviors associated with non-negligible dimensions are undesirable, especially if not taken into account in the design process.
+However, these behaviors can also be exploited to do some amazing and useful things -- for example, to launch an electromagnetic wave (i.e., an antenna) or to create filters and impedance matching devices consisting only of metallic shapes, free of discrete capacitors or inductors.   
+
+Electromagnetic considerations become not only unavoidable but central to analysis and design above a few hundred MHz, and especially in the millimeter-wave, infrared (IR), optical, and ultraviolet (UV) bands.\footnote{See Section~\ref{m0075_Electromagnetic_Spectrum} for a quick primer on the electromagnetic spectrum and this terminology.}
+The discipline of electrical engineering encompasses applications in these frequency ranges even though -- ironically -- such applications may not operate according to principles that can be considered ``electrical''!
+Nevertheless, electromagnetic theory applies.
+
+Another common way to answer the question ``What is electromagnetics?'' is to identify the topics that are commonly addressed within this discipline.
+Here's a list of topics -- some of which have already been mentioned -- in which explicit consideration of electromagnetic principles is either important or essential:\footnote{Presented in alphabetical order so as to avoid the appearance of any bias on the part of the author!}
+%
+\begin{itemize}
+\item Antennas
+\item Coaxial cable
+\item Design and characterization of common discrete passive components including resistors, capacitors, inductors, and diodes
+\item Distributed (e.g., microstrip) filters
+\item Electromagnetic compatibility (EMC)
+\item Fiber optics
+\item Generators
+\item Magnetic resonance imaging (MRI)
+\item Magnetic storage (of data)
+\item Microstrip transmission lines
+\item Modeling of non-ideal behaviors of discrete components
+\item Motors
+\item Non-contact sensors
+\item Photonics
+\item Printed circuit board stackup and layout
+\item Radar
+\item Radio wave propagation
+\item Radio frequency electronics
+\item Signal integrity
+\item Transformers
+\item Waveguides
+\end{itemize}
+
+In summary:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20] 
+Applied engineering electromagnetics is the study of those aspects of electrical engineering in situations in which the \emph{electromagnetic properties of materials} and \emph{the geometry in which those materials are arranged} is important.  This requires an understanding of electromagnetic fields and waves, which are of \emph{primary} interest in some applications.   
+\end{mdframed}
+
+Finally, here are two broadly-defined learning objectives that should now be apparent:
+(1) Learn the techniques of engineering analysis and design that apply when electromagnetic principles are important, and
+(2) Better understand the physics underlying the operation of electrical devices and systems, so that when issues associated with these physical principles emerge one is prepared to recognize and grapple with them. 
+

@@ -1,0 +1,154 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Electric Field as the Gradient of Potential
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Electric Field as the Gradient of Potential
+
+\label{m0063_Electric_Field_as_the_Gradient_of_Potential} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+In Section~\ref{m0061_Force_Energy_and_Potential_Difference}, it was determined that the electrical potential difference $V_{21}$ measured over a path ${\mathcal C}$ is given by 
+%
+\begin{equation}
+V_{21} = - \int_{\mathcal C} {\bf E}({\bf r}) \cdot d{\bf l}
+\label{m0063_eV12}
+\end{equation}
+%
+where ${\bf E}({\bf r})$ is the electric field intensity at each point ${\bf r}$ along ${\mathcal C}$.
+In Section~\ref{m0064_V_due_to_Point_Charges}, we defined the scalar electric potential field $V({\bf r})$ as the electric potential difference at ${\bf r}$ relative to a datum at infinity.
+In this section, we address the ``inverse problem'' -- namely, how to calculate ${\bf E}({\bf r})$ given $V({\bf r})$.
+Specifically, we are interested in a direct ``point-wise'' mathematical transform from one to the other.
+Since Equation~\ref{m0063_eV12} is in the form of an integral, it should not come as a surprise that the desired expression will be in the form of a differential equation.
+
+We begin by identifying the contribution of an infinitesimal length of the integral to the total integral in Equation~\ref{m0063_eV12}.  At point ${\bf r}$, this is
+%
+\begin{equation}
+dV = - {\bf E}({\bf r}) \cdot d{\bf l}
+\label{eVABd}
+\end{equation}
+%
+Although we can proceed using any coordinate system, the following derivation is particularly simple in Cartesian coordinates.  In Cartesian coordinates,
+%
+\begin{equation}
+d{\bf l} = \hat{\bf x}dx + \hat{\bf y}dy + \hat{\bf z}dz
+\end{equation}
+%
+We also note that for any scalar function of position, including $V({\bf r})$, it is true that
+%
+\begin{equation}
+dV = \frac{\partial V}{\partial x} dx + \frac{\partial V}{\partial y} dy + \frac{\partial V}{\partial z} dz 
+\end{equation}
+%
+Note the above relationship is not specific to electromagnetics; it is simply mathematics.  
+Also note that $dx = d{\bf l} \cdot \hat{\bf x}$ and so on for $dy$ and $dz$.  
+Making these substitutions into the above equation, we obtain:
+%
+\begin{equation}
+dV = \frac{\partial V}{\partial x} \left( d{\bf l} \cdot \hat{\bf x} \right) 
++ \frac{\partial V}{\partial y} \left( d{\bf l} \cdot \hat{\bf y} \right)
++ \frac{\partial V}{\partial z} \left( d{\bf l} \cdot \hat{\bf z} \right)
+\end{equation}
+%
+This equation may be rearranged as follows:
+%
+\begin{equation}
+dV =  
+\left( 
+\left[ \hat{\bf x}  \frac{\partial}{\partial x} 
++ \hat{\bf y} \frac{\partial}{\partial y} 
++ \hat{\bf z}\frac{\partial}{\partial z}  \right] V
+\right) \cdot d{\bf l}
+\end{equation}
+%
+Comparing the above equation to Equation~\ref{eVABd}, we find:
+%
+\begin{equation}
+{\bf E}({\bf r}) = - \left[ \hat{\bf x}\frac{\partial}{\partial x}   
++ \hat{\bf y} \frac{\partial}{\partial y} 
++ \hat{\bf z}\frac{\partial}{\partial z}  \right] V
+\end{equation}
+%
+Note that the quantity in square brackets is the gradient 
+\index{gradient}
+operator ``$\nabla$'' (Section~\ref{m0098_Gradient}).
+Thus, we may write
+%
+\begin{equation}
+\boxed{
+{\bf E} = - \nabla V
+}
+\label{m0063_eEPEDV}
+\end{equation}
+%
+which is the relationship we seek.
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The electric field intensity at a point is the gradient of the electric potential at that point after a change of sign (Equation~\ref{m0063_eEPEDV}).
+\end{mdframed}
+
+Using Equation~\ref{m0063_eEPEDV}, we can immediately find the electric field at any point ${\bf r}$ if we can describe $V$ as a function of ${\bf r}$.  
+Furthermore, this relationship between $V$ and ${\bf E}$ has a useful physical interpretation.
+Recall that the gradient of a scalar field is a vector that points in the direction in which that field increases most quickly. 
+Therefore:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The electric field points in the direction in which the electric potential most rapidly decreases.
+\end{mdframed}
+%
+This result should not come as a complete surprise; for example, the reader should already be aware that the electric field points away from regions of net positive charge and toward regions of net negative charge (Sections~\ref{m0002_Electric_Field_Intensity} and/or \ref{m0102_Coulombs_Law}).
+What is new here is that both the magnitude and direction of the electric field may be determined given only the potential field, without having to consider the charge that is the physical source of the electrostatic field.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Electric field of a charged particle, beginning with the potential field. 
+\\~\\
+In this example, we determine the electric field of a particle bearing charge $q$ located at the origin. 
+This may be done in a ``direct'' fashion using Coulomb's Law (Section~\ref{m0102_Coulombs_Law}).
+However, here we have the opportunity to find the electric field using a different method.
+In Section~\ref{m0064_V_due_to_Point_Charges} we found the scalar potential for this source was:
+%
+\begin{equation}
+V({\bf r}) = \frac{q}{4\pi\epsilon r}
+\end{equation}
+%
+So, we may obtain the electric field using Equation~\ref{m0063_eEPEDV}:
+%
+\begin{equation}
+{\bf E} = - \nabla V = -\nabla \left( \frac{q}{4\pi\epsilon r} \right)
+\end{equation}
+%
+Here $V({\bf r})$ is expressed in spherical coordinates, so we have (Section~\ref{m0139_Vector_Operators}):
+%
+\begin{equation}
+{\bf E} = -\left[ \hat{\bf r}\frac{\partial}{\partial r}
++\hat{\bf \theta}\frac{1}{r}\frac{\partial}{\partial \theta}
++\hat{\bf \phi}\frac{1}{r\sin\theta}\frac{\partial}{\partial \phi} 
+ \right] \left( \frac{q}{4\pi\epsilon r} \right)
+\end{equation}
+%
+In this case, $V({\bf r})$ does not vary with $\phi$ or $\theta$, so the second and third terms of the gradient are zero.
+This leaves
+%
+\begin{flalign}
+{\bf E} &= -\hat{\bf r}\frac{\partial}{\partial r}\left( \frac{q}{4\pi\epsilon r} \right) \nonumber \\
+        &= -\hat{\bf r} \frac{q}{4\pi\epsilon} \frac{\partial}{\partial r} \frac{1}{r} \nonumber \\
+        &= -\hat{\bf r} \frac{q}{4\pi\epsilon} \left( -\frac{1}{r^2} \right) 
+\end{flalign}
+%
+So we find 
+%
+\begin{flalign}
+{\bf E} = +\hat{\bf r} \frac{q}{4\pi\epsilon r^2} 
+\end{flalign}
+%
+as was determined in Section~\ref{m0102_Coulombs_Law}.
+\end{mdframed}\end{example}
+

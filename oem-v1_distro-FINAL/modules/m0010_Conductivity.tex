@@ -1,0 +1,136 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Conductivity
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Conductivity
+
+\label{m0010_Conductivity} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{conductivity|(}
+
+Conductivity is one of the three primary ``constitutive parameters'' that is commonly used to characterize the electromagnetic properties of materials (Section~\ref{m0007_Properties_of_Materials}).  The key idea is this:
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Conductivity 
+\index{conductivity!definition}
+is a property of materials that determines conduction current density in response to an applied electric field.
+\end{mdframed}
+%
+Recall that conduction current is the flow of charge in response to an electric field (Section~\ref{m0110_Convection_and_Conduction}).
+Although the associated force is straightforward to calculate (e.g., Section~\ref{m0102_Coulombs_Law}), the result is merely the force applied, not the speed at which charge moves in response.  The latter is determined by the \emph{mobility of charge}, 
+\index{charge mobility}
+which is in turn determined by the atomic and molecular structure of the material.  
+Conductivity relates current density to the applied field directly, without requiring one to grapple separately with the issues of applied force and charge mobility.
+
+In the absence of material -- that is, in a true, perfect vacuum -- conductivity is zero because there is no charge available to form current, and therefore the current is zero no matter what electric field is applied.   
+At the other extreme, a \emph{good conductor} 
+\index{conductor!good}
+is a material that contains a supply of charge that is able to move freely within the material.  
+When an electric field is applied to a good conductor, charge-bearing material constituents move in the direction determined by the electric field, creating current flow in that direction.  
+This relationship is summarized by \emph{Ohm's Law for Electromagnetics}:
+\index{Ohm's law}
+%
+\begin{equation}
+\boxed{
+{\bf J} = \sigma {\bf E}
+}
+\label{m0010_eMatOhmsLaw}
+\end{equation}
+%
+where 
+${\bf E}$ is electric field intensity (V/m);
+\index{electric field intensity!related to current}
+${\bf J}$ is the volume current density, a vector describing the current flow, having units of A/m$^2$ (see Section~\ref{m0101_Current_Distributions}); and
+$\sigma$ is conductivity.
+Since ${\bf E}$ has units of V/m, we see $\sigma$ has units of $\Omega^{-1}\mbox{m}^{-1}$, which is more commonly expressed as S/m, where 1~S (``siemens'') is defined as $1~\Omega^{-1}$.  
+Section~\ref{m0137_Table_of_Conductivities} provides values of conductivity for a representative set of materials. 
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Conductivity $\sigma$ is expressed in units of S/m, where 1~S $=$ 1~$\Omega^{-1}$.  
+\end{mdframed}
+%
+It is important to note that the current being addressed here is \emph{conduction current}, and not convection current, displacement current, or some other form of current -- see Section~\ref{m0101_Current_Distributions} for elaboration.  Summarizing:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Ohm's Law for Electromagnetics (Equation~\ref{m0010_eMatOhmsLaw}) states that volume density of conduction current (A/m$^2$) equals conductivity (S/m) times electric field intensity (V/m). 
+\end{mdframed}
+
+The reader is likely aware that there is also an ``Ohm's Law'' in electric circuit theory, which states that current $I$ (units of A) is voltage $V$ (units of V) divided by resistance $R$ (units of $\Omega$); i.e., $I=V/R$.  This is in fact a special case of Equation~\ref{m0010_eMatOhmsLaw}; see Section~\ref{m0071_Resistance_DC} for more about this. 
+
+As mentioned above, $\sigma$ depends on both the \emph{availability} and \emph{mobility} of charge within the material.  
+At the two extremes, we have \emph{perfect insulators}, 
+\index{insulator!perfect}
+for which $\sigma=0$, and \emph{perfect conductors}, 
+\index{conductor!perfect}
+for which $\sigma \to \infty$.  
+Some materials approach these extremes, whereas others fall midway between these conditions.  
+Here are a few classes of materials that are frequently encountered:
+%
+\begin{itemize}
+
+\item A perfect vacuum -- ``free space'' -- contains no charge and therefore is a perfect insulator with $\sigma=0$. 
+
+\item \emph{Good insulators} typically have conductivities $\ll 10^{-10}$~S/m, which is sufficiently low that the resulting currents can usually be ignored.  The most important example is air, which has a conductivity only slightly greater than that of free space.  An important class of good insulators is {\it lossless dielectrics},\footnote{See Section~\ref{m0107_Dielectric_Media} 
+\index{dielectric (material)!lossless}
+for a discussion of dielectric materials.} which are well-characterized in terms of permittivity
+\index{permittivity}
+($\epsilon$) alone, and for which $\mu=\mu_0$ and $\sigma=0$ may usually be assumed. 
+
+\item \emph{Poor insulators} 
+\index{insulator!poor}
+have conductivities that are low, but nevertheless sufficiently high that the resulting currents cannot be ignored.  For example, the dielectric material that is used to separate the conductors in a transmission line must be considered a poor insulator as opposed to a good (effectively lossless) insulator in order to characterize loss per length along the transmission line, which can be significant.\footnote{Review Sections~\ref{m0029_Lumped-Element_Model}, \ref{m0083_Lossless_Transmission_Lines}, and associated sections for a refresher on this issue.}
+These \emph{lossy dielectrics} 
+\index{dielectric (material)!lossy}
+are well-characterized in terms of $\epsilon$ and $\sigma$, and typically $\mu=\mu_0$ can be assumed. 
+
+\item \emph{Semiconductors} 
+\index{semiconductor (material)}
+such as those materials used in integrated circuits have intermediate conductivities, typically in the range $10^{-4}$ to $10^{+1}$~S/m.
+
+\item \emph{Good conductors} 
+\index{conductor!good}
+are materials with very high conductivities, typically greater than $10^5$~S/m.  
+An important category of good conductors includes metals, with certain metals including alloys of aluminum, copper, and gold reaching conductivities on the order of $10^8$~S/m. 
+In such materials, minuscule electric fields give rise to large currents.   
+There is no significant storage of energy in such materials, and so the concept of permittivity is not relevant for good conductors. 
+
+\end{itemize}
+
+The reader should take care to note that terms such as {\it good conductor} and {\it poor insulator} are qualitative and subject to context.  What may be considered a ``good insulator'' in one application may be considered to be a ``poor insulator'' in another.  
+
+One relevant category of material was not included in the above list -- namely, \emph{perfect conductors}. 
+A perfect conductor is a material in which $\sigma\to\infty$.  
+It is tempting to interpret this as meaning that any electric field gives rise to infinite current density; however, this is not plausible even in the ideal limit.
+Instead, this condition is interpreted as meaning that ${\bf E}={\bf J}/\sigma\to 0$ throughout the material; i.e., ${\bf E}$ is zero independently of any current flow in the material.
+An important consequence is that the potential field $V$ is equal to a constant value throughout the material.  
+(Recall ${\bf E}=-\nabla V$ (Section~\ref{m0063_Electric_Field_as_the_Gradient_of_Potential}), so constant $V$ means ${\bf E}=0$.)
+We refer to the volume occupied by such a material as an \emph{equipotential volume}.
+This concept is useful as an approximation of the behavior of good conductors; for example, metals are often modeled as perfectly-conducting equipotential volumes in order to simplify analysis.
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+A perfect conductor 
+\index{conductor!perfect (definition)}
+is a material for which $\sigma\to\infty$, ${\bf E}\to 0$, and subsequently $V$ (the electric potential) is constant.  
+\end{mdframed}
+
+One final note: It is important to remain aware of the assumptions we have made about materials in this book, which are summarized in Section~\ref{m0007_Properties_of_Materials}. In particular, we continue to assume that materials are linear unless otherwise indicated.  
+For example, whereas air is normally considered to be a good insulator and therefore a poor conductor, anyone who has ever witnessed lightning 
+\index{lightning}
+has seen a demonstration that under the right conditions -- i.e., sufficiently large potential difference between earth and sky -- current will readily flow through air.  This particular situation is known as \emph{dielectric breakdown} 
+\index{dielectric breakdown}
+(see Section~\ref{m0109_Dielectric_Breakdown}).  The non-linearity of materials can become evident before reaching the point of dielectric breakdown, so one must be careful to consider this possibility when dealing with strong electric fields.
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Electrical_resistivity_and_conductivity}{Electrical Resistivity and Conductivity}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Ohm's_law}{Ohm's Law}'' on Wikipedia.
+\end{itemize}
+
+\index{conductivity|)}

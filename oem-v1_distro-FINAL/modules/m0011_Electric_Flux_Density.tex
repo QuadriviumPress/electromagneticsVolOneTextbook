@@ -1,0 +1,100 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Electric Flux Density  
+%ORB AUTHOR 0       # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE   20180731 
+%ORB ABSTRACT Introduction to electric flux density
+
+\label{m0011_Electric_Flux_Density} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{electric flux density|(}
+\index{field!electric|(}
+\index{flux density, electric|see{electric flux density}}
+
+Electric flux density, assigned the symbol ${\bf D}$, is an alternative to electric field intensity (${\bf E}$) as a way to quantify an electric field.
+This alternative description offers some actionable insight, as we shall point out at the end of this section.
+
+First, what is electric flux density?
+Recall that a particle having charge $q$ gives rise to the electric field intensity
+%
+\begin{equation}
+{\bf E} = \hat{\bf R} ~ q ~ \frac{1}{4\pi R^2} ~ \frac{1}{\epsilon}
+\label{m0011_eEparticle1}
+\end{equation}
+%
+where $R$ is distance from the charge and $\hat{\bf R}$ points away from the charge.
+Note that ${\bf E}$ is inversely proportional to $4\pi R^2$, indicating that ${\bf E}$ decreases in proportion to the area of a sphere surrounding the charge.
+Now integrate both sides of Equation~\ref{m0011_eEparticle1} over a sphere $\mathcal{S}$ of radius $R$:
+%
+\begin{equation}
+\oint_{\mathcal{S}} {\bf E}({\bf r}) \cdot d{\bf s} = \oint_{\mathcal{S}} \left[ \hat{\bf R} ~ q ~ \frac{1}{4\pi R^2} ~ \frac{1}{\epsilon} \right] \cdot d{\bf s}
+\end{equation}
+%
+Factoring out constants that do not vary with the variables of integration, the right-hand side becomes:
+%
+\begin{equation}
+q ~ \frac{1}{4\pi R^2} ~ \frac{1}{\epsilon} ~ \oint_{\mathcal{S}} \hat{\bf R} \cdot d{\bf s}
+\nonumber
+\end{equation}
+%
+Note that $d{\bf s}=\hat{\bf R}ds$ in this case, and also that $\hat{\bf R}\cdot\hat{\bf R}=1$.  Thus, the right-hand side simplifies to:
+%
+\begin{equation}
+q ~ \frac{1}{4\pi R^2} ~ \frac{1}{\epsilon} ~ \oint_{\mathcal{S}} ~ds
+\nonumber
+\end{equation}
+%
+The remaining integral is simply the area of $\mathcal{S}$, which is $4\pi R^2$.  Thus, we find:
+%
+\begin{equation}
+\oint_{\mathcal{S}} {\bf E}({\bf r}) \cdot d{\bf s} = \frac{q}{\epsilon}
+\label{m0011_eEparticle2}
+\end{equation}
+%
+The integral of a vector field over a specified surface is known as \emph{flux} 
+\index{flux}
+(see ``Additional Reading'' at the end of this section). 
+Thus, we have found that the flux of ${\bf E}$ through the sphere $\mathcal{S}$ is equal to a constant, namely $q/\epsilon$.
+Furthermore, this constant is the same regardless of the radius $R$ of the sphere.
+Said differently, the flux of ${\bf E}$ is constant with distance, and does not vary as ${\bf E}$ itself does.  
+Let us capitalize on this observation by making the following small modification to Equation~\ref{m0011_eEparticle2}:
+%
+\begin{equation}
+\oint_{\mathcal{S}} \left[\epsilon {\bf E}\right] \cdot d{\bf s} = q
+\end{equation}
+%
+In other words, the flux of the quantity $\epsilon {\bf E}$ is equal to the enclosed charge, regardless of the radius of the sphere over which we are doing the calculation.
+This leads to the following definition:
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The electric flux density 
+\index{electric flux density!definition}
+${\bf D} = \epsilon {\bf E}$, having units of C/m$^2$, is a description of the electric field in terms of flux, as opposed to force or change in electric potential. 
+\end{mdframed}
+
+It may appear that ${\bf D}$ is redundant information given ${\bf E}$ and $\epsilon$, but this is true only in homogeneous media.
+\index{homogeneous (media)}
+The concept of electric flux density becomes important -- and decidedly not redundant -- when we encounter boundaries between media having different permittivities.  
+As we shall see in Section~\ref{m0021_Boundary_Conditions_on_D}, boundary conditions on ${\bf D}$ constrain the component of the electric field that is perpendicular to the boundary separating two regions.  If one ignores the ``flux'' character of the electric field represented by ${\bf D}$ and instead considers only ${\bf E}$, then only the \emph{tangential} component of the electric field is constrained.  
+In fact, when one of the two materials comprising the boundary between two material regions is a perfect conductor, 
+\index{conductor!perfect}
+\index{perfect conductor|see{conductor, perfect}}
+then the electric field is \emph{completely determined} by the boundary condition on ${\bf D}$.  This greatly simplifies the problem of finding the electric field in a region bounded or partially bounded by materials that can be modeled as perfect conductors, including many metals.  In particular, this principle makes it easy to analyze capacitors. 
+ 
+We conclude this section with a warning.
+Even though the SI units for ${\bf D}$ are C/m$^2$, ${\bf D}$ describes an electric field and \emph{not} a surface charge density.
+It is certainly true that one may describe the amount of charge distributed over a surface using units of C/m$^2$.
+However, ${\bf D}$ is not necessarily a description of \emph{actual} charge, and there is no implication that the source of the electric field is a distribution of surface charge.
+On the other hand, it \emph{is} true that ${\bf D}$ can be interpreted as an \emph{equivalent} surface charge density that would give rise to the observed electric field, and in some cases, this equivalent charge density turns out to be the actual charge density. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Flux}{Flux}'' on Wikipedia.
+\end{itemize}
+
+\index{electric flux density|)}
+\index{field!electric|)}

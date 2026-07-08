@@ -1,0 +1,68 @@
+
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Gauss' Law for Magnetism: Differential Form 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Gauss' Law for Magnetism: Differential Form from Integral Form
+
+\label{m0047_Gauss_Law_Magnetic_Differential_from_Integral} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The integral form of Gauss' Law (Section~\ref{m0018_Gauss_Law_Magnetic_Integral_Form}) states that the magnetic flux through a closed surface is zero.
+In mathematical form:
+%
+\begin{equation}
+\oint_{\mathcal S} {\bf B}\cdot d{\bf s} = 0
+\label{m0047_eGLMIF}
+\end{equation}
+%
+where ${\bf B}$ is magnetic flux density and ${\mathcal S}$ is the enclosing surface.
+Just as Gauss's Law for electrostatics has both integral (Sections~\ref{m0014_Gauss_Law_Integral_Form}) and differential (Section~\ref{m0045_Gauss_Law_Differential_Form_from_Integral_Form}) forms, so too does Gauss' Law for Magnetic Fields.
+Here we are interested in the differential form for the same reason.  Given a differential equation and the boundary conditions imposed by structure and materials, we may then solve for the magnetic field in very complicated scenarios.  
+
+The equation we seek may be obtained from Equation~\ref{m0047_eGLMIF} using the Divergence Theorem 
+\index{divergence theorem}
+(Section~\ref{m0046_Divergence_Theorem}), which in the present case may be written:
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf B} \right) dv = \oint_{\mathcal S} {\bf B}\cdot d{\bf s}
+\end{equation}
+%
+Where ${\mathcal V}$ is the mathematical volume bounded by the closed surface ${\mathcal S}$.
+From Equation~\ref{m0047_eGLMIF} we see that the right hand side of the equation is zero, leaving:
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf B} \right) dv = 0
+\end{equation}
+%
+The above relationship must hold regardless of the specific location or shape of ${\mathcal V}$.  The only way this is possible is if the integrand is everywhere equal to zero.  We conclude:
+%
+\begin{equation}
+\boxed{
+\nabla \cdot {\bf B}=0
+}
+\label{m0047_eGLMD}
+\end{equation}
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The differential (``point'') form of Gauss' Law for Magnetic Fields (Equation~\ref{m0047_eGLMD}) states that the flux per unit volume of the magnetic field is always zero.
+\end{mdframed}
+%
+This is another way of saying that there is no point in space that can be considered to be the source of the magnetic field, for if it were, then the total flux through a bounding surface would be greater than zero. 
+Said yet another way, the source of the magnetic field is not localizable.
+
+
+
+%-------------------------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Gauss'_law_for_magnetism}{Gauss' Law for Magnetism}'' on Wikipedia.
+\end{itemize}
+
+
+

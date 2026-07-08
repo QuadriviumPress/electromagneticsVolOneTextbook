@@ -1,0 +1,139 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Magnetic Energy
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Magnetic Energy
+
+\label{m0127_Magnetic_Energy} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{energy!magnetostatic|(}
+
+Consider a structure exhibiting inductance; i.e., one that is able to store energy in a magnetic field in response to an applied current.
+This structure could be a coil, or it could be one of a variety of inductive structures that are not explicitly intended to be an inductor; for example, a coaxial transmission line.
+When current is applied, the current-bearing elements of the structure exert forces on each other.
+Since these elements are not normally free to move, we may interpret this force as potential energy stored in the magnetic field associated with the current (Section~\ref{m0123_Inductance}).
+
+We now want to know how much energy is stored in this field. 
+The answer to this question has relevance in several engineering applications. 
+One issue is that any system that includes inductance is using some fraction of the energy delivered by the power supply to energize this inductance. 
+In many electronic systems -- in power systems in particular -- inductors are periodically energized and de-energized at a regular rate.  Since power is energy per unit time, this consumes power.  Therefore, energy storage in inductors contributes to the power consumption of electrical systems.
+
+The stored energy is most easily determined using circuit theory concepts.
+First, we note that the electrical potential difference $v(t)$ (units of V) across an inductor is related to the current $i(t)$ (units of A) through the inductor as follows (Section~\ref{m0123_Inductance}):
+%
+\begin{equation}
+v(t) = L\frac{d}{dt}i(t)
+\end{equation}
+%
+where $L$ (units of H) is the inductance.
+The instantaneous power associated with the device is
+%
+\begin{equation}
+p(t) = v(t)i(t)
+\end{equation}
+%
+Energy (units of J) is power (units of J/s) integrated over time. 
+Let $W_m$ be the energy stored in the inductor.
+At some time $t_0$ in the past, $i(t_0)=0$ and $W_m=0$.
+As current is applied, $W_m$ increases monotonically.
+At the present time $t$, $i(t)=I$. 
+Thus, the present value of the magnetic energy is:
+%
+\begin{equation}
+W_m = \int_{t_0}^{t_0+t} p(\tau) d\tau 
+\end{equation}
+%
+Now evaluating this integral using the relationships established above:
+%
+\begin{flalign}
+W_m &= \int_{t_0}^{t+t_0} v(\tau) i(\tau) d\tau \nonumber \\
+    &= \int_{t_0}^{t+t_0} \left[ L\frac{d}{d\tau}i(\tau) \right] i(\tau) d\tau \nonumber \\
+    &= L \int_{t_0}^{t+t_0} \left[\frac{d}{d\tau}i(\tau)\right] i(\tau) d\tau 
+\end{flalign}
+%
+Changing the variable of integration from $\tau$ (and $d\tau$) to $i$ (and $di$) we have
+%
+\begin{flalign}
+W_m &= L \int_{t_0}^{t+t_0} \frac{di}{d\tau}~i~d\tau \nonumber \\
+    &= L \int_{0}^{I} i~di
+\end{flalign}
+%
+Evaluating the integral we obtain the desired expression
+%
+\begin{equation}
+\boxed{
+W_m = \frac{1}{2}LI^2 
+}
+\label{m0127_eWm}
+\end{equation}
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The energy stored in an inductor in response to a steady current $I$ is Equation~\ref{m0127_eWm}.
+This energy increases in proportion to inductance and in proportion to the square of current.
+\end{mdframed}
+
+The long straight coil (Section~\ref{m0124_Inductance_of_a_Straight_Coil}) is representative of a large number of practical applications, so it is useful to interpret the above findings in terms of this structure in particular.
+For this structure we found
+%
+\begin{equation}
+L = \frac{\mu N^2 A}{l} 
+\end{equation} 
+%
+where $\mu$ is the permeability, $N$ is the number of windings, $A$ is cross-sectional area, and $l$ is length.
+The magnetic field intensity inside this structure is related to $I$ by (Section~\ref{m0120_Magnetic_Field_of_a_Coil}):
+%
+\begin{equation}
+H = \frac{NI}{l} 
+\end{equation}
+%
+Substituting these expressions into Equation~\ref{m0127_eWm}, we obtain
+%
+\begin{flalign}
+W_m &= \frac{1}{2}\left[\frac{\mu N^2 A}{l}\right]\left[\frac{Hl}{N}\right]^2 \nonumber \\
+    &= \frac{1}{2}\mu H^2 Al 
+\end{flalign}
+%
+Recall that the magnetic field inside a long coil is approximately uniform.
+Therefore, the density of energy stored inside the coil is approximately uniform.
+Noting that the product $Al$ is the volume inside the coil, we find that this energy density is $W_m/Al$; thus:
+%
+\begin{equation}
+w_m = \frac{1}{2} \mu H^2 
+\label{m0127_eED}
+\end{equation}
+%
+which has the expected units of energy per unit volume (J/m$^3$).
+
+The above expression provides an alternative method to compute the total magnetostatic energy in \emph{any} structure.
+Within a mathematical volume ${\mathcal V}$, the total magnetostatic energy is simply the integral of the energy density over ${\mathcal V}$; i.e., 
+%
+\begin{equation}
+W_m = \int_{\mathcal V} w_m~dv  
+\end{equation}
+%
+This works even if the magnetic field and the permeability vary with position.
+Substituting Equation~\ref{m0127_eED} we obtain:
+%
+\begin{equation}
+\boxed{
+W_m = \frac{1}{2} \int_{\mathcal V} \mu H^2 dv  
+}
+\label{m0127_eEDV}
+\end{equation}
+%
+Summarizing:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The energy stored by the magnetic field present within any defined volume is given by Equation~\ref{m0127_eEDV}.
+\end{mdframed}
+%
+It's worth noting that this energy increases with the permeability of the medium, which makes sense since inductance is proportional to permeability.
+
+Finally, we reiterate that although we arrived at this result using the example of the long straight coil, Equations~\ref{m0127_eED} and \ref{m0127_eEDV} are completely general.
+
+\index{energy!magnetostatic|)}

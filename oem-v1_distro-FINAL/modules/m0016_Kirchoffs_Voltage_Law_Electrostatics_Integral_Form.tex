@@ -1,0 +1,59 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Kirchoff's Voltage Law for Electrostatics: Integral Form
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Kirchoff's Voltage Law for Electrostatics (Integral Form)
+
+\label{m0016_Kirchoffs_Voltage_Law_Electrostatics_Integral_Form} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Kirchoff's voltage law!electrostatics|(}
+
+As explained in Section~\ref{m0062_Independence_of_Path}, the electrical potential at point ${\bf r}_2$ relative to ${\bf r}_1$ in an electric field ${\bf E}$ (V/m) is
+%
+\begin{equation}
+V_{21} = - \int_{{\bf r}_1}^{{\bf r}_2} {\bf E} \cdot d{\bf l}
+\end{equation}
+%
+where the path of integration may be any path that begins and ends at the specified points.
+Consider what happens if the selected path through space begins and ends at the \emph{same} point; i.e., ${\bf r}_2={\bf r}_1$.  
+In this case, the path of integration is a closed loop.  
+Since $V_{21}$ depends only on the positions of the start and end points and because the potential energy at those points is the same, we conclude:
+% 
+\begin{equation}  
+\boxed{ 
+\oint{ {\bf E} \cdot d{\bf l} } = 0
+}
+\label{m0062_eKVLES}
+\end{equation}
+%
+This principle is known as \emph{Kirchoff's Voltage Law for Electrostatics}.
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Kirchoff's Voltage Law for Electrostatics (Equation~\ref{m0062_eKVLES}) states that the integral of the electric field over a closed path is zero. 
+\end{mdframed}
+
+It is worth noting that this law is a generalization of a principle of which the reader is likely already aware. 
+In electric circuit theory, the sum of voltages over any closed loop in a circuit is zero.
+This is also known as Kirchoff's Voltage Law because it is precisely the same principle.
+To obtain Equation~\ref{m0062_eKVLES} for an electric circuit, simply partition the closed path into branches, with each branch representing one component.
+Then, the integral of ${\bf E}$ over each branch is the branch voltage; i.e., units of V/m times units of m yields units of V. 
+Then, the sum of these branch voltages over any closed loop is zero, as dictated by Equation~\ref{m0062_eKVLES}.
+
+Finally, be advised that Equation~\ref{m0062_eKVLES} is specific to electrostatics.  In electrostatics, it is assumed that the electric field is independent of the magnetic field.
+This is true if the magnetic field is either zero or not time-varying.  If the magnetic field is time-varying, then Equation~\ref{m0062_eKVLES} must be modified to account for the effect of the magnetic field, which is to make the right hand size potentially different from zero.  The generalized version of this expression that correctly accounts for that effect is known as the \emph{Maxwell-Faraday Equation} (Section~\ref{m0050_Maxwell-Faraday_Equation}).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Maxwell's_equations}{Maxwell's Equations}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Kirchhoff's_circuit_laws}{Kirchoff's Circuit Laws}'' on Wikipedia.
+\end{itemize}
+
+\index{Kirchoff's voltage law!electrostatics|)}
+
+

@@ -1,0 +1,79 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE The Laplacian Operator
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180609   # yyyymmdd
+%ORB ABSTRACT
+
+\label{m0099_The_Laplacian_Operator} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Laplacian (operator)|(}
+
+The Laplacian $\nabla^2 f$ of a field $f({\bf r})$ is the divergence of the gradient of that field:
+%
+\begin{equation}
+\nabla^2 f \triangleq \nabla\cdot\left(\nabla f\right)
+\label{m0099_eLaplaceDef}
+\end{equation}
+%
+Note that the Laplacian is essentially a definition of the second derivative with respect to the three spatial dimensions.
+For example, in Cartesian coordinates,
+%
+\begin{equation}
+\nabla^2 f= 
+\frac{\partial^2 f}{\partial x^2}  
++ \frac{\partial^2 f}{\partial y^2}  
++ \frac{\partial^2 f}{\partial z^2} 
+\label{m0099_eLaplaceScalar} 
+\end{equation}
+%
+as can be readily verified by applying the definitions of gradient and divergence in Cartesian coordinates to Equation~\ref{m0099_eLaplaceDef}.
+
+The Laplacian relates the
+electric potential (i.e., $V$, units of V) to electric charge density (i.e., $\rho_v$, units of C/m$^3$).
+This relationship is known as {\it Poisson's Equation} 
+\index{Poisson's equation}
+(Section~\ref{m0067_Poissons_and_Laplaces_Equations}):
+%
+\begin{equation}
+\nabla^2 V = - \frac{\rho_v}{\epsilon}
+\end{equation}  
+%
+where $\epsilon$ is the permittivity of the medium.
+The fact that $V$ is related to $\rho_v$ in this way should not be surprising, since electric field intensity $({\bf E}$, units of V/m) is proportional to the derivative of $V$ with respect to distance (via the gradient) and $\rho_v$ is proportional to the derivative of ${\bf E}$ with respect to distance (via the divergence).
+
+The Laplacian operator can also be applied to \emph{vector} fields; for example, Equation~\ref{m0099_eLaplaceScalar} is valid even if the scalar field ``$f$'' is replaced with a vector field.  
+In the Cartesian coordinate system, the Laplacian of the vector field ${\bf A} = \hat{\bf x}A_x + \hat{\bf y}A_y + \hat{\bf z}A_z$ is
+%
+\begin{equation}
+\nabla^2 {\bf A} = \hat{\bf x}\nabla^2 A_x + \hat{\bf y}\nabla^2 A_y + \hat{\bf z}\nabla^2 A_z
+\end{equation}
+%
+An important application of the Laplacian operator of vector fields is the \emph{wave equation}; 
+\index{wave equation!electromagnetic}
+e.g., the wave equation for ${\bf E}$ in a lossless and source-free region is (Section~\ref{m0036_Wave_Equations_SourceFree_Lossless})
+%
+\begin{equation}
+\nabla^2{\bf E} + \beta^2{\bf E} = 0
+\end{equation}
+%
+where $\beta$ is the phase propagation constant.
+
+It is sometimes useful to know that the Laplacian of a vector field can be expressed in terms of the gradient, divergence, and curl as follows:
+%
+\begin{equation}
+\nabla^2 {\bf A} = \nabla\left(\nabla\cdot{\bf A}\right) - \nabla\times\left(\nabla\times{\bf A}\right)
+\end{equation}
+
+The Laplacian operator in the cylindrical and spherical coordinate systems is given in Appendix~\ref{m0139_Vector_Operators}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Laplace_operator}{Laplace operator}'' on Wikipedia.
+\end{itemize}
+
+\index{Laplacian (operator)|)}

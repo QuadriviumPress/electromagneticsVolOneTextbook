@@ -1,0 +1,65 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Comparison of Static and Time-Varying Electromagnetics 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180807   # yyyymmdd
+%ORB ABSTRACT Comparison of Static and Time-Varying Electromagnetics 
+
+\label{m0013_Comparison_of_Static_and_Time-Varying_Electromagnetics} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+Students encountering time-varying electromagnetic fields for the first time have usually been exposed to electrostatics and magnetostatics already.
+These disciplines exhibit many similarities as summarized in Table~\ref{m0013_tComparison}.
+The principles of time-varying electromagnetics presented in this table are all formally introduced in other sections; the sole purpose of this table is to point out the differences. 
+We can summarize the differences as follows:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Maxwell's Equations in the general (time-varying) case include extra terms that do not appear in the equations describing electrostatics and magnetostatics.
+These terms involve time derivatives of fields and describe coupling between electric and magnetic fields.
+\end{mdframed}  
+%
+%\onecolumn
+\begin{table*}[t]
+\begin{center}
+\begin{tabular}{lll}
+~ & {\bf Electrostatics /} & {\bf Time-Varying} \\
+~ & {\bf Magnetostatics}   & {\bf (Dynamic)} \\
+\hline\hline
+Electric \& magnetic & independent  & {\color{blue}possibly coupled} \\
+fields are...       & ~  & ~ \\
+\hline
+Maxwell's Eqns. & $\oint_{\mathcal S}{{\bf D}\cdot d{\bf s}} = Q_{encl}$  & $\oint_{\mathcal S}{{\bf D}\cdot d{\bf s}} = Q_{encl}$ \\
+~~(integral)   & $\oint_{\mathcal C}{{\bf E}\cdot d{\bf l}} = 0$         & $\oint_{\mathcal C}{{\bf E}\cdot d{\bf l}} = {\color{blue}-\frac{\partial}{\partial t}\int_{\mathcal S}{\bf B}\cdot d{\bf s}}$ \\
+               & $\oint_{\mathcal S}{{\bf B}\cdot d{\bf s}} = 0$         & $\oint_{\mathcal S}{{\bf B}\cdot d{\bf s}} = 0$ \\
+               & $\oint_{\mathcal C}{{\bf H}\cdot d{\bf s}} = I_{encl}$  & $\oint_{\mathcal C}{{\bf H}\cdot d{\bf l}} = I_{encl} {\color{blue} + \int_{\mathcal S}\frac{\partial}{\partial t}{\bf D}\cdot d{\bf s}}$ \\
+\hline
+Maxwell's Eqns.     & $\nabla\cdot{\bf D}=\rho_v$   & $\nabla\cdot{\bf D}=\rho_v$ \\
+~~(differential)   & $\nabla\times{\bf E}=0$       & $\nabla\times{\bf E}={\color{blue}-\frac{\partial}{\partial t}{\bf B}}$ \\
+                   & $\nabla\cdot{\bf B}=0$        & $\nabla\cdot{\bf B}=0$ \\
+                   & $\nabla\times{\bf H}={\bf J}$ & $\nabla\times{\bf H}={\bf J} {\color{blue}+ \frac{\partial}{\partial t}{\bf D}}$ \\
+\hline
+\end{tabular}
+\end{center}
+\label{m0013_tComparison}
+\caption{Comparison of principles governing static and time-varying electromagnetic fields.  Differences in the time-varying case relative to the static case are highlighted in {\color{blue}blue}.
+\index{Maxwell's equations} 
+}
+\end{table*}
+%\twocolumn
+
+The coupling between electric and magnetic fields in the time-varying case has one profound consequence in particular. 
+It becomes possible for fields to continue to exist even after their sources -- i.e., charges and currents -- are turned off.  
+What kind of field can continue to exist in the absence of a source?  
+Such a field is commonly called a \emph{wave}.
+Examples of waves include signals in transmission lines and signals propagating away from an antenna. 
+
+
+%-------------------------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Maxwell's_equations}{Maxwell's Equations}'' on Wikipedia.
+\end{itemize}

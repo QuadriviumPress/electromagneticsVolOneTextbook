@@ -1,0 +1,196 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Wave Power in a Lossless Medium
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180807   # yyyymmdd
+%ORB ABSTRACT Plane Wave Power Density in a Lossless Medium 
+
+\label{m00041_Plane_Wave_Power_Density_in_a_Lossless_Medium} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{waves!power density|(}
+\index{power density|see{waves}}
+
+In many applications involving electromagnetic waves, one is less concerned with the instantaneous values of the electric and magnetic fields than the \emph{power} associated with the wave. 
+In this section, we address the issue of how much power is conveyed by an electromagnetic wave in a lossless medium.
+The relevant concepts are readily demonstrated in the context of uniform plane waves, 
+\index{waves!plane}
+as shown in this section.
+A review of Section~\ref{m0039_Uniform_Plane_Waves_Characteristics} (``Uniform Plane Waves: Characteristics'') is recommended before reading further.
+
+Consider the following uniform plane wave, described in terms of the phasor representation of its electric field intensity:
+%
+\begin{equation}
+\widetilde{\bf E} = \hat{\bf x}E_0 e^{-j\beta z}
+\label{m0041_eE}
+\end{equation}
+%
+Here $E_0$ is a complex-valued constant associated with the source of the wave, and $\beta$ is the positive real-valued propagation constant.  
+Therefore, the wave is propagating in the $+\hat{\bf z}$ direction in lossless media.
+
+The first thing that should be apparent is that the amount of power conveyed by this wave is infinite.
+The reason is as follows. If the power passing through any finite area is greater than zero, then the total power must be infinite because, for a uniform plane wave, the electric and magnetic field intensities are constant over a plane of infinite area.
+In practice, we never encounter this situation because all practical plane waves are only ``locally planar'' (see Section~\ref{m0142_Types_of_Waves} for a refresher on this idea).
+Nevertheless, we seek some way to express the power associated with such waves.
+
+The solution is not to seek total power, but rather power per unit area.
+This quantity is known as the \emph{spatial power density}, or simply ``\emph{power density},'' and has units of W/m$^2$.\footnote{Be careful: The quantities \emph{power spectral density} (W/Hz) and \emph{power flux density} (W/(m$^2\cdot$Hz)) are also sometimes referred to as ``power density.''  In this section, we will limit the scope to \emph{spatial} power density (W/m$^2$).} 
+Then, if we are interested in total power passing through some finite area, then we may simply integrate the power density over this area.
+Let's skip to the answer, and then consider where this answer comes from.
+It turns out that the \emph{instantaneous} power density of a uniform plane wave is the magnitude of the \emph{Poynting vector}
+\index{Poynting vector}
+%
+\begin{equation}
+{\bf S} \triangleq {\bf E} \times {\bf H}
+\label{m0041_eS}
+\end{equation}
+%
+Note that this equation is dimensionally correct; i.e. the units of ${\bf E}$ (V/m) times the units of ${\bf H}$ (A/m) yield the units of spatial power density (V$\cdot$A/m$^2$, which is W/m$^2$).
+Also, the direction of ${\bf E} \times {\bf H}$ is in the direction of propagation (reminder: Section~\ref{m0039_Uniform_Plane_Waves_Characteristics}), which is the direction in which the power is expected to flow.
+Thus, we have some compelling evidence that $\left|{\bf S}\right|$ is the power density we seek.
+However, this is not proof -- for that, we require the \emph{Poynting Theorem}, 
+\index{Poynting theorem}
+which is a bit outside the scope of the present section, but is addressed in the ``Additional Reading'' at the end of this section.
+
+A bit later we're going to need to know ${\bf S}$ for a uniform plane wave, so let's work that out now.
+From the plane wave relationships (Section~\ref{m0039_Uniform_Plane_Waves_Characteristics}) we find that the magnetic field intensity associated with the electric field in Equation~\ref{m0041_eE} is
+%
+\begin{equation}
+\widetilde{\bf H} = \hat{\bf y}\frac{E_0}{\eta} e^{-j\beta z}
+\label{m0041_eH}
+\end{equation}
+%
+where $\eta=\sqrt{\mu/\epsilon}$ is the real-valued impedance of the medium.
+Let $\psi$ be the phase of $E_0$; i.e., $E_0 = |E_0|e^{j\psi}$.
+Then
+%
+\begin{flalign}
+{\bf E} &=  \mbox{Re}\left\{ \widetilde{\bf E} e^{j\omega t} \right\}  \nonumber \\
+        &= \hat{\bf x}\left|E_0\right| \cos\left( \omega t - \beta z + \psi \right)
+\end{flalign}
+%
+and
+%
+\begin{flalign}
+{\bf H} &=  \mbox{Re}\left\{ \widetilde{\bf H} e^{j\omega t} \right\}  \nonumber \\
+        &= \hat{\bf y}\frac{\left|E_0\right|}{\eta} \cos\left( \omega t - \beta z + \psi \right)
+\end{flalign}
+%
+Now applying Equation~\ref{m0041_eS},
+%
+\begin{equation}
+{\bf S} =\hat{\bf z} \frac{|E_0|^2}{\eta} \cos^2\left( \omega t - \beta z + \psi \right)
+\end{equation} 
+
+As noted earlier, $\left|{\bf S}\right|$ is only the instantaneous power density, which is still not quite what we are looking for.
+What we are actually looking for is the \emph{time-average} power density $S_{ave}$ -- that is, the average value of $\left|{\bf S}\right|$ over one period $T$ of the wave.
+This may be calculated as follows:
+%
+\begin{flalign}
+S_{ave} &= \frac{1}{T} \int_{t=t_0}^{t_0+T} |{\bf S}| dt \nonumber \\
+        &= \frac{|E_0|^2}{\eta} \frac{1}{T} \int_{t=t_0}^{t_0+T}  \cos^2\left( \omega t - ks + \psi \right)  dt
+\end{flalign}
+%
+Since $\omega =2\pi f = 2\pi/T$, the definite integral equals $T/2$.  We obtain
+%
+\begin{equation}
+\boxed{ S_{ave} = \frac{|E_0|^2}{2\eta} }
+\label{m0041_eWEPWD}
+\end{equation}
+%
+It is useful to check units again at this point.  Note (V/m)$^2$ divided by $\Omega$ is W/m$^2$, as expected.  
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Equation~\ref{m0041_eWEPWD} is the time-average power density (units of W/m$^2$) associated with a sinusoidally-varying uniform plane wave in lossless media.
+\end{mdframed}
+
+Note that Equation~\ref{m0041_eWEPWD} is analogous to a well-known result from electric circuit theory. Recall the time-average power $P_{ave}$ (units of W) associated with a voltage phasor $\widetilde{V}$ across a resistance $R$ is 
+%
+\begin{equation}
+P_{ave} = \frac{|\widetilde{V}|^2}{2R}
+\label{m0041_ePWLM-EA}
+\end{equation}
+%
+which closely resembles Equation~\ref{m0041_eWEPWD}.
+The result is also analogous to the result for a voltage wave on a transmission line (Section~\ref{m0090_Power_Flow_on_Transmission_Lines}), for which: 
+%
+\begin{equation}
+P_{ave} = \frac{|V_0^+|^2}{2Z_0}
+\end{equation}
+%
+where $V_0^+$ is a complex-valued constant representing the magnitude and phase of the voltage wave, and $Z_0$ is the characteristic impedance 
+\index{characteristic impedance}
+of the transmission line.
+\index{waves!transmission line analogy}
+
+Here is a good point at which to identify a common pitfall. $|E_0|$ and $|\widetilde{V}|$ are the {\it peak magnitudes} of the associated real-valued physical quantities.  However, these quantities are also routinely given as {\it root mean square} (``rms'') quantities.  Peak magnitudes are greater by a factor of $\sqrt{2}$, so Equation~\ref{m0041_eWEPWD} expressed in terms of the rms quantity lacks the factor of $1/2$.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Power density of a typical radio wave.
+\\~\\
+A radio wave transmitted from a distant location may be perceived locally as a uniform plane wave if there is no nearby structure to scatter the wave; a good example of this is the wave arriving at the user of a cellular telephone in a rural area with no significant terrain scattering.  The range of possible signal strengths varies widely, but a typical value of the electric field intensity arriving at the user's location is 10~$\mu$V/m rms.  What is the corresponding power density?
+
+{\bf Solution}:  From the problem statement, $|E_0|=10~\mu$V/m rms.
+We assume propagation occurs in air, which is indistinguishable from free space at cellular frequencies.  
+If we use Equation~\ref{m0041_eWEPWD}, then we must first convert $|E_0|$ from rms to peak magnitude, which is done by multiplying by $\sqrt{2}$.  Thus:
+%
+\begin{flalign}
+S_{ave} &= \frac{|E_0|^2}{2\eta} \cong \frac{\left(\sqrt{2} \cdot 10 \times 10^{-6}~\mbox{V/m}\right)^2}{2 \cdot 377~\Omega} \nonumber \\
+        &\cong 2.65 \times 10^{-13}~\mbox{W/m$^2$} \nonumber
+\end{flalign}
+%
+Alternatively, we can just use a version of Equation~\ref{m0041_eWEPWD}, which is appropriate for rms units:
+%
+\begin{flalign}
+S_{ave} &= \frac{|E_{0,rms}|^2}{\eta} \cong \frac{\left(10 \times 10^{-6}~\mbox{V/m}\right)^2}{ 377~\Omega} \nonumber \\
+        &\cong 2.65 \times 10^{-13}~\mbox{W/m$^2$} \nonumber
+\end{flalign}
+%
+Either way, we obtain the correct answer, 0.265~pW/m$^2$ (that's {\it picowatts} per square meter).
+
+\end{mdframed}
+% note figures will need to go between "\end{mdframed}" and "\end{example}"
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Considering the prevalence of phasor representation, it is useful to have an alternative form of the Poynting vector which yields time-average power by operating directly on field quantities in phasor form.  This is ${\bf S}_{ave}$, defined as:
+%
+\begin{equation}
+{\bf S}_{ave} \triangleq \frac{1}{2} \mbox{Re} \left\{ \widetilde{\bf E} \times \widetilde{\bf H}^* \right\}
+\end{equation}
+%
+(Note that the magnetic field intensity phasor is conjugated.)  
+The above expression gives the expected result for a uniform plane wave.
+Using Equations~\ref{m0041_eE} and \ref{m0041_eH}, we find
+%
+\begin{equation}
+{\bf S}_{ave} = \frac{1}{2} \mbox{Re} \left\{
+  \left( \hat{\bf x}E_0 e^{-j\beta z} \right)
+\times
+  \left( \hat{\bf y}\frac{E_0}{\eta} e^{-j\beta z} \right)^* \right\}
+\end{equation}
+%
+which yields
+%
+\begin{equation}
+{\bf S}_{ave} = \hat{\bf z}\frac{|E_0|^2}{2\eta} 
+\end{equation}
+%
+as expected.  
+%The details of the derivation are not difficult and are left as an exercise for the reader.
+
+%Although we have developed the Poynting vector concept from a scenario involving a single uniform plane wave, it should be noted that the concept applies to {\it any} wave or combination of waves.  This is verifiably so since in the scenario we considered we did not need to specify the volume of $\mathcal{V}$ nor the area of $A$ or $B$.  Thus, these dimensions could be made arbitrarily small, such that any wave appears planar and uniform to arbitrarily good accuracy.  
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Poynting_vector}{Poynting vector}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Poynting's_theorem}{Poynting's Theorem}'' on Wikipedia.
+\end{itemize}    
+
+\index{waves!power density|)}

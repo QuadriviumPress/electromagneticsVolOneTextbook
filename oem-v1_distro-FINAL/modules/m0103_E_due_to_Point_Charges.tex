@@ -1,0 +1,65 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Electric Field Due to Point Charges
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Electric Field Due to Point Charges
+
+\label{m0103_E_due_to_Point_Charges} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The electric field intensity associated with a single particle bearing charge $q_1$, located at the origin, is (Section~\ref{m0102_Coulombs_Law})
+%
+\begin{equation}
+{\bf E}({\bf r}) = \hat{\bf r}\frac{q_1}{4\pi\epsilon r^2}
+\end{equation} 
+%
+If this particle is instead located at some position ${\bf r}_1$, then the above expression may be written as follows:
+%
+\begin{equation}
+{\bf E}({\bf r};{\bf r}_1) = \frac{{\bf r}-{\bf r}_1}{\left|{\bf r}-{\bf r}_1\right|}~\frac{q_1}{4\pi\epsilon \left|{\bf r}-{\bf r}_1\right|^2}
+\end{equation} 
+%
+or, combining like terms in the denominator:
+%
+\begin{equation}
+{\bf E}({\bf r};{\bf r}_1) = \frac{{\bf r}-{\bf r}_1}{\left|{\bf r}-{\bf r}_1\right|^3}~\frac{q_1}{4\pi\epsilon}
+\end{equation} 
+
+Now let us consider the field due to multiple such particles.
+Under the usual assumptions about the permittivity of the medium (reminder: Section~\ref{m0007_Properties_of_Materials}), the property of superposition applies.
+Using this principle, we conclude: 
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The electric field resulting from a set of charged particles is equal to the sum of the fields associated with the individual particles.
+\end{mdframed}
+%
+Stated mathematically:
+%
+\begin{equation}
+{\bf E}({\bf r}) = \sum_{n=1}^{N}{\bf E}({\bf r};{\bf r}_n)
+\end{equation} 
+%
+where $N$ is the number of particles.
+Thus, we have
+%
+\begin{equation}
+{\bf E}({\bf r}) = \frac{1}{4\pi\epsilon} \sum_{n=1}^{N} {   \frac{{\bf r}-{\bf r}_n}{\left|{\bf r}-{\bf r}_n\right|^3}~q_n}
+\end{equation} 
+
+% TODO: complete example below.
+% %ORB EXAMPLE
+% ~\\ \begin{example} 
+% \begin{mdframed}[backgroundcolor=green!20] 
+% Electric Dipole
+% \end{mdframed}
+% {\color{red}NEEDS TO BE COMPLETED.}
+% \centerline{\rule{2in}{1pt}} \end{example}
+
+
+
+
+

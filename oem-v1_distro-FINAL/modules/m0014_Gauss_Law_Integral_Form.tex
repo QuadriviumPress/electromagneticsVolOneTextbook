@@ -1,0 +1,107 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Gauss' Law: Integral Form 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Gauss' Law: Integral Form 
+
+\label{m0014_Gauss_Law_Integral_Form} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Gauss' law!electric field|(}
+
+Gauss' Law is one of the four fundamental laws of classical electromagnetics, collectively known as \emph{Maxwell's Equations}.
+Before diving in, the reader is strongly encouraged to review Section~\ref{m0011_Electric_Flux_Density}.
+In that section, Gauss' Law emerges from the interpretation of the electric field as a flux density.  
+Section~\ref{m0011_Electric_Flux_Density} does not actually identify Gauss' Law, but here it is:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+\emph{Gauss' Law} (Equation~\ref{m0014_eGL}) states that the flux of the electric field through a closed surface is equal to the enclosed charge.
+\end{mdframed}
+%
+Gauss' Law is expressed mathematically as follows:
+%
+\begin{equation}
+\boxed{
+\oint_{\mathcal S} {\bf D}\cdot d{\bf s} = Q_{encl}
+}
+\label{m0014_eGL}
+\end{equation}
+%
+where 
+${\bf D}$ is the electric flux density $\epsilon{\bf E}$,
+${\mathcal S}$ is a closed surface with differential surface normal $d{\bf s}$, and
+$Q_{encl}$ is the enclosed charge.
+We can see the law is dimensionally correct;  ${\bf D}$ has units of C/m$^{2}$, thus integrating ${\bf D}$ over a surface gives a quantity with units of C/m$^{2}$ $\cdot$ m$^{2}$ = C, which are the units of charge. 
+ 
+Gauss' Law has a number of applications in electromagnetic theory.  
+One of them, as explored below, is as a method to compute the electric field in response to a distribution of electric charge.
+Note that a method to do this, based on Coulomb's Law, is described in Sections~\ref{m0102_Coulombs_Law}, \ref{m0103_E_due_to_Point_Charges}, and \ref{m0104_E_due_to_a_Continuous_Distribution_of_Charge}.  
+Gauss' Law provides an alternative method that is easier or more useful in certain applications.
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Electric field associated with a charged particle, using Gauss' Law.
+\\~\\
+In this example, we demonstrate the ability of Gauss' Law to predict the field associated with a charge distribution.
+Let us do this for the simplest possible charge distribution. A particle of charge $q$ located at the origin, for which we already have the answer (Section~\ref{m0102_Coulombs_Law}).
+
+{\bf Solution.}
+Gauss' Law applies to {\it any} surface that encloses the charge, so for simplicity we chose a sphere of radius $r$ centered at the origin.  Note that $Q_{encl}$ on the right hand side is just $q$ for any surface having $r>0$.  Gauss' Law in this case becomes
+%
+\begin{equation}   
+\int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} { {\bf D} \cdot \left(\hat{\bf r}r^2 \sin\theta~d\theta~d\phi\right) } = q 
+\end{equation}
+%
+If we can solve for ${\bf D}$, we can get ${\bf E}$ using ${\bf D} = \epsilon {\bf E}$.
+The simplest way to solve for ${\bf D}$ is to use a symmetry 
+\index{symmetry}
+argument, which proceeds as follows. In this problem, the {\it magnitude} of ${\bf D}$ can depend only on $r$, and not $\theta$ or $\phi$. This is because the charge has no particular orientation, and the sphere is centered on the charge.  Similarly, it is clear that ${\bf D}$ must point either directly toward or directly away from the charge.  In other words, ${\bf D} = \hat{\bf r}D(r)$.  Substituting this in the above equation, we encounter the dot product $\hat{\bf r}
+\cdot \hat{\bf r}$, which is simply 1.  Since $D(r)$ and $r^2$ are constants with respect to the integration, we obtain:
+%
+\begin{equation}   
+r^2 D(r)  \int_{\theta=0}^{\pi} \int_{\phi=0}^{2\pi} { \sin\theta~d\theta d\phi } = q 
+\end{equation}
+%
+The remaining integral is simply $4\pi$, thus we obtain:
+%
+\begin{equation}   
+D(r)  = \frac{q}{4\pi r^2}
+\end{equation}
+%
+Bringing the known vector orientation of ${\bf D}$ back into the equation, we obtain 
+%
+\begin{equation}   
+{\bf D}  = \hat{\bf r}\frac{q}{4\pi r^2}
+\end{equation}
+%
+and finally using ${\bf D} = \epsilon {\bf E}$ we obtain the expected result
+%
+\begin{equation}   
+{\bf E}  = \hat{\bf r}\frac{q}{4\pi\epsilon r^2}
+\end{equation}
+\end{mdframed}\end{example}
+
+%---------------------------------------------------------
+
+Here's the point you should take away from the above example:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Gauss' Law combined with a symmetry argument may be sufficient to determine the electric field due to a charge distribution.
+Thus, Gauss' Law may be an easier alternative to Coulomb's Law 
+\index{Coulomb's law}
+in some applications.
+\end{mdframed}
+
+%-------------------------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Gauss'_law}{Gauss' Law}'' on Wikipedia.
+\end{itemize}
+
+\index{Gauss' law!electric field|)}

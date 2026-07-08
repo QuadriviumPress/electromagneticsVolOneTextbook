@@ -1,0 +1,119 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Cartesian Coordinates
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Cartesian Coordinates
+
+\label{m0004_Cartesian_Coordinates} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Cartesian coordinate system|(}
+
+The Cartesian coordinate system is introduced in Section~\ref{m0006_Vector_Arithmetic}.
+Concepts described in that section -- i.e., the dot product and cross product -- are described in terms of the Cartesian system.
+In this section, we identify some additional features of this system that are useful in subsequent work and also set the stage for alternative systems; namely the cylindrical and spherical coordinate systems.  
+
+{\bf Integration Over Length.}  
+Consider a vector field ${\bf A}=\hat{\bf x}A({\bf r})$, where ${\bf r}$ is a position vector.
+What is the integral of ${\bf A}$ over some curve $\mathcal{C}$ through space?
+To answer this question, we first identify a differential-length segment of the curve. Note that this segment of the curve can be described as
+%
+\begin{equation}
+d{\bf l} = \hat{\bf x}dx + \hat{\bf y}dy + \hat{\bf z}dz 
+\end{equation}
+%
+The contribution to the integral for that segment of the curve is simply ${\bf A}\cdot d{\bf l}$. 
+We integrate to obtain the result; i.e.,
+%
+\begin{equation}
+\int_{\mathcal C}{ {\bf A}\cdot d{\bf l} }
+\end{equation}
+%
+For example, 
+%if ${\bf A}=\hat{\bf x}$ (i.e., $A({\bf r})=1$) 
+if ${\bf A}=\hat{\bf x}A_0$ (i.e., $A({\bf r})$ is a constant) 
+and if $\mathcal{C}$ is a straight line from $x=x_1$ and $x=x_2$ along some constant $y$ and $z$, then 
+$d{\bf l} = \hat{\bf x}dx$, ${\bf A}\cdot d{\bf l}=A_0 dx$, and subsequently the above integral is
+%
+\begin{equation}
+\int_{x_1}^{x_2}{ A_0 dx } = A_0\left(x_2-x_1\right)
+\end{equation}
+%
+In particular, notice that if $A_0=1$, then this integral gives the length of ${\mathcal C}$.
+Although the formalism seems unnecessary in this simple example, it becomes very useful when integrating over paths that vary in more than one direction and with more complicated integrands.
+
+Note that the Cartesian system was an appropriate choice for preceding example because this allowed two of the three basis directions (i.e., $y$ and $z$) to be immediately eliminated from the calculation. %\footnote{If you care to look ahead, note that this is not possible in any other coordinate system.} 
+Said differently, the preceding example is expressed with the minimum number of varying coordinates in the Cartesian system.
+Here's a counter-example. If ${\mathcal C}$ had been a circle in the $z=0$ plane, then the problem would have required two basis directions to be considered -- namely, both $x$ and $y$. In this case, another system -- namely, cylindrical coordinates (Section~\ref{m0096_Cylindrical_Coordinates}) -- minimizes the number of varying coordinates (to just one, which is $\phi$).  
+
+{\bf Integration Over Area.}  
+Now we ask the question, what is the integral of some vector field ${\bf A}$ over some surface ${\mathcal S}$?
+The answer is
+%
+\begin{equation}
+\int_{\mathcal S}{{\bf A} \cdot d{\bf s}}
+%\int_{x_1}^{x_2}\int_{y_1}^{y_2}{{\bf A} \cdot d{\bf s}}
+\label{m0004_eFlux}
+\end{equation} 
+%
+We refer to $d{\bf s}$ as the differential surface element, which is a vector having magnitude equal to the differential area $ds$, and is normal (perpendicular) to each point on the surface.
+There are actually two such directions.  We'll return to clear up the ambiguity in a moment.
+Now, as an example, if ${\bf A}=\hat{\bf z}$ and $\mathcal{S}$ is the surface bounded by $x_1\le x \le x_2$, $y_1\le y \le y_2$, then 
+%
+\begin{equation}
+d{\bf s} = \hat{\bf z}~dx~dy
+\end{equation}
+%
+since $dxdy$ is differential surface area in the $z=0$ plane and $\hat{\bf z}$ is normal to the $z=0$ plane.
+So ${\bf A}\cdot d{\bf s}=dxdy$, and subsequently the integral in Equation~\ref{m0004_eFlux} becomes
+%
+\begin{equation}
+\int_{x_1}^{x_2}\int_{y_1}^{y_2}{dx~dy} = \left(x_2-x_1\right)\left(y_2-y_1\right)
+\end{equation} 
+%
+Note that this has turned out to be a calculation of area.
+
+Once again, we see the Cartesian system was an appropriate choice for this example because this choice minimizes the number of varying coordinates; in the above example, the surface of integration is described by a constant value of $z$ with variable values of $x$ and $y$.
+If the surface had instead been a cylinder or a sphere, not only would all three basis directions be variable, but also the surface normal would be variable, making the problem dramatically more complicated.  
+
+Now let's return to the issue of the direction of $d{\bf s}$.  We chose $+\hat{\bf z}$, but why not choose $-\hat{\bf z}$ -- also a normal to the surface -- as this direction?  To answer simply, the resulting area would be negative.  ``Negative area'' is the expected (``positive'') area, except with respect to the opposite-facing normal vector.  In the present problem, the sign of the area is not important, but in some problems this sign becomes important.
+One example of a class of problems for which the sign of area is important is when the quantity of interest is a \emph{flux}.  
+\index{flux}
+If ${\bf A}$ were a flux density, then the integration over area that we just performed indicates the magnitude \emph{and direction} of flux, and so the direction chosen for $d{\bf s}$ defines the direction of positive flux.  
+Section~\ref{m0011_Electric_Flux_Density} describes the electric field in terms of a flux (i.e., as electric flux density ${\bf D}$), in which case positive flux flows away from a positively-charged source.
+
+{\bf Integration Over Volume.}  
+Another common task in vector analysis is integration of some quantity over a volume.
+Since the procedure is the same for scalar or vector quantities, we shall consider integration of a scalar quantity $A({\bf r})$ for simplicity.
+First, we note that the contribution from a differential volume element 
+%
+\begin{equation}
+dv = dx~dy~dz
+\end{equation}
+%
+is $A({\bf r})~dv$, so the integral over the volume ${\mathcal V}$ is
+%
+\begin{equation}
+\int_{\mathcal V} A({\bf r})~dv
+\end{equation}
+
+For example, if $A({\bf r})=1$ and $\mathcal{V}$ is a cube bounded by $x_1\le x \le x_2$, $y_1\le y \le y_2$, and $z_1\le z \le z_2$, then the above integral becomes
+%
+\begin{equation}
+\int_{x_1}^{x_2}\int_{y_1}^{y_2}\int_{z_1}^{z_2}{dx~dy~dz} = \left(x_2-x_1\right)\left(y_2-y_1\right)\left(z_2-z_1\right)
+\end{equation} 
+%
+i.e., this is a calculation of volume.
+
+The Cartesian system was an appropriate choice for this example because ${\mathcal V}$ is a cube, which is easy to describe in Cartesian coordinates and relatively difficult to describe in any other coordinate system.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Cartesian_coordinate_system}{Cartesian coordinate system}'' on Wikipedia.
+\end{itemize}
+
+\index{Cartesian coordinate system|)}

@@ -1,0 +1,172 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Electrostatic Energy
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Electrostatic Energy
+
+\label{m0114_Electric_Energy} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{energy!electrostatic|(}
+
+Consider a structure consisting of two perfect conductors, both fixed in position and separated by an ideal dielectric.
+This could be a capacitor, 
+\index{capacitor!energy storage}
+or it could be one of a variety of capacitive structures that are not explicitly intended to be a capacitor -- for example, a printed circuit board.
+When a potential difference is applied between the two conducting regions, a positive charge $Q_+$ will appear on the surface of the conductor at the higher potential, and a negative charge $Q_-=-Q_+$ will appear on the surface of the conductor at the lower potential (Section~\ref{m0025_Charge_and_Electric_Field_for_a_Perfectly_Conducting_Region}).
+Assuming the conductors are not free to move, potential energy 
+\index{energy!potential}
+is stored in the electric field associated with the surface charges (Section~\ref{m0112_Capacitance}).
+
+We now ask the question, what is the energy stored in this field? 
+The answer to this question has relevance in several engineering applications.
+For example, when capacitors are used as batteries, it is useful to know to amount of energy that can be stored.
+Also, any system that includes capacitors or has unintended capacitance is using some fraction of the energy delivered by the power supply to charge the associated structures. In many electronic systems -- and in digital systems in particular -- capacitances are periodically charged and subsequently discharged at a regular rate.  Since power is energy per unit time, this cyclic charging and discharging of capacitors consumes power.  Therefore, energy storage in capacitors contributes to the power consumption of modern electronic systems. We'll delve into that topic in more detail in Example~\ref{m0114_eMulticore}.
+
+Since capacitance $C$ relates the charge $Q_+$ to the potential difference $V$ between the conductors, this is the natural place to start.  From the definition of capacitance (Section~\ref{m0112_Capacitance}):
+%
+\begin{equation}
+V = \frac{Q_+}{C} 
+\end{equation}
+%
+From Section~\ref{m0061_Force_Energy_and_Potential_Difference}, electric potential is defined as the work done (i.e., energy injected) by moving a charged particle, per unit of charge; i.e.,
+%
+\begin{equation}
+V = \frac{W_e}{q}
+\end{equation}
+%
+where $q$ is the charge borne by the particle and $W_e$ (units of J) is the work done by moving this particle across the potential difference $V$.
+Since we are dealing with charge distributions as opposed to charged particles, it is useful to express this in terms of the contribution $\Delta W_e$ made to $W_e$ by a small charge $\Delta q$. Letting $\Delta q$ approach zero we have
+%
+\begin{equation}
+dW_e = V dq
+\end{equation}
+%
+Now consider what must happen to transition the system from having zero charge ($q=0$) to the fully-charged but static condition ($q=Q_+$). This requires moving the differential amount of charge $dq$ across the potential difference between conductors, beginning with $q=0$ and continuing until $q=Q_+$.
+Therefore, the total amount of work done in this process is:
+%
+\begin{flalign}
+W_e &= \int_{q=0}^{Q_+} dW_e \nonumber \\
+    &= \int_{0}^{Q_+} V dq  \nonumber \\
+    &= \int_{0}^{Q_+} \frac{q}{C}~dq  \nonumber \\
+    &= \frac{1}{2}\frac{Q_+^2}{C} 
+\label{m0114_eWeQC}
+\end{flalign}
+%
+Equation~\ref{m0114_eWeQC} can be expressed entirely in terms of electrical potential by noting again that $C = Q_+/V$, so
+%
+\begin{equation}
+\boxed{
+W_e = \frac{1}{2} CV^2
+}
+\label{m0114_eESE}
+\end{equation}
+%
+Since there are no other processes to account for the injected energy, the energy stored in the electric field is equal to $W_e$.  Summarizing:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The energy stored in the electric field of a capacitor (or a capacitive structure) is given by Equation~\ref{m0114_eESE}.
+\end{mdframed}
+
+%--------------------------------------------------------
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\label{m0114_eMulticore}
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Why multicore computing is power-neutral.
+\\~\\
+Readers are likely aware that computers increasingly use multicore processors as opposed to single-core processors.
+For our present purposes, a ``core'' is defined as the smallest combination of circuitry that performs independent computation.
+A multicore processor consists of multiple identical cores that run in parallel.
+Since a multicore processor consists of $N$ identical processors, you might expect power consumption to increase by $N$ relative to a single-core processor.
+However, this is not the case.
+To see why, first realize that the power consumption of a modern computing core is dominated by the energy required to continuously charge and discharge the multitude of capacitances within the core.  
+From Equation~\ref{m0114_eESE}, the required energy is $\frac{1}{2}C_0V_0^2$ per clock cycle, where $C_0$ is the sum capacitance (remember, capacitors in parallel add) and $V_0$ is the supply voltage. Power is energy per unit time, so the power consumption for a single core is 
+%
+\begin{equation}
+P_0 = \frac{1}{2}C_0V_0^2f_0
+\end{equation}
+%
+where $f_0$ is the clock frequency.
+In a $N$-core processor, the sum capacitance is increased by $N$.
+However, the frequency is decreased by $N$ since the same amount of computation is (nominally) distributed among the $N$ cores.
+Therefore, the power consumed by an $N$-core processor is
+%
+\begin{equation}
+P_N = \frac{1}{2}\left(NC_0\right)V_0^2\left(\frac{f_0}{N}\right) = P_0 
+\end{equation}
+%
+In other words, the increase in power associated with replication of hardware is nominally offset by the decrease in power enabled by reducing the clock rate.
+In yet other words, the total energy of the $N$-core processor is $N$ times the energy of the single core processor at any given time; however, the multicore processor needs to recharge capacitances $1/N$ times as often.  
+
+Before moving on, it should be noted that the usual reason for pursuing a multicore design is to increase the amount of computation that can be done; i.e., to increase the product $f_0 N$.   Nevertheless, it is extremely helpful that power consumption is proportional to $f_0$ only, and is independent of $N$.
+\end{mdframed}\end{example}
+
+%--------------------------------------------------------
+
+The thin parallel plate capacitor (Section~\ref{m0070_Parallel_Plate_Capacitor_Capacitance_from_Charge}) is representative of a large number of practical applications, so it is instructive to consider the implications of Equation~\ref{m0114_eESE} for this structure in particular.
+For the thin parallel plate capacitor,
+%
+\begin{equation}
+C \approx \frac{\epsilon A}{d}
+\end{equation}
+%
+where $A$ is the plate area, $d$ is the separation between the plates, and $\epsilon$ is the permittivity of the material between the plates.
+This is an approximation because the fringing field is neglected; we shall proceed as if this is an exact expression.
+Applying Equation~\ref{m0114_eESE}:
+%
+\begin{equation}
+W_e = \frac{1}{2} \left(\frac{\epsilon A}{d}\right)\left(Ed\right)^2 
+\end{equation}
+%
+where $E$ is the magnitude of the electric field intensity between the plates.
+Rearranging factors, we obtain:
+%
+\begin{equation}
+W_e = \frac{1}{2} \epsilon E^2 \left(A d\right) 
+\end{equation}
+%
+Recall that the electric field intensity in the thin parallel plate capacitor is approximately uniform.
+Therefore, the density of energy stored in the capacitor is also approximately uniform.
+Noting that the product $Ad$ is the volume of the capacitor, we find that the energy density is
+%
+\begin{equation}
+w_e = \frac{W_e}{Ad} = \frac{1}{2} \epsilon E^2 
+\label{m0114_eED}
+\end{equation}
+%
+which has units of energy per unit volume (J/m$^3$).
+
+The above expression provides an alternative method to compute the total electrostatic energy.
+Within a mathematical volume ${\mathcal V}$, the total electrostatic energy is simply the integral of the energy density over ${\mathcal V}$; i.e., 
+%
+\begin{equation}
+W_e = \int_{\mathcal V} w_e~dv  
+\end{equation}
+%
+This works even if $E$ and $\epsilon$ vary with position. 
+So, even though we arrived at this result using the example of the thin parallel-plate capacitor, our findings at this point apply generally.
+Substituting Equation~\ref{m0114_eED} we obtain:
+%
+\begin{equation}
+\boxed{
+W_e = \frac{1}{2} \int_{\mathcal V} \epsilon E^2 dv  
+}
+\label{m0114_eEDV}
+\end{equation}
+%
+Summarizing:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The energy stored by the electric field present within a volume is given by Equation~\ref{m0114_eEDV}.
+\end{mdframed}
+%
+It's worth noting that this energy increases with the permittivity of the medium, which makes sense since capacitance is proportional to permittivity.
+
+\index{energy!electrostatic|)}
+

@@ -1,0 +1,71 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Lossless and Low-Loss Transmission Lines
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Simpler forms of alpha, beta, Z0 etc when line is lossless 
+
+\label{m0083_Lossless_Transmission_Lines} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+Quite often the loss in a transmission line is small enough that it may be neglected.  
+In this case, several aspects of transmission line theory may be simplified.  
+In this section, we present these simplifications.
+
+First, recall that ``loss'' refers to the reduction of magnitude as a wave propagates through space. 
+In the lumped-element equivalent circuit model 
+\index{transmission line!lumped-element model}
+(Section~\ref{m0029_Lumped-Element_Model}), the parameters $R'$ and $G'$ of the represent physical mechanisms associated with loss.
+Specifically, $R'$ represents the resistance of conductors, whereas $G'$ represents the undesirable current induced between conductors through the spacing material.
+Also recall that the propagation constant $\gamma$ is, in general, given by
+%
+\begin{equation}
+\gamma \triangleq \sqrt{\left(R'+j\omega L'\right)\left(G'+j\omega C'\right)}
+\end{equation} 
+
+With this in mind, we now define ``low loss''
+\index{transmission line!low loss}
+as meeting the conditions:
+%
+\begin{equation}
+R'\ll\omega L'
+\label{m0083_eLLR}
+\end{equation}
+%
+\begin{equation}
+G'\ll\omega C'
+\label{m0083_eLLG}
+\end{equation}
+%
+When these conditions are met, the propagation constant simplifies as follows:
+%
+\begin{flalign}
+\gamma &\approx \sqrt{\left(j\omega L'\right)\left(j\omega C'\right)} \nonumber \\
+       &= \sqrt{-\omega^2 L'C'} \nonumber \\
+       &= j\omega\sqrt{L'C'} 
+\end{flalign} 
+%
+and subsequently
+%
+\begin{flalign}
+\alpha \triangleq \mbox{Re}\left\{\gamma\right\} & \approx 0                     & \mbox{(low-loss approx.)} \\
+\beta  \triangleq \mbox{Im}\left\{\gamma\right\} & \approx \omega\sqrt{L'C'}     & \mbox{(low-loss approx.)} \\
+v_p    = \omega/\beta                            & \approx \frac{1}{\sqrt{L'C'}} & \mbox{(low-loss approx.)}
+\end{flalign}
+%
+Similarly:
+\begin{equation}
+Z_0 = \sqrt{\frac{R' + j\omega L'}{G' + j\omega C'}} \approx \sqrt{\frac{L'}{C'}} ~~~ \mbox{(low-loss approx.)}
+\end{equation} 
+
+Of course if the line is strictly lossless (i.e., $R'=G'=0$) then these are not approximations, but rather the exact expressions.
+
+In practice, these approximations are quite commonly used, since practical transmission lines typically meet the conditions expressed in Inequalities~\ref{m0083_eLLR} and \ref{m0083_eLLG} and the resulting expressions are much simpler.  We further observe that $Z_0$ and $v_p$ are approximately independent of frequency when these conditions hold.
+
+However, also note that ``low loss'' does not mean ``no loss,'' and it is common to apply these expressions even when $R'$ and/or $G'$ is large enough to yield significant loss.  For example, a coaxial cable used to connect an antenna on a tower to a radio near the ground typically has loss that is important to consider in the analysis and design process, but nevertheless satisfies Equations~\ref{m0083_eLLR} and \ref{m0083_eLLG}.  In this case, the low-loss expression for $\beta$ is used, but $\alpha$ might not be approximated as zero.
+ 
+
+
+

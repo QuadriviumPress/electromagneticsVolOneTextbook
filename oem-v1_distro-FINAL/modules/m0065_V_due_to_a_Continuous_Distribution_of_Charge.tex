@@ -1,0 +1,109 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Electric Potential Field due to a Continuous Distribution of Charge
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Electric Potential due to a Continuous Distribution of Charge
+
+\label{m0065_V_due_to_a_Continuous_Distribution_of_Charge} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The electrostatic potential field at ${\bf r}$ associated with $N$ charged particles is
+%
+\begin{equation}
+V({\bf r}) = \frac{1}{4\pi\epsilon} \sum_{n=1}^N { \frac{q_n}{\left|{\bf r}-{\bf r}_n\right|} }
+\label{m0065_eCountable}
+\end{equation}
+%
+where $q_n$ and ${\bf r_n}$ are the charge and position of the $n^{\mbox{th}}$ particle.
+However, it is more common to have a continuous distribution of charge as opposed to a countable number of charged particles.
+We now consider how to compute $V({\bf r})$ three types of these commonly-encountered distributions.
+Before beginning, it's worth noting that the methods will be essentially the same, from a mathematical viewpoint, as those developed in Section~\ref{m0104_E_due_to_a_Continuous_Distribution_of_Charge}; therefore, a review of that section may be helpful before attempting this section.
+
+%---------------------------------------------------
+
+{\bf Continuous Distribution of Charge Along a Curve.}
+\index{charge density!line}
+Consider a continuous distribution of charge along a curve $\mathcal{C}$.
+The curve can be divided into short segments of length $\Delta l$.  
+Then, the charge associated with the $n^{\mbox{th}}$ segment, located at ${\bf r}_n$, is
+%
+\begin{equation}
+q_n = \rho_l({\bf r}_n)~\Delta l
+\end{equation}
+%
+where $\rho_l$ is the line charge density (units of C/m) at ${\bf r}_n$.
+Substituting this expression into Equation~\ref{m0065_eCountable}, we obtain
+%
+\begin{equation}
+{\bf V}({\bf r}) = \frac{1}{4\pi\epsilon} \sum_{n=1}^{N} { \frac{\rho_l({\bf r}_n)}{\left|{\bf r}-{\bf r}_n\right|} \Delta l}
+\end{equation}
+%
+Taking the limit as $\Delta l\to 0$ yields:
+%
+\begin{equation}
+V({\bf r}) = \frac{1}{4\pi\epsilon} \int_{\mathcal C} { \frac{\rho_l(l)}{\left|{\bf r}-{\bf r}'\right|} dl}
+\label{m0065_eLineCharge}
+\end{equation}
+%
+where ${\bf r}'$ represents the varying position along ${\mathcal C}$ with integration along the length $l$.
+
+
+%---------------------------------------------------
+
+{\bf Continuous Distribution of Charge Over a Surface.}
+\index{charge density!surface}
+Consider a continuous distribution of charge over a surface $\mathcal{S}$.
+The surface can be divided into small patches having area $\Delta s$.  
+Then, the charge associated with the $n^{\mbox{th}}$ patch, located at ${\bf r}_n$, is
+%
+\begin{equation}
+q_n = \rho_s({\bf r}_n)~\Delta s
+\end{equation}
+%
+where $\rho_s$ is surface charge density (units of C/m$^2$) at ${\bf r}_n$.
+Substituting this expression into Equation~\ref{m0065_eCountable}, we obtain
+%
+\begin{equation}
+V({\bf r}) = \frac{1}{4\pi\epsilon} \sum_{n=1}^{N} { \frac{\rho_s({\bf r}_n)}{\left|{\bf r}-{\bf r}_n\right|}~\Delta s}
+\end{equation}
+%
+Taking the limit as $\Delta s\to 0$ yields:
+%
+\begin{equation}
+V({\bf r}) = \frac{1}{4\pi\epsilon} \int_{\mathcal S} { \frac{\rho_s({\bf r}')}{\left|{\bf r}-{\bf r}'\right|}~ds}
+\label{m0065_eSurfCharge}
+\end{equation}
+%
+where ${\bf r}'$ represents the varying position over ${\mathcal S}$ with integration.
+
+%---------------------------------------------------
+
+{\bf Continuous Distribution of Charge in a Volume.}
+\index{charge density!volume}
+Consider a continuous distribution of charge within a volume $\mathcal{V}$.
+The volume can be divided into small cells (volume elements) having area $\Delta v$.  
+Then, the charge associated with the $n^{\mbox{th}}$ cell, located at ${\bf r}_n$, is
+%
+\begin{equation}
+q_n = \rho_v({\bf r}_n)~\Delta v
+\end{equation}
+%
+where $\rho_v$ is the volume charge density (units of C/m$^3$) at ${\bf r}_n$.
+Substituting this expression into Equation~\ref{m0065_eCountable}, we obtain
+%
+\begin{equation}
+V({\bf r}) = \frac{1}{4\pi\epsilon} \sum_{n=1}^{N} {   \frac{\rho_v({\bf r}_n)}{\left|{\bf r}-{\bf r}_n\right|}~\Delta v}
+\end{equation}
+%
+Taking the limit as $\Delta v\to 0$ yields:
+%
+\begin{equation}
+V({\bf r}) = \frac{1}{4\pi\epsilon} \int_{\mathcal V} {   \frac{\rho_v({\bf r}')}{\left|{\bf r}-{\bf r}'\right|}~dv}
+\end{equation}
+%
+where ${\bf r}'$ represents the varying position over ${\mathcal V}$ with integration.
+
+

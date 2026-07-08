@@ -1,0 +1,179 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Power Dissipation in Conducting Media
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Power Dissipation in Conducting Media, Joule's Law
+
+\label{m0106_Power_Dissipation_in_Conducting_Media} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{power dissipation|(}
+
+The displacement of charge in response to the force exerted by an electric field constitutes a reduction in the potential energy of the system (Section~\ref{m0061_Force_Energy_and_Potential_Difference}).
+If the charge is part of a steady current, there must be an associated loss of energy that occurs at a steady rate.  
+Since power is energy per unit time, the loss of energy associated with current is expressible as power dissipation.
+In this section, we address two questions: 
+(1) How much power is dissipated in this manner, and
+(2) What happens to the lost energy?
+
+First, recall that \emph{work} is force times distance traversed in response to that force (Section~\ref{m0061_Force_Energy_and_Potential_Difference}).  
+Stated mathematically:
+%
+\begin{equation}
+\Delta W = +{\bf F}\cdot \Delta {\bf l}
+\end{equation}
+%
+where the vector ${\bf F}$ is the force (units of N) exerted by the electric field, 
+the vector $\Delta {\bf l}$ is the direction and distance (units of m) traversed, and
+$\Delta W$ is the work done (units of J) as a result. 
+Note that a ``$+$'' has been explicitly indicated; this is to emphasize the distinction from the work being considered in Section~\ref{m0061_Force_Energy_and_Potential_Difference}.  In that section, the work ``$\Delta W$'' represented energy from an external source that was being used to increase the potential energy of the system by moving charge ``upstream'' relative to the electric field. 
+Now, $\Delta W$ represents this internal energy as it is escaping from the system in the form of kinetic energy; therefore, positive $\Delta W$ now means a reduction in potential energy, hence the sign change.\footnote{It could be argued that it is bad form to use the same variable to represent both tallies; nevertheless, it is common practice and so we simply remind the reader that it is important to be aware of the definitions of variables each time they are (re)introduced.}
+
+The associated power $\Delta P$ (units of W) is $\Delta W$ divided by the time $\Delta t$ (units of s) required for the distance $\Delta{\bf l}$ to be traversed:
+%
+\begin{equation}
+\Delta P = \frac{\Delta W}{\Delta t} = {\bf F}\cdot \frac{\Delta {\bf l}}{\Delta t}
+\end{equation}
+%
+Now we'd like to express force in terms of the electric field exerting this force.
+Recall that the force exerted by an electric field intensity ${\bf E}$ (units of V/m) on a particle bearing charge $q$ (units of C) is $q{\bf E}$ (Section~\ref{m0002_Electric_Field_Intensity}).
+However, we'd like to express this force in terms of a current, as opposed to a charge.
+An expression in terms of current can be constructed as follows. 
+First, note that the total charge in a small volume ``cell'' is the volume charge density $\rho_v$ (units of C/m$^3$) times the volume  $\Delta v$ of the cell; i.e., $q = \rho_v \Delta v$ (Section~\ref{m0100_Charge_Distributions}). Therefore: 
+%
+\begin{equation}
+{\bf F} = q{\bf E} = \rho_v~\Delta v~{\bf E}
+\end{equation} 
+%
+and subsequently 
+%
+\begin{equation}
+\Delta P = \rho_v~\Delta v~{\bf E} \cdot \frac{\Delta {\bf l}}{\Delta t} 
+         = {\bf E} \cdot \left( \rho_v \frac{\Delta {\bf l}}{\Delta t} \right) \Delta v
+\end{equation}
+%
+The quantity in parentheses has units of C/m$^3$ $\cdot$ m $\cdot$ s$^{-1}$, which is A/m$^2$.
+Apparently this quantity is the volume current density ${\bf J}$, so we have  
+%
+\begin{equation}
+\Delta P = {\bf E} \cdot {\bf J}~\Delta v
+\end{equation}
+%
+In the limit as $\Delta v\to 0$ we have
+%
+\begin{equation}
+dP = {\bf E} \cdot {\bf J}~dv
+\end{equation}
+%
+and integrating over the volume ${\mathcal V}$ of interest we obtain
+%
+\begin{equation}
+P = \int_{\mathcal V} dP = \int_{\mathcal V} {\bf E} \cdot {\bf J}~dv
+\label{m0106_eJLx}
+\end{equation}
+%
+The above expression is commonly known as \emph{Joule's Law}.
+\index{Joule's law}
+In our situation, it is convenient to use Ohm's Law 
+\index{Ohm's law}
+for Electromagnetics (${\bf J}=\sigma{\bf E}$; Section~\ref{m0010_Conductivity}) to get everything in terms of materials properties ($\sigma$), geometry (${\mathcal V}$), and the electric field:
+%
+\begin{equation}
+P = \int_{\mathcal V} {\bf E} \cdot \left(\sigma{\bf E}\right)~dv
+\end{equation}
+%
+which is simply
+%
+\begin{equation}
+\boxed{
+P = \int_{\mathcal V} \sigma \left|{\bf E}\right|^2~dv
+}
+\label{m0106_eJL}
+\end{equation}
+%
+Thus:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The power dissipation associated with current is given by Equation~\ref{m0106_eJL}. 
+This power is proportional to conductivity and proportional to the electric field magnitude squared.
+\end{mdframed}
+
+This result facilitates the analysis of power dissipation in materials exhibiting loss; i.e., having finite conductivity.
+But what is the power dissipation in a perfectly conducting material?  
+For such a material, $\sigma\to\infty$ and ${\bf E}\to 0$ no matter how much current is applied (Section~\ref{m0010_Conductivity}).
+In this case, Equation~\ref{m0106_eJL} is not very helpful.
+However, as we just noted, being a perfect conductor means ${\bf E}\to 0$ no matter how much current is applied, so from Equation~\ref{m0106_eJLx} we have found that:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+No power is dissipated in a perfect conductor. 
+\index{conductor!perfect} 
+\end{mdframed}
+
+When conductivity is finite, Equation~\ref{m0106_eJL} serves as a more-general version of a concept from elementary circuit theory, as we shall now demonstrate.
+Let ${\bf E}=\hat{\bf z}E_z$, so $\left|{\bf E}\right|^2=E_z^2$.
+Then Equation~\ref{m0106_eJL} becomes:
+%
+\begin{equation}
+P = \int_{\mathcal V} \sigma E_z^2~dv = \sigma E_z^2~\int_{\mathcal V}~dv
+\label{m0106_ePintegrals}
+\end{equation}
+%
+The second integral in Equation~\ref{m0106_ePintegrals} is a calculation of volume.  
+Let's assume ${\mathcal V}$ is a cylinder aligned along the $z$ axis.
+The volume of this cylinder is the cross-sectional area $A$ times the length $l$.
+Then the above equation becomes:
+%
+\begin{equation}
+P = \sigma E_z^2~A~l 
+\end{equation}
+%
+For reasons that will become apparent very shortly, let's reorganize the above expression as follows:
+%
+\begin{equation}
+P = \left(\sigma E_z A\right) \left(E_z l\right)
+\end{equation}
+%
+Note that $\sigma E_z$ is the current density in A/m$^2$, which when multiplied by $A$ gives the total current.  
+Therefore, the quantity in the first set of parentheses is simply the current $I$.
+Also note that $E_z l$ is the potential difference over the length $l$, which is simply the node-to-node voltage $V$ (Section~\ref{m0061_Force_Energy_and_Potential_Difference}).
+Therefore, we have found:
+%
+\begin{equation}
+P =  IV 
+\end{equation}
+%
+as expected from elementary circuit theory.
+
+Now, what happens to the energy associated with this dissipation of power?
+The displacement of charge carriers in the material is limited by the conductivity, which itself is finite because, simply put, other constituents of the material get in the way.  If charge is being displaced as described in this section, then energy is being used to displace the charge-bearing particles.  The motion of constituent particles is observed as heat -- in fact, this is essentially the definition of heat.
+Therefore:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The power dissipation associated with the flow of current in any material that is not a perfect conductor manifests as heat.
+\index{heat}
+\end{mdframed}
+%
+This phenomenon is known as \emph{joule heating}, 
+\index{joule heating}
+\emph{ohmic heating}, 
+\index{ohmic heating}
+and by other names. 
+This conversion of electrical energy to heat is the method of operation for toasters, electric space heaters, and many other devices that generate heat.
+It is of course also the reason that all practical electronic devices generate heat.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Joule_heating}{Joule Heating}'' on Wikipedia.
+\end{itemize}
+
+\index{power dissipation|)}
+
+
+

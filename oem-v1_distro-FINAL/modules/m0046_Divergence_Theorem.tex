@@ -1,0 +1,73 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Divergence Theorem
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Divergence Theorem 
+
+\label{m0046_Divergence_Theorem} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The \emph{Divergence Theorem} relates an integral over a volume to an integral over the surface bounding that volume.
+This is useful in a number of situations that arise in electromagnetic analysis.
+In this section, we derive this theorem. 
+
+Consider a vector field ${\bf A}$ representing a flux density, such as the electric flux density ${\bf D}$ or magnetic flux density ${\bf B}$.  The divergence of ${\bf A}$ is
+%
+\begin{equation}
+\nabla \cdot {\bf A} = f
+\label{m0046_eDivAf}
+\end{equation}
+%
+where is $f({\bf r})$ is the flux per unit volume through an infinitesimally-small closed surface surrounding the point at ${\bf r}$.
+Since $f$ is flux per unit volume, we can obtain flux for any larger contiguous volume ${\mathcal V}$ by integrating over ${\mathcal V}$; i.e.,
+%
+\begin{equation}
+\mbox{flux through} ~{\mathcal V} = \int_{\mathcal V} f ~dv
+\end{equation}  
+  
+In the Cartesian system, ${\mathcal V}$ can be interpreted as a three-dimensional grid of infinitesimally-small cubes having side lengths $dx$, $dy$, and $dz$, respectively.  
+Note that the flux \emph{out of} any face of one of these cubes is equal to the flux \emph{into} the cube that is adjacent through that face. 
+That is, the portion of the total flux that flows between cubes cancels when added together.
+In fact, the only fluxes which do not cancel in the integration over ${\mathcal V}$ are those corresponding to faces which lie on the bounding surface ${\mathcal S}$, since the integration stops there.
+Stating this mathematically:
+%
+\begin{equation}
+\int_{\mathcal V} f ~dv = \oint_{\mathcal S} {\bf A}\cdot d{\bf s}
+\label{m0046_eIntVIntS}
+\end{equation}
+%
+Thus, we have converted a volume integral into a surface integral.
+
+To obtain the Divergence Theorem, we return to Equation~\ref{m0046_eDivAf}.  Integrating both sides of that equation over ${\mathcal V}$, we obtain    
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf A} \right) dv = \int_{\mathcal V} f ~dv
+\end{equation}
+%
+Now applying Equation~\ref{m0046_eIntVIntS} to the right hand side:
+%
+\begin{equation}
+\boxed{
+\int_{\mathcal V} \left( \nabla \cdot {\bf A} \right) dv = \oint_{\mathcal S} {\bf A}\cdot d{\bf s}
+}
+\label{m0046_eDivThm}
+\end{equation}
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The Divergence Theorem 
+\index{divergence theorem}
+(Equation~\ref{m0046_eDivThm}) states that the integral of the divergence of a vector field over a volume is equal to the flux of that field through the surface bounding that volume. 
+\end{mdframed}
+
+The principal utility of the Divergence Theorem is to convert problems that are defined in terms of quantities known throughout a volume into problems that are defined in terms of quantities known over the bounding surface and vice-versa.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Divergence_theorem}{Divergence theorem}'' on Wikipedia.
+\end{itemize}

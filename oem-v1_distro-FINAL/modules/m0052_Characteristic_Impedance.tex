@@ -1,0 +1,143 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Characteristic Impedance
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Characteristic Impedance
+
+\label{m0052_Characteristic_Impedance} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{characteristic impedance|(}
+
+Characteristic impedance is the ratio of voltage to current for a wave that is propagating in single direction on a transmission line.
+This is an important parameter in the analysis and design of circuits and systems using transmission lines.
+In this section, we formally define this parameter and derive an expression for this parameter in terms of the equivalent circuit model introduced in Section~\ref{m0029_Lumped-Element_Model}. 
+
+Consider a transmission line aligned along the $z$ axis.
+Employing some results from Section~\ref{m0027_Wave_Equations_for_a_Transmission_Line}, recall that
+the phasor form of the wave equation in this case is
+%
+\begin{equation}
+\frac{\partial^2}{\partial z^2} \widetilde{V}(z) -\gamma^2~\widetilde{V}(z) =0
+\label{m0052_eWaveEqnV}
+\end{equation}
+%
+where
+%
+\begin{equation}
+\gamma \triangleq \sqrt{\left( R' + j\omega L' \right)\left( G' + j\omega C' \right)} 
+\label{m0052_egamma}
+\end{equation}
+%
+Equation~\ref{m0052_eWaveEqnV} relates the potential phasor $\widetilde{V}(z)$ to the equivalent circuit parameters $R'$, $G'$, $C'$, and $L'$.
+An equation of the same form relates the current phasor $\widetilde{I}(z)$ to the equivalent circuit parameters:
+%
+\begin{equation}
+\frac{\partial^2}{\partial z^2} \widetilde{I}(z) -\gamma^2~\widetilde{I}(z) =0
+\label{m0052_eWaveEqnI}
+\end{equation}
+%
+Since both $\widetilde{V}(z)$ and $\widetilde{I}(z)$ satisfy the \emph{same} linear homogeneous differential equation, they may differ by no more than a multiplicative constant.
+Since $\widetilde{V}(z)$ is potential and $\widetilde{I}(z)$ is current, that constant can be expressed in units of impedance.
+Specifically, this is the \emph{characteristic impedance}, so-named because it depends only on the materials and cross-sectional geometry of the transmission line -- i.e., things which determine $\gamma$ -- and not length, excitation, termination, or position along the line. 
+
+To derive the characteristic impedance, first recall that the general solutions to Equations~\ref{m0052_eWaveEqnV} and \ref{m0052_eWaveEqnI} are
+%
+\begin{equation}
+\widetilde{V}(z) = V_0^+ e^{-\gamma z} + V_0^- e^{+\gamma z}
+\label{m0052_eV}
+\end{equation}
+%
+\begin{equation}
+\widetilde{I}(z) = I_0^+ e^{-\gamma z} + I_0^- e^{+\gamma z}
+\label{m0052_eI}
+\end{equation}
+%
+where $V_0^+$, $V_0^-$, $I_0^+$, and $I_0^-$ are complex-valued constants whose values are determined by boundary conditions; i.e., constraints on $\widetilde{V}(z)$ and $\widetilde{I}(z)$ at some position(s) along the line.  
+Also, we will make use of the telegrapher's equations (Section~\ref{m0079_Telegraphers_Equations}):
+%
+%
+\begin{equation}
+-\frac{\partial}{\partial z} \widetilde{V}(z) = \left[ R' + j\omega L' \right]~\widetilde{I}(z)
+\label{m0052_eTelegraphersEquation1p}
+\end{equation}
+%
+\begin{equation}
+-\frac{\partial}{\partial z} \widetilde{I}(z) = \left[ G' + j\omega C' \right]~\widetilde{V}(z)
+\label{m0052_eTelegraphersEquation2p}
+\end{equation}
+%
+We begin by differentiating Equation~\ref{m0052_eV} with respect to $z$, which yields
+%
+\begin{equation}
+\frac{\partial}{\partial z}\widetilde{V}(z) = -\gamma\left[V_0^+ e^{-\gamma z} - V_0^- e^{+\gamma z}\right]
+\end{equation}
+%
+Now we use this this to eliminate $\partial\widetilde{V}(z)/\partial z$ in Equation~\ref{m0052_eTelegraphersEquation1p}, yielding
+%
+\begin{equation}
+\gamma\left[V_0^+ e^{-\gamma z} - V_0^- e^{+\gamma z}\right] = \left[ R' + j\omega L' \right]~\widetilde{I}(z)
+\end{equation}
+%
+Solving the above equation for $\widetilde{I}(z)$ yields:
+%
+\begin{equation}
+\widetilde{I}(z) = \frac{\gamma}{R' + j\omega L'}\left[V_0^+ e^{-\gamma z} - V_0^- e^{+\gamma z}\right]
+\end{equation}
+%
+Comparing this to Equation~\ref{m0052_eI}, we note
+%
+\begin{equation}
+I_0^+ = \frac{\gamma}{R' + j\omega L'}~V_0^+
+\end{equation}
+%
+\begin{equation}
+I_0^- = \frac{-\gamma}{R' + j\omega L'}~V_0^-
+\end{equation}
+%
+We now make the substitution
+%
+\begin{equation}
+Z_0 = \frac{R' + j\omega L'}{\gamma} 
+\label{m0052_eZ0}
+\end{equation}
+%
+and observe
+%
+\begin{equation}
+\boxed{
+\frac{V_0^+}{I_0^+} = \frac{-V_0^-}{I_0^-} \triangleq Z_0
+}
+\end{equation}
+%
+As anticipated, we have found that coefficients in the equations for potentials and currents are related by an impedance, namely, $Z_0$.  
+
+Characteristic impedance can be written entirely in terms of the equivalent circuit parameters by substituting Equation~\ref{m0052_egamma} into Equation~\ref{m0052_eZ0}, yielding: 
+%
+\begin{equation}
+\boxed{
+Z_0 = \sqrt{\frac{R' + j\omega L'}{G' + j\omega C'}}
+}
+\end{equation}  
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The characteristic impedance 
+\index{characteristic impedance!definition}
+$Z_0$ ($\Omega$) is the ratio of potential to current in a wave traveling in a single direction along the transmission line.
+\end{mdframed}
+
+Take care to note that $Z_0$ is \emph{not} the ratio of $\widetilde{V}(z)$ to $\widetilde{I}(z)$ in general; rather, $Z_0$ relates only the potential and current waves traveling in the \emph{same} direction.
+
+Finally, note that transmission lines are normally designed to have a characteristic impedance that is completely real-valued -- that is, with no imaginary component.  This is because the imaginary component of an impedance represents energy \emph{storage} (think of capacitors and inductors), whereas the purpose of a transmission line is energy \emph{transfer}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Characteristic_impedance}{Characteristic impedance}'' on Wikipedia.
+\end{itemize}
+
+\index{characteristic impedance|)}

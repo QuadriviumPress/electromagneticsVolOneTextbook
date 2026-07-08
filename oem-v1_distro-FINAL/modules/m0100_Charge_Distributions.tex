@@ -1,0 +1,75 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Charge Distributions
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Charge Distributions 
+
+\label{m0100_Charge_Distributions} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+In principle, the smallest unit of electric charge that can be isolated is the charge of a single electron, which is $\cong -1.60 \times 10^{-19}$~C.
+This is very small, and we rarely deal with electrons one at a time, so it is usually more convenient to describe charge as a quantity that is continuous over some region of space.  In particular, it is convenient to describe charge as being distributed in one of three ways: along a curve, over a surface, or within a volume.
+
+{\bf Line Charge Distribution.} 
+\index{charge density!line}
+Imagine that charge is distributed along a curve ${\mathcal C}$ through space.   
+Let $\Delta q$ be the total charge along a short segment of the curve, and let $\Delta l$ be the length of this segment.
+The \emph{line charge density} $\rho_l$ at any point along the curve is defined as
+%
+\begin{equation}
+\rho_l \triangleq \lim_{\Delta l \to 0} \frac{\Delta q}{\Delta l} = \frac{dq}{dl}
+\end{equation}
+%
+which has units of C/m.
+We may then define $\rho_l$ to be a function of position along the curve, parameterized by $l$; e.g., $\rho_l(l)$.
+Then, the total charge $Q$ along the curve is
+%
+\begin{equation}
+Q = \int_{\mathcal C} \rho_l(l)~dl
+\end{equation}
+%
+which has units of C.
+In other words, line charge density integrated over length yields total charge.
+
+{\bf Surface Charge Distribution.} 
+\index{charge density!surface}
+Imagine that charge is distributed over a surface.   
+Let $\Delta q$ be the total charge on a small patch on this surface, and let $\Delta s$ be the area of this patch.
+The \emph{surface charge density} $\rho_s$ at any point on the surface is defined as
+%
+\begin{equation}
+\rho_s \triangleq \lim_{\Delta s \to 0} \frac{\Delta q}{\Delta s} = \frac{dq}{ds}
+\end{equation}
+%
+which has units of C/m$^2$.
+Let us define $\rho_s$ to be a function of position on this surface.
+Then the total charge over a surface ${\mathcal S}$ is
+%
+\begin{equation}
+Q = \int_{\mathcal S} \rho_s~ds
+\end{equation}
+%
+In other words, surface charge density integrated over a surface yields total charge.
+
+{\bf Volume Charge Distribution.} 
+\index{charge density!volume}
+Imagine that charge is distributed over a volume.   
+Let $\Delta q$ be the total charge in a small cell within this volume, and let $\Delta v$ be the volume of this cell.
+The \emph{volume charge density} $\rho_v$ at any point in the volume is defined as
+%
+\begin{equation}
+\rho_v \triangleq \lim_{\Delta v \to 0} \frac{\Delta q}{\Delta v} = \frac{dq}{dv}
+\end{equation}
+%
+which has units of C/m$^3$.
+Since $\rho_v$ is a function of position within this volume, the total charge within a volume ${\mathcal V}$ is
+%
+\begin{equation}
+Q = \int_{\mathcal V} \rho_v~dv
+\end{equation}
+%
+In other words, volume charge density integrated over a volume yields total charge.
+

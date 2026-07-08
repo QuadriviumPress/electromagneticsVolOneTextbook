@@ -1,0 +1,75 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Ampere's Law (Magnetostatics): Differential Form 
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Ampere's Law (Magnetostatics): Differential Form from Integral Form
+
+\label{m0118_Amperes_Law_Magnetostatics_Integral-to-Differential} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+The integral form of Amperes' Circuital Law 
+\index{Ampere's law!magnetostatics}
+(ACL; Section~\ref{m0019_Amperes_Law_Magnetostatics}) for magnetostatics relates the magnetic field along a closed path to the total current flowing through any surface bounded by that path.
+In mathematical form:
+%
+\begin{equation}
+\oint_{\mathcal C}{ {\bf H} \cdot d{\bf l} } = I_{encl}  
+\end{equation}
+%
+where ${\bf H}$ is magnetic field intensity, ${\mathcal C}$ is the closed curve, and $I_{encl}$ is the total current flowing through any surface bounded by ${\mathcal C}$.
+In this section, we derive the differential form of this equation.
+In some applications, this differential equation, combined with boundary conditions associated with discontinuities in structure and materials, can be used to solve for the magnetic field in arbitrarily complicated scenarios.  
+A more direct reason for seeking out this differential equation is that we gain a little more insight into the relationship between current and the magnetic field, disclosed at the end of this section.
+
+The equation we seek may be obtained using Stokes' Theorem (Section~\ref{m0051_Stokes_Theorem}), which in the present case may be written:
+%
+\begin{equation}   
+\int_{\mathcal S} \left( \nabla \times {\bf H} \right) \cdot d{\bf s} = \oint_{\mathcal C} {\bf H}\cdot d{\bf l}
+\label{m0118_eACL2}
+\end{equation}
+%
+where ${\mathcal S}$ is any surface bounded by ${\mathcal C}$, and $d{\bf s}$ is the differential surface area combined with the unit vector in the direction determined by the right-hand rule from Stokes' Theorem.
+\index{right-hand rule!Stokes' theorem}
+ACL tells us that the right side of the above equation is simply $I_{encl}$.
+We may express $I_{encl}$ as the integral of the volume current density ${\bf J}$ (units of A/m$^2$; Section~\ref{m0101_Current_Distributions}) as follows:
+%
+\begin{equation}
+I_{encl} = \int_{\mathcal S} {\bf J} \cdot d{\bf s}
+\end{equation}
+%
+so we may rewrite Equation~\ref{m0118_eACL2} as follows:
+%
+\begin{equation}   
+\int_{\mathcal S} \left( \nabla \times {\bf H} \right) \cdot d{\bf s} = \int_{\mathcal S} {\bf J} \cdot d{\bf s}
+\end{equation}
+%
+The above relationship must hold regardless of the specific location or shape of ${\mathcal S}$.  The only way this is possible for all possible surfaces in all applicable scenarios is if the integrands are equal.  Thus, we obtain the desired expression:
+%
+\begin{equation}
+\boxed{
+\nabla \times {\bf H} = {\bf J}
+}
+\label{m0118_eACL}
+\end{equation}
+%
+That is, the curl of the magnetic field intensity at a point is equal to the volume current density at that point.  
+Recalling the properties of the curl operator (Section~\ref{m0048_Curl}) -- in particular, that curl involves derivatives with respect to direction -- we conclude:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The differential form of Ampere's Circuital Law for magnetostatics (Equation~\ref{m0118_eACL}) indicates that the volume current density at any point in space is proportional to the spatial rate of change of the magnetic field and is perpendicular to the magnetic field at that point.
+\end{mdframed}
+
+%-------------------------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Ampere's_circuital_law}{Ampere's circuital law}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Boundary_value_problem}{Boundary value problem}'' on Wikipedia.
+\end{itemize}
+
+
+

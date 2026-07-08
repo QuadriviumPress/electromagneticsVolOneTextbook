@@ -1,0 +1,122 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Wave Equation for a TEM Transmission Line
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Beginning with phasor Telegrapher's equations, obtain wave equations for V(z) and I(z)
+
+\label{m0027_Wave_Equations_for_a_Transmission_Line} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{wave equation!TEM transmission line|(}
+\index{transmission line!wave equations|(}
+
+Consider a TEM transmission line 
+\index{transmission line!transverse electromagnetic (TEM)}
+aligned along the $z$ axis.
+The phasor form of the Telegrapher's Equations 
+\index{telegrapher's equations}
+(Section~\ref{m0079_Telegraphers_Equations}) relate the potential phasor
+$\widetilde{V}(z)$ and the current phasor $\widetilde{I}(z)$ to each other and 
+to the lumped-element model equivalent circuit parameters $R'$, $G'$, $C'$, and $L'$.
+These equations are
+%
+\begin{equation}
+-\frac{\partial}{\partial z} \widetilde{V}(z) = \left[ R' + j\omega L' \right]~\widetilde{I}(z)
+\label{m0027_eTelegraphersEquation1p}
+\end{equation}
+%
+\begin{equation}
+-\frac{\partial}{\partial z} \widetilde{I}(z) = \left[ G' + j\omega C' \right]~\widetilde{V}(z)
+\label{m0027_eTelegraphersEquation2p}
+\end{equation}
+
+An obstacle to using these equations is that we require both equations to solve for either the potential or the current.
+In this section, we reduce these equations to a single equation -- a \emph{wave equation} -- that is more convenient to use and provides some additional physical insight.
+
+We begin by differentiating both sides of Equation~\ref{m0027_eTelegraphersEquation1p} with respect to $z$, yielding:
+%
+\begin{equation}
+-\frac{\partial^2}{\partial z^2} \widetilde{V}(z) = \left[ R' + j\omega L' \right]~\frac{\partial}{\partial z} \widetilde{I}(z)
+\end{equation}
+%
+Then using Equation~\ref{m0027_eTelegraphersEquation2p} to eliminate $\widetilde{I}(z)$, we obtain
+%
+\begin{equation}
+-\frac{\partial^2}{\partial z^2} \widetilde{V}(z) = -\left[ R' + j\omega L' \right]\left[ G' + j\omega C' \right]~\widetilde{V}(z)
+\end{equation}
+%
+This equation is normally written as follows:
+%
+\begin{equation}
+\boxed{
+\frac{\partial^2}{\partial z^2} \widetilde{V}(z) -\gamma^2~\widetilde{V}(z) =0
+}
+\label{m0027_eWaveEqnV}
+\end{equation}
+%
+where we have made the substitution:
+%
+\begin{equation}
+\gamma^2 = \left( R' + j\omega L' \right)\left( G' + j\omega C' \right)
+\end{equation}
+%
+The principal square root of $\gamma^2$ is known as the \emph{propagation constant}:
+%
+\begin{equation}
+\gamma \triangleq \sqrt{\left( R' + j\omega L' \right)\left( G' + j\omega C' \right)} 
+\label{m0027_egamma}
+\end{equation}
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The \emph{propagation constant} 
+\index{propagation constant}
+$\gamma$ (units of m$^{-1}$) captures the effect of materials, geometry, and frequency in determining the variation in potential and current with distance on a TEM transmission line. 
+\end{mdframed}
+
+Following essentially the same procedure but beginning with Equation~\ref{m0027_eTelegraphersEquation2p}, we obtain
+%
+\begin{equation}
+\boxed{
+\frac{\partial^2}{\partial z^2} \widetilde{I}(z) -\gamma^2~\widetilde{I}(z) =0
+}
+\label{m0027_eWaveEqnI}
+\end{equation}
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Equations~\ref{m0027_eWaveEqnV} and \ref{m0027_eWaveEqnI} are the \emph{wave equations} for $\widetilde{V}(z)$ and $\widetilde{I}(z)$, respectively.
+\end{mdframed}
+
+Note that both $\widetilde{V}(z)$ and $\widetilde{I}(z)$ satisfy the \emph{same} linear homogeneous differential equation.
+This does \emph{not} mean that $\widetilde{V}(z)$ and $\widetilde{I}(z)$ are equal.
+Rather, it means that $\widetilde{V}(z)$ and $\widetilde{I}(z)$ can differ by no more than a multiplicative constant.
+Since $\widetilde{V}(z)$ is potential and $\widetilde{I}(z)$ is current, that constant must be an impedance.
+This impedance is known as the \emph{characteristic impedance} 
+\index{characteristic impedance}
+and is determined in Section~\ref{m0052_Characteristic_Impedance}.
+
+The general solutions to Equations~\ref{m0027_eWaveEqnV} and \ref{m0027_eWaveEqnI} are
+%
+\begin{equation}
+\widetilde{V}(z) = V_0^+ e^{-\gamma z} + V_0^- e^{+\gamma z}
+\label{m0027_eV}
+\end{equation}
+%
+\begin{equation}
+\widetilde{I}(z) = I_0^+ e^{-\gamma z} + I_0^- e^{+\gamma z}
+\label{m0027_eI}
+\end{equation}
+%
+where $V_0^+$, $V_0^-$, $I_0^+$, and $I_0^-$ are complex-valued constants.
+It is shown in Section~\ref{m0080_Wave_Propagation_on_a_Transmission_Line} that Equations~\ref{m0027_eV} and \ref{m0027_eI} represent sinusoidal waves propagating in the $+z$ and $-z$ directions along the length of the line.
+The constants may represent sources, loads, or simply discontinuities in the materials and/or geometry of the line.
+The values of the constants are determined by boundary conditions; i.e., constraints on $\widetilde{V}(z)$ and $\widetilde{I}(z)$ at some position(s) along the line.  
+
+The reader is encouraged to verify that the Equations~\ref{m0027_eV} and \ref{m0027_eI} are in fact solutions to Equations~\ref{m0027_eWaveEqnV} and \ref{m0027_eWaveEqnI}, respectively, for any values of the constants $V_0^+$, $V_0^-$, $I_0^+$, and $I_0^-$.
+
+\index{wave equation!TEM transmission line|)}
+\index{transmission line!wave equations|)}
+

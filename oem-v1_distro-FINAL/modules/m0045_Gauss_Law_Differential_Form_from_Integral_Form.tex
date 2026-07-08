@@ -1,0 +1,161 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Gauss' Law: Differential Form
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Gauss' Law: Differential Form
+
+\label{m0045_Gauss_Law_Differential_Form_from_Integral_Form} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Gauss' law!electric field}
+
+The integral form of Gauss' Law (Section~\ref{m0014_Gauss_Law_Integral_Form}) is a calculation of enclosed charge $Q_{encl}$ using the surrounding density of electric flux:
+%
+\begin{equation}
+\oint_{\mathcal S} {\bf D}\cdot d{\bf s} = Q_{encl}
+\label{m0045_eGLIF}
+\end{equation}
+%
+where ${\bf D}$ is electric flux density and ${\mathcal S}$ is the enclosing surface.
+It is also sometimes necessary to do the inverse calculation (i.e., determine electric field associated with a charge distribution).
+This is sometimes possible using Equation~\ref{m0045_eGLIF} if the symmetry of the problem permits; see examples in Section~\ref{m0014_Gauss_Law_Integral_Form} and \ref{m0149_E_due_to_Inf_Line_Charge}.
+If the problem does not exhibit the necessary symmetry, then it seems that one must fall back to the family of techniques presented in Section~\ref{m0104_E_due_to_a_Continuous_Distribution_of_Charge} requiring direct integration over the charge, which is derived from Coulomb's Law.
+\index{Coulomb's law}
+
+However, even the Coulomb's Law / direct integration approach has a limitation that is very important to recognize: 
+It does not account for the presence of structures that may influence the electric field. 
+For example, the electric field due to a charge in free space is different from the electric field due to the same charge located near a perfectly-conducting surface.  
+In fact, these approaches do not account for the possibility of \emph{any} spatial variation in material composition, which rules out their use in many engineering applications.
+
+To address this broader scope of problems, we require an alternative form of Gauss' Law that applies at individual points in space.
+That is, we require Gauss' Law expressed in the form of a differential equation, as opposed to an integral equation.  
+This facilitates the use of Gauss' Law even in problems that do not exhibit sufficient symmetry and that involve material boundaries and spatial variations in material constitutive parameters.
+Given this differential equation and the boundary conditions imposed by structure and materials, we may then solve for the electric field in these more complicated scenarios.  In this section, we derive the desired differential form of Gauss' Law.
+Elsewhere (in particular, in Section~\ref{m0067_Poissons_and_Laplaces_Equations}) we use this equation as a tool to find electric fields in problems involving material boundaries.   
+
+There are in fact two methods to develop the desired differential equation.
+One method is via the definition of divergence, whereas the other is via the divergence theorem.  
+Both methods are presented below because each provides a different bit of insight.  Let's explore the first method:
+
+{\bf Derivation via the definition of divergence.}
+Let the geometrical volume enclosed by ${\mathcal S}$ be ${\mathcal V}$, which has volume $V$ (units of m$^3$).  
+Dividing both sides of Equation~\ref{m0045_eGLIF} by $V$ and taking the limit as $V \to 0$:
+%
+\begin{equation}   
+\lim_{V \to 0} \frac{ \oint_{\mathcal S}{ {\bf D} \cdot d{\bf s} } }{V} = \lim_{V \to 0} \frac{ Q_{encl} }{V}
+\end{equation}
+%
+The quantity on the right hand side is the volume charge density $\rho_v$ (units of C/m$^3$) at the point at which we converge after letting the volume go to zero.  The left hand side is, by definition, the {\it divergence} of ${\bf D}$, indicated in mathematical notation as ``$\nabla \cdot {\bf D}$'' (see Section~\ref{m0044_Divergence}). Thus, we have \emph{Gauss' Law in differential form}:
+%
+\begin{equation}
+\boxed{
+\nabla \cdot {\bf D} = \rho_v
+}
+\label{m0045_eGLDF}
+\end{equation}
+%
+To interpret this equation, recall that divergence is simply the flux (in this case, {\it electric} flux) per unit volume.  
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Gauss' Law in differential form (Equation~\ref{m0045_eGLDF}) says that the electric flux per unit volume originating from a point in space is equal to the volume charge density at that point.
+\end{mdframed}
+%
+%Yet another way to understand this equation: It is simply Gauss' Law in integral form (Equation~\ref{m0045_eGLIF}) applied to a vanishingly small volume.     
+
+{\bf Derivation via the divergence theorem.}
+\index{divergence theorem}
+Equation~\ref{m0045_eGLDF} may also be obtained from Equation~\ref{m0045_eGLIF} using the Divergence Theorem (Section~\ref{m0046_Divergence_Theorem}), which in the present case may be written:
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf D} \right) dv = \oint_{\mathcal S} {\bf D}\cdot d{\bf s}
+\end{equation}
+%
+From Equation~\ref{m0045_eGLIF}, we see that the right hand side of the equation may be replaced with the enclosed charge:
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf D} \right) dv = Q_{encl}
+\end{equation}
+%
+Furthermore, the enclosed charge can be expressed as an integration of the volume charge density $\rho_v$ over ${\mathcal V}$:
+%
+\begin{equation}
+\int_{\mathcal V} \left( \nabla \cdot {\bf D} \right) dv = \int_{\mathcal V}\rho_v dv
+\end{equation}
+%
+The above relationship must hold regardless of the specific location or shape of ${\mathcal V}$.  The only way this is possible is if the integrands are equal.  Thus, $\nabla \cdot {\bf D}=\rho_v$, and we have obtained Equation~\ref{m0045_eGLDF}.
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Determining the charge density at a point, given the associated electric field.
+\\~\\
+The electric field intensity in free space is
+%
+\begin{equation}
+{\bf E}({\bf r}) = \hat{\bf x}A x^2 
+                 + \hat{\bf y}B z 
+                 + \hat{\bf z}C x^2 z
+\nonumber
+\end{equation}
+%
+where 
+$A=3~\mbox{V/m$^3$}$,
+$B=2~\mbox{V/m$^2$}$, and
+$C=1~\mbox{V/m$^4$}$.
+What is the charge density at ${\bf r} = \hat{\bf x}2 - \hat{\bf y}2$~m?
+
+{\bf Solution.}  First, we use ${\bf D} = \epsilon {\bf E}$ to get ${\bf D}$.  
+Since the problem is in free space, $\epsilon = \epsilon_0$.  
+Thus we have that the volume charge density is
+%
+\begin{flalign}
+\rho_v &= \nabla \cdot {\bf D} \nonumber \\
+       &= \nabla \cdot \left( \epsilon_0 {\bf E} \right) = \epsilon_0 \nabla \cdot {\bf E}  \nonumber \\
+       &= \epsilon_0 \left[
+\frac{\partial}{\partial x} \left( Ax^2 \right) +
+\frac{\partial}{\partial y} \left( Bz \right) +
+\frac{\partial}{\partial z} \left( C x^2 z \right)
+\right] \nonumber \\
+      &= \epsilon_0 \left[ 2Ax + 0 + Cx^2 \right]  \nonumber
+\end{flalign} 
+%
+Now calculating the charge density at the specified location ${\bf r}$:
+%
+\begin{flalign}
+& \epsilon_0 \left[ 2(3~\mbox{V/m$^3$})(2~\mbox{m}) + 0 + (1~\mbox{V/m$^4$})(2~\mbox{m})^2 \right] \nonumber \\
+&= \epsilon_0\left(16~\mbox{V/m}\right) \nonumber \\
+&= \mbox{142~pC/m$^3$} \nonumber 
+\end{flalign} 
+\end{mdframed}\end{example}
+
+To obtain the electric field from the charge distribution in the presence of boundary conditions imposed by materials and structure, we must enforce the relevant boundary conditions.  These boundary conditions are presented in Sections~\ref{m0020_Boundary_Conditions_on_E} and \ref{m0021_Boundary_Conditions_on_D}.
+Frequently, a simpler approach requiring only the boundary conditions on the electric potential ($V(\bf{r})$) is possible; this is presented in Section~\ref{m0067_Poissons_and_Laplaces_Equations}.
+
+Furthermore, the reader should note the following. Gauss' Law does not always necessarily \emph{fully} constrain possible solutions for the electric field.  For that, we might also need Kirchoff's Voltage Law; 
+\index{Kirchoff's voltage law!electrostatics}
+see Section~\ref{m0152_KVL_Electrostatics_Integral-to-Differential}.
+
+Before moving on, it is worth noting that Equation~\ref{m0045_eGLDF} can be solved in the special case in which there are no boundary conditions to satisfy; i.e., for charge only, in a uniform and unbounded medium.  In fact, no additional electromagnetic theory is required to do this. Here's the solution:
+%
+\begin{equation}
+{\bf D}({\bf r}) = \frac{1}{4\pi} \int_{\mathcal V} {   \frac{{\bf r}-{\bf r}'}{\left|{\bf r}-{\bf r}'\right|^3}~\rho_v({\bf r}')~dv}
+\end{equation}
+%
+which we recognize as one of the results obtained in Section~\ref{m0104_E_due_to_a_Continuous_Distribution_of_Charge} (after dividing both sides by $\epsilon$ to get ${\bf E}$).
+It is reasonable to conclude that Gauss' Law (in either integral or differential form) is fundamental, whereas Coulomb's Law 
+\index{Coulomb's law}
+is merely a consequence of Gauss' Law.
+
+%-------------------------------------------------------
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Gauss'_law}{Gauss' Law}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Partial_differential_equation}{Partial differential equation}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Boundary_value_problem}{Boundary value problem}'' on Wikipedia.
+\end{itemize}
+
+%--------------------------------

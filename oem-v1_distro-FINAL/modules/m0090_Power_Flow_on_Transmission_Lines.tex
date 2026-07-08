@@ -1,0 +1,155 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Power Flow on Transmission Lines
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180802   # yyyymmdd
+%ORB ABSTRACT Power Flow on Transmission Lines
+
+\label{m0090_Power_Flow_on_Transmission_Lines} % <-- Must match name of this file and module directory name.  Don't mess with this!
+
+It is often important to know the power associated with a wave on a transmission line.
+The power of the waves incident upon, reflected by, and absorbed by a load are each of interest.
+In this section we shall work out expressions for these powers and consider some implications in terms of the voltage reflection coefficient ($\Gamma$) and standing wave ratio (SWR).
+  
+Let's begin by considering a lossless transmission line that is oriented along the $z$ axis.
+The time-average power associated with a sinusoidal wave having potential $v(z,t)$ and current $i(z,t)$ is
+%
+\begin{equation}
+P_{av}(z) \triangleq \frac{1}{T}\int_{t_0}^{t_0+T}{ v(z,t)~i(z,t)~dt }
+\end{equation} 
+%
+where $T\triangleq 2\pi/f$ is one period of the wave and $t_0$ is the start time for the integration.
+Since the time-average power of a sinusoidal signal does not change with time, $t_0$ may be set equal to zero without loss of generality. 
+
+Let us now calculate the power of a wave incident from $z<0$ on a load impedance $Z_L$ at $z=0$.  
+We may express the associated potential and current as follows:
+%
+\begin{equation}
+v^+(z,t) = \left|V_0^+\right|\cos\left(\omega t -\beta z +\phi\right)
+\end{equation}
+%
+\begin{equation}
+i^+(z,t) = \frac{\left|V_0^+\right|}{Z_0}\cos\left(\omega t -\beta z +\phi\right)
+\end{equation}
+%
+And so the associated time-average power is
+%
+\begin{equation}
+\begin{split}
+P_{av}^+(z) &= \frac{1}{T}\int_0^T{ v^+(z,t)~i^+(z,t)~dt } \\
+            &= \frac{\left|V_0^+\right|^2}{Z_0} \cdot \frac{1}{T}\int_0^T{ \cos^2\left(\omega t -\beta z +\phi\right) ~dt } 
+\end{split}
+\label{m0090_ePav1}
+\end{equation}
+%
+Employing a well-known trigonometric identity:
+\begin{equation}
+\cos^2\theta = \frac{1}{2} + \frac{1}{2}\cos 2\theta 
+\end{equation}
+we may rewrite the integrand as follows
+%
+\begin{equation}
+\cos^2\left(\omega t -\beta z +\phi\right) = \frac{1}{2} + \frac{1}{2}\cos\left(2\left[\omega t -\beta z +\phi\right]\right) 
+\end{equation}
+%
+Then integrating over both sides of this quantity
+%
+\begin{equation}
+\int_0^T{ \cos^2\left(\omega t -\beta z +\phi\right) ~dt } = \frac{T}{2} + 0 
+\end{equation}
+%
+The second term of the integral is zero because it is the integral of cosine over two complete periods.
+Subsequently, we see that the position dependence (here, the dependence on $z$) is eliminated.  
+In other words, the power associated with the incident wave is the same for all $z<0$, as expected.
+Substituting into Equation~\ref{m0090_ePav1} we obtain:
+%
+\begin{equation}
+\boxed{
+P_{av}^+ = \frac{\left|V_0^+\right|^2}{2Z_0} 
+}
+\label{m0090_ePav+}
+\end{equation}
+%
+This is the time-average power associated with the incident wave, measured at any point $z<0$ along the line.
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Equation~\ref{m0090_ePav+} gives the time-average power 
+\index{transmission line!time-average power}
+associated with a wave traveling in a single direction along a lossless transmission line.
+\end{mdframed}
+
+Using precisely the same procedure, we find that the power associated with the \emph{reflected} wave is
+%
+\begin{equation}
+P_{av}^- = \frac{\left|\Gamma V_0^+\right|^2}{2Z_0} = \left|\Gamma\right|^2 \frac{\left|V_0^+\right|^2}{2Z_0}
+\end{equation}
+%
+or simply
+%
+\begin{equation}
+\boxed{
+P_{av}^- = \left|\Gamma\right|^2 P_{av}^+
+}
+\label{m0090_ePav-}
+\end{equation}
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Equation~\ref{m0090_ePav-} gives the time-average power associated with the wave reflected from an impedance mismatch.
+\end{mdframed}
+
+Now, what is the power $P_L$ delivered to the load impedance $Z_L$?
+The simplest way to calculate this power is to use the principle of \emph{conservation of power}.
+Applied to the present problem, this principle asserts that the power incident on the load must equal the power reflected plus the power absorbed; i.e.,
+%
+\begin{equation}
+P_{av}^+ = P_{av}^- + P_L
+\end{equation}
+%
+Applying the previous equations we obtain:
+%
+\begin{equation}
+\boxed{
+P_L = \left(1-\left|\Gamma\right|^2\right) P_{av}^+
+}
+\label{m0090_ePL}
+\end{equation}
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Equations~\ref{m0090_ePL} gives the time-average power transferred to a load impedance, and is equal to the difference between the powers of the incident and reflected waves. 
+\end{mdframed}
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+How important is it to match $50~\Omega$ to $75~\Omega$?
+\\~\\
+Two impedances which commonly appear in radio engineering are $50~\Omega$ and $75~\Omega$.  
+It is not uncommon to find that it is necessary to connect a transmission line having a $50~\Omega$ characteristic impedance to a device, circuit, or system having a $75~\Omega$ input impedance, or vice-versa.  If no attempt is made to match these impedances, what fraction of the power will be delivered to the termination, and what fraction of power will be reflected?  What is the SWR?
+
+{\bf Solution.} The voltage reflection coefficient going from $50~\Omega$ transmission line to a $75~\Omega$ load is
+%
+\begin{equation}
+\Gamma = \frac{75-50}{75+50} = +0.2
+\nonumber
+\end{equation}
+%
+The fraction of power reflected is $\left|\Gamma\right|^2 = 0.04$, which is 4\%.
+The fraction of power transmitted is $1-\left|\Gamma\right|^2$, which is 96\%. 
+Going from a $50~\Omega$ transmission line to a $75~\Omega$ termination changes only the sign of $\Gamma$, and therefore, the fractions of reflected and transmitted power remain 4\% and 96\%, respectively.
+In either case (from Section~\ref{m0081_Standing_Wave_Ratio}):
+%
+\begin{equation}
+\mbox{SWR} = \frac{1+\left|\Gamma\right|}{1-\left|\Gamma\right|} = 1.5
+\nonumber
+\end{equation}
+%
+This is often acceptable, but may not be good enough in some particular applications.
+Suffice it to say that it is not necessarily required to use an impedance matching device to connect $50~\Omega$ to $75~\Omega$ devices.
+\end{mdframed}\end{example}
+

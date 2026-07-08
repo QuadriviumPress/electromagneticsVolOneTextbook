@@ -1,0 +1,77 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% <License info goes here (boilerplate, not read by project compiler)>
+
+%ORB TITLE Electromagnetic Properties of Materials
+%ORB AUTHOR 0    # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180603  # yyyymmdd
+%ORB ABSTRACT Presumed electromagnetic properties of materials 
+
+\label{m0007_Properties_of_Materials} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{materials (properties)|(}
+
+In electromagnetic analysis one is principally concerned with three properties of matter.
+These properties are quantified in terms of \emph{constitutive parameters}, 
+\index{constitutive parameters}
+which describe the effect of material in determining an electromagnetic quantity in response to a source.  
+Here are the three principal constitutive parameters:
+%
+\begin{itemize}
+\item \emph{Permittivity} 
+\index{permittivity}
+($\epsilon$, F/m) quantifies the effect of matter in determining the electric field in response to electric charge.  
+Permittivity is addressed in Section~\ref{m0008_Permittivity}.
+\item \emph{Permeability} 
+\index{permeability}
+($\mu$, H/m) quantifies the effect of matter in determining the magnetic field in response to current.  
+Permeability is addressed in Section~\ref{m0009_Permeability}.
+\item \emph{Conductivity} 
+\index{conductivity}
+($\sigma$, S/m) quantifies the effect of matter in determining the flow of current in response to an electric field.  
+Conductivity is addressed in Section~\ref{m0010_Conductivity}.
+\end{itemize} 
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The electromagnetic properties of most common materials in most common applications can be quantified in terms of the constitutive parameters $\epsilon$, $\mu$, and $\sigma$. 
+\end{mdframed}
+
+To keep electromagnetic theory from becoming too complex, we usually require the constitutive parameters to exhibit a few basic properties.
+These properties are as follows: 
+%
+\begin{itemize}
+\item \emph{Homogeneity}. 
+\index{homogenerity}
+A material which is {\it homogeneous} 
+\index{homogeneous (media)}
+is uniform over the space it occupies; that is, the values of its constitutive parameters are constant at all locations within the material. A counter-example would be a material which is composed of multiple chemically-distinct compounds which are not thoroughly mixed; for example, soil.  
+\item \emph{Isotropy}.  
+\index{isotropy}
+A material which is {\it isotropic} 
+\index{isotropic (media)}
+behaves in precisely the same way regardless of how it is oriented with respect to sources and fields occupying the same space.  A counter-example is quartz, whose atoms are arranged in a uniformly-spaced crystalline lattice. As a result, the electromagnetic properties of quartz can be changed simply by rotating the material with respect to the applied sources and fields.  
+\item \emph{Linearity}.
+\index{linearity}  
+\index{linear (media)}
+A material is said to be {\it linear} if its properties are constant and independent of the magnitude of the sources and fields applied to the material.  
+For example, capacitors have capacitance which is determined in part by the permittivity of the material separating the terminals (Section~\ref{m0070_Parallel_Plate_Capacitor_Capacitance_from_Charge}).
+This material is approximately linear when the applied voltage $V$ is below the rated working voltage; i.e., $\epsilon$ is constant and so capacitance does not vary significantly with respect to $V$.
+When $V$ is greater than the working voltage, the dependence of $\epsilon$ on $V$ becomes more pronounced, and then capacitance becomes a function of $V$.
+In another practical example, it turns out that $\mu$ for ferromagnetic materials is nonlinear such that the precise value of $\mu$ depends on the magnitude of the magnetic field.
+\item \emph{Time-invariance}. 
+\index{time-invariance (media)}
+An example of a class of materials which is not necessarily time-invariant is piezoelectric materials, whose electromagnetic properties vary significantly depending on the mechanical forces applied to them -- a property which can be exploited to make sensors and transducers.
+\end{itemize}
+
+Linearity and time-invariance (LTI) 
+\index{linear and time-invariant (LTI)}
+are particularly important properties to consider because they are requirements for {\it superposition}.  
+\index{superposition}
+For example: In a LTI material we may calculate the field ${\bf E}_1$ due to a point charge $q_1$ at ${\bf r}_1$, calculate the field ${\bf E}_2$ due to a point charge $q_2$ at ${\bf r}_2$, and then the field when both charges are simultaneously present is simply ${\bf E}_1+{\bf E}_2$.  The same is \emph{not} necessarily true for materials which are not LTI.  Devices which are nonlinear and therefore not LTI do not necessarily follow the rules of elementary circuit theory, which presumes that superposition applies. 
+This condition makes analysis and design much more difficult. 
+
+No practical material is truly homogeneous, isotropic, linear, and time-invariant.  
+However for most materials in most applications, the deviation from this ideal condition is not large enough to significantly affect engineering analysis and design.
+In other cases, materials may be significantly non-ideal in one of these respects, but may still be analyzed with appropriate modifications to the theory.
+
+\index{materials (properties)|)}

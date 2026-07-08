@@ -1,0 +1,60 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Independence of Path
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Independence of Path
+
+\label{m0062_Independence_of_Path} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{independence of path|(}
+
+In Section~\ref{m0061_Force_Energy_and_Potential_Difference}, we found that the potential difference (``voltage'') associated with a path ${\mathcal C}$ in an electric field intensity ${\bf E}$ is
+%
+\begin{equation}
+V_{21} = - \int_{\mathcal C} {\bf E} \cdot d{\bf l}
+\end{equation}
+%
+where the curve begins at point~1 and ends at point~2.
+Let these points be identified using the position vectors ${\bf r}_1$ and ${\bf r}_2$, respectively.\footnote{See Section~\ref{m0006_Vector_Arithmetic} for a refresher on this concept.}
+Then:
+%
+\begin{equation}
+V_{21} = - \int_{{\bf r}_1,~\mbox{along}~\mathcal{C}}^{{\bf r}_2} {\bf E} \cdot d{\bf l}
+\end{equation}
+%
+The associated work done by a particle bearing charge $q$ is
+%
+\begin{equation}
+W_{21} = qV_{21}
+\end{equation}
+%
+This work represents the change in potential energy of the system consisting of the electric field and the charged particle.  So, it must also be true that 
+%
+\begin{equation}
+W_{21} = W_2 - W_1
+\end{equation}
+%
+where $W_2$ and $W_1$ are the potential energies when the particle is at ${\bf r}_2$ and ${\bf r}_1$, respectively.
+It is clear from the above equation that $W_{21}$ does not depend on ${\mathcal C}$; it depends only on the positions of the start and end points and not on any of the intermediate points along ${\mathcal C}$.  That is,
+%
+\begin{equation}
+\boxed{
+V_{21} = - \int_{{\bf r}_1}^{{\bf r}_2} {\bf E} \cdot d{\bf l} ~~~\mbox{, independent of}~\mathcal{C}
+}
+\label{m0062_eV12a}
+\end{equation}
+%
+Since the result of the integration in Equation~\ref{m0062_eV12a} is independent of the path of integration, \emph{any} path that begins at ${\bf r}_1$ and ends at ${\bf r}_2$ yields the same value of $W_{21}$ and $V_{21}$.
+We refer to this concept as \emph{independence of path}.
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The integral of the electric field over a path between two points depends only on the locations of the start and end points and is independent of the path taken between those points.
+\end{mdframed}
+
+A practical application of this concept is that some paths may be easier to use than others, so there may be an advantage in computing the integral in Equation~\ref{m0062_eV12a} using some path other than the path actually traversed.
+
+\index{independence of path|)}

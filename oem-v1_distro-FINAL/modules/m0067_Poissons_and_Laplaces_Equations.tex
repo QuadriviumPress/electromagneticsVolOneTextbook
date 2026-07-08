@@ -1,0 +1,120 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Poisson's and Laplace's Equations
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180806   # yyyymmdd
+%ORB ABSTRACT Poisson's and Laplace's Equations
+
+\label{m0067_Poissons_and_Laplaces_Equations} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{Poisson's equation|(}
+
+The electric scalar potential field $V({\bf r})$, defined in Section~\ref{m0064_V_due_to_Point_Charges}, is useful for a number of reasons including 
+the ability to conveniently compute potential differences
+(i.e., $V_{21} = V({\bf r}_2) - V({\bf r}_1)$)
+and the ability to conveniently determine the electric field by taking the gradient
+(i.e., ${\bf E}=-\nabla V$).  
+One way to obtain $V({\bf r})$ is by integration over the source charge distribution, as described in Section~\ref{m0065_V_due_to_a_Continuous_Distribution_of_Charge}.
+This method is awkward in the presence of material interfaces, which impose boundary conditions on the solutions that must be satisfied simultaneously.  
+For example, the electric potential on a perfectly conducting surface is constant\footnote{This fact is probably already known to the reader from past study of elementary circuit theory; however, this is established in the context of electromagnetics in Section~\ref{m0025_Charge_and_Electric_Field_for_a_Perfectly_Conducting_Region}.} 
+-- a constraint which is not taken into account in any of the expressions in Section~\ref{m0065_V_due_to_a_Continuous_Distribution_of_Charge}.
+
+In this section, we develop an alternative approach to calculating $V({\bf r})$ that accommodates these boundary conditions, and thereby facilitates the analysis of the scalar potential field in the vicinity of structures and spatially-varying material properties.
+This alternative approach is based on \emph{Poisson's Equation}, which we now derive. 
+
+We begin with the differential form of Gauss' Law (Section~\ref{m0045_Gauss_Law_Differential_Form_from_Integral_Form}):
+%
+\begin{equation}
+\nabla \cdot {\bf D} = \rho_v
+\end{equation}
+%
+Using the relationship ${\bf D}=\epsilon{\bf E}$ (and keeping in mind our standard assumptions about material properties, summarized in Section~\ref{m0007_Properties_of_Materials}) we obtain
+%
+\begin{equation}
+\nabla \cdot {\bf E} = \frac{\rho_v}{\epsilon}
+\end{equation}
+%
+Next, we apply the relationship (Section~\ref{m0063_Electric_Field_as_the_Gradient_of_Potential}):
+%
+\begin{equation}
+{\bf E} = -\nabla V
+\end{equation}
+%
+yielding
+%
+\begin{equation}
+\nabla \cdot \nabla V = - \frac{\rho_v}{\epsilon}
+\end{equation}
+%
+This is Poisson's Equation, but it is not in the form in which it is commonly employed.  
+To obtain the alternative form, consider the operator $\nabla \cdot \nabla$ in Cartesian coordinates:
+%
+\begin{flalign}
+\nabla \cdot \nabla &= 
+\left[ \frac{\partial}{\partial x} \hat{\bf x}  
++ \frac{\partial}{\partial y} \hat{\bf y} 
++ \frac{\partial}{\partial z} \hat{\bf z} \right]
+\cdot
+\left[ \frac{\partial}{\partial x} \hat{\bf x}  
++ \frac{\partial}{\partial y} \hat{\bf y} 
++ \frac{\partial}{\partial z} \hat{\bf z} \right] \nonumber \\
+ &= 
+\frac{\partial^2}{\partial x^2}  
++ \frac{\partial^2}{\partial y^2}  
++ \frac{\partial^2}{\partial z^2}  \nonumber \\
+ &= \nabla^2 
+\end{flalign}
+%
+i.e., the operator $\nabla \cdot \nabla$ is identically the Laplacian operator $\nabla^2$ (Section~\ref{m0099_The_Laplacian_Operator}).
+Furthermore, this is true regardless of the coordinate system employed.  
+Thus, we obtain the following form of Poisson's Equation:
+%
+\begin{equation}
+\boxed{
+\nabla^2 V = - \frac{\rho_v}{\epsilon}
+}
+\label{m0067_ePoisson}
+\end{equation}
+
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Poisson's Equation (Equation~\ref{m0067_ePoisson}) states that the Laplacian of the electric potential field is equal to the volume charge density divided by the permittivity, with a change of sign. 
+\end{mdframed}
+
+Note that Poisson's Equation is a partial differential equation, and therefore can be solved using well-known techniques already established for such equations.
+In fact, Poisson's Equation is an \emph{inhomogeneous} differential equation, with the inhomogeneous part $-\rho_v/\epsilon$ representing the source of the field.  
+In the presence of material structure, we identify the relevant boundary conditions at the interfaces between materials, and the task of finding $V({\bf r})$ is reduced to the purely mathematical task of solving the associated boundary value problem (see ``Additional Reading'' at the end of this section).  This approach is particularly effective when one of the materials is a perfect conductor or can be modeled as such a material.
+This is because -- as noted at the beginning of this section -- the electric potential at all points on the surface of a perfect conductor must be equal, resulting in a particularly simple boundary condition.  
+  
+In many other applications, the charge responsible for the electric field lies outside the domain of the problem; i.e., we have non-zero electric field (hence, potentially non-zero electric potential) in a region that is free of charge.  In this case, Poisson's Equation simplifies to \emph{Laplace's Equation}: 
+\index{Laplace's equation}
+%
+\begin{equation}
+\boxed{
+\nabla^2 V = 0 ~~\mbox{(source-free region)}
+}
+\label{m0067_eLaplace}
+\end{equation}
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+Laplace's Equation (Equation~\ref{m0067_eLaplace}) states that the Laplacian of the electric potential field is zero in a source-free region. 
+\end{mdframed}
+%
+Like Poisson's Equation, Laplace's Equation, combined with the relevant boundary conditions, can be used to solve for $V({\bf r})$, but only in regions that contain no charge.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Poisson's_equation}{Poisson's equation}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Boundary_value_problem}{Boundary value problem}'' on Wikipedia.
+\item ``\href{https://en.wikipedia.org/wiki/Laplace's_equation}{Laplace's equation}'' on Wikipedia.
+\end{itemize}
+
+\index{Poisson's equation|)}
+
+
+

@@ -1,0 +1,77 @@
+% This is text associated with the open textbook "Open Electromagnetics"
+% See immediately below for author, date
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. (CC BY-SA 4.0) 
+% To view a copy of the license, visit http://creativecommons.org/licenses/by-sa/4.0/
+
+%ORB TITLE Gradient
+%ORB AUTHOR 0        # S.W. Ellingson, Virginia Tech (ellingson@vt.edu)
+%ORB DATE 20180803   # yyyymmdd
+%ORB ABSTRACT Gradient 
+
+\label{m0098_Gradient} % <-- Must match name of this file and module directory name.  Don't mess with this!
+\index{gradient|(}
+
+The gradient operator is an important and useful tool in electromagnetic theory.
+Here's the main idea:
+%
+%ORB HIGHLIGHT
+\begin{mdframed}[backgroundcolor=yellow!20,nobreak=true] 
+The \emph{gradient} of a scalar field is a vector that points in the direction in which the field is most rapidly increasing, with the scalar part equal to the rate of change.
+\end{mdframed}
+
+A particularly important application of the gradient is that it relates the electric field intensity ${\bf E}({\bf r})$ to the electric potential field $V({\bf r})$.
+This is apparent from a review of Section~\ref{m0002_Electric_Field_Intensity} (``Electric Field Intensity''); see in particular, the battery-charged capacitor example.
+In that example, it is demonstrated that:
+%
+\begin{itemize} 
+\item The \emph{direction} of ${\bf E}({\bf r})$ is the direction in which $V({\bf r})$ decreases most quickly, and
+\item The \emph{scalar part} of ${\bf E}({\bf r})$ is the rate of change of $V({\bf r})$ in that direction. Note that this is also implied by the units, since $V({\bf r})$ has units of V whereas ${\bf E}({\bf r})$ has units of V/m.
+\end{itemize}
+%
+The gradient is the mathematical operation that relates the vector field ${\bf E}({\bf r})$ to the scalar field $V({\bf r})$ and is indicated by the symbol ``$\nabla$'' as follows:
+%
+\begin{equation}
+{\bf E}({\bf r}) = -\nabla V({\bf r})
+\end{equation}
+%
+or, with the understanding that we are interested in the gradient as a function of position ${\bf r}$, simply
+%
+\begin{equation}
+{\bf E} = -\nabla V
+\end{equation}
+
+At this point we should note that the gradient is a very general concept, and that we have merely identified one application of the gradient above.  In electromagnetics there are many situations in which we seek the gradient $\nabla f$ of some scalar field $f({\bf r})$.  Furthermore, we find that other differential operators that are important in electromagnetics can be interpreted in terms of the gradient operator $\nabla$.  These include
+\emph{divergence} (Section~\ref{m0044_Divergence}), 
+\emph{curl} (Section~\ref{m0048_Curl}), 
+and the \emph{Laplacian} (Section~\ref{m0099_The_Laplacian_Operator}).
+
+In the Cartesian system:
+%
+\begin{equation}
+\nabla f = \hat{\bf x}\frac{\partial f}{\partial x} + \hat{\bf y}\frac{\partial f}{\partial y} + \hat{\bf z}\frac{\partial f}{\partial z} 
+\label{eDelCar}
+\end{equation}
+
+%ORB EXAMPLE
+~\\ \begin{example} 
+\begin{mdframed}[backgroundcolor=brown!20,linecolor=brown!20]\raggedright
+Gradient of a ramp function.
+\\~\\
+Find the gradient of $f=ax$ (a ``ramp'' having slope $a$ along the $x$ direction).
+
+{\bf Solution.} 
+Here, $\partial f/\partial x = a$ and $\partial f/\partial y = \partial f/\partial z = 0$.  Therefore
+$\nabla f = \hat{\bf x}a$.
+Note that $\nabla f$ points in the direction in which $f$ most rapidly increases, and has magnitude equal to the slope of $f$ in that direction.
+\end{mdframed}\end{example}
+
+The gradient operator in the cylindrical and spherical systems is given in Appendix~\ref{m0139_Vector_Operators}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+{\bf Additional Reading:}
+\begin{itemize}
+\item ``\href{https://en.wikipedia.org/wiki/Gradient}{Gradient}'' on Wikipedia.
+\end{itemize}
+
+\index{gradient|)}
