@@ -21,7 +21,7 @@ const probe = spawnSync('dvisvgm', ['--version'], { encoding: 'utf8' });
 if (probe.error || probe.status !== 0) {
   const msg = '[figures] dvisvgm not found — skipping EPS→SVG conversion';
   if (process.env.CI) {
-    console.error(`${msg} (fatal in CI; install ghostscript + dvisvgm)`);
+    console.error(`${msg} (fatal in CI; install ghostscript + dvisvgm + mupdf-tools)`);
     process.exit(1);
   }
   console.warn(`${msg} (figure images will be missing from the local build)`);

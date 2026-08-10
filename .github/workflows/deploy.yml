@@ -42,10 +42,11 @@ jobs:
           node-version: "24"
           cache: "npm"
 
-      # dvisvgm is a separate package on Ubuntu 24.04+ (recommended by
-      # texlive-binaries, so --no-install-recommends would omit it).
+      # Ubuntu 24.04+: install dvisvgm explicitly (not a hard dep of
+      # texlive-binaries) and mupdf-tools (mutool) so dvisvgm can process
+      # PDF re-distills under Ghostscript ≥ 10.01.
       - name: Install EPS -> SVG toolchain
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ghostscript dvisvgm texlive-binaries texlive-base
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ghostscript dvisvgm mupdf-tools texlive-binaries texlive-base
 
       - name: Cache converted figures
         uses: actions/cache@v4

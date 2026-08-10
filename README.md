@@ -37,8 +37,8 @@ Unknown LaTeX constructs are never silently dropped: they land in
 ## Developing
 
 Requires Node ≥ 22. For figure conversion also install
-`ghostscript` + `dvisvgm`
-(`sudo apt-get install ghostscript dvisvgm texlive-binaries`);
+`ghostscript` + `dvisvgm` + `mupdf-tools`
+(`sudo apt-get install ghostscript dvisvgm mupdf-tools texlive-binaries`);
 without them the site builds with figures missing.
 
 ```sh
