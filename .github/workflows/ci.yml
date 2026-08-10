@@ -32,10 +32,11 @@ jobs:
           node-version: "24"
           cache: "npm"
 
-      # dvisvgm (in texlive-binaries) + ghostscript convert the distro's EPS
-      # figures to SVG in the prebuild step.
+      # dvisvgm + ghostscript convert the distro's EPS figures to SVG in the
+      # prebuild step. On Ubuntu 24.04+, dvisvgm is its own package (only a
+      # recommends of texlive-binaries), so install it explicitly.
       - name: Install EPS -> SVG toolchain
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ghostscript texlive-binaries texlive-base
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ghostscript dvisvgm texlive-binaries texlive-base
 
       - name: Cache converted figures
         uses: actions/cache@v4
