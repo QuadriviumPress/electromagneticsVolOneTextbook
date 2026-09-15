@@ -10,9 +10,9 @@ export default {
   url: 'https://phasematching.github.io',
   // Absolute URL of the canonical deployment (origin + path prefix, no trailing
   // slash). Used for absolute links and social metadata.
-  baseUrl: 'https://phasematching.github.io/ElectromagneticsVolOneTextbook',
+  baseUrl: 'https://phasematching.github.io/electromagneticsVolOneTextbook',
   // GitHub repository URL for footer links and metadata.
-  repositoryUrl: 'https://github.com/phasematching/ElectromagneticsVolOneTextbook',
+  repositoryUrl: 'https://github.com/phasematching/electromagneticsVolOneTextbook',
   // Print edition of record; the web edition mirrors its numbering.
   doi: 'https://doi.org/10.21061/electromagnetics-vol-1',
 };

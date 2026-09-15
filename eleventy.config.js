@@ -1,7 +1,7 @@
-// GitHub Pages serves this project site under /ElectromagneticsVolOneTextbook/. Vercel
+// GitHub Pages serves this project site under /electromagneticsVolOneTextbook/. Vercel
 // serves it at a domain root, so it must build with no path prefix — detected via the
 // VERCEL env var that Vercel sets automatically.
-const PATH_PREFIX = process.env.VERCEL ? '/' : '/ElectromagneticsVolOneTextbook/';
+const PATH_PREFIX = process.env.VERCEL ? '/' : '/electromagneticsVolOneTextbook/';
 
 export default function (eleventyConfig) {
   // Input is the repo root (which is primarily LaTeX content, not templates), so drive
