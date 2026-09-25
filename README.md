@@ -4,7 +4,7 @@ Eleventy build of **Electromagnetics, Volume 1** by Steven W. Ellingson
 (VT Publishing, 2018), rendering the original LaTeX source to a searchable,
 offline-capable web textbook.
 
-- **Live site:** https://phasematching.github.io/electromagneticsVolOneTextbook/
+- **Live site:** https://quadriviumpress.github.io/electromagneticsVolOneTextbook/
 - **Print edition of record:** https://doi.org/10.21061/electromagnetics-vol-1
 - **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 

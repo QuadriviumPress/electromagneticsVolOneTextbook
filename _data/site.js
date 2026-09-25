@@ -7,12 +7,12 @@ export default {
     'electric and magnetic fields, transmission lines, vector analysis, electrostatics, ' +
     'magnetostatics, time-varying fields, and plane waves.',
   author: 'Steven W. Ellingson',
-  url: 'https://phasematching.github.io',
+  url: 'https://quadriviumpress.github.io',
   // Absolute URL of the canonical deployment (origin + path prefix, no trailing
   // slash). Used for absolute links and social metadata.
-  baseUrl: 'https://phasematching.github.io/electromagneticsVolOneTextbook',
+  baseUrl: 'https://quadriviumpress.github.io/electromagneticsVolOneTextbook',
   // GitHub repository URL for footer links and metadata.
-  repositoryUrl: 'https://github.com/phasematching/electromagneticsVolOneTextbook',
+  repositoryUrl: 'https://github.com/QuadriviumPress/electromagneticsVolOneTextbook',
   // Print edition of record; the web edition mirrors its numbering.
   doi: 'https://doi.org/10.21061/electromagnetics-vol-1',
 };
